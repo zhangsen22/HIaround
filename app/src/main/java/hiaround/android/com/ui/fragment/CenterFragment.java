@@ -25,7 +25,6 @@ import hiaround.android.com.presenter.CenterPresenter;
 import hiaround.android.com.presenter.contract.CenterContract;
 import hiaround.android.com.presenter.modle.CenterModle;
 import hiaround.android.com.ui.activity.AddMakeStyleActivity;
-import hiaround.android.com.ui.activity.AwardDetailsActivity;
 import hiaround.android.com.ui.activity.IdentityActivity;
 import hiaround.android.com.ui.activity.LoginActivity;
 import hiaround.android.com.ui.activity.MainActivity;
@@ -43,8 +42,6 @@ public class CenterFragment extends BaseFragment implements CenterContract.View 
     ImageView ivEdit;
     @BindView(R.id.tv_account)
     TextView tvAccount;
-    @BindView(R.id.ll_center_anquan)
-    LinearLayout tvCenterAnquan;
     @BindView(R.id.ll_shenfencard)
     LinearLayout tvShenfencard;
     @BindView(R.id.ll_add_sk_type)
@@ -65,8 +62,6 @@ public class CenterFragment extends BaseFragment implements CenterContract.View 
     ImageView ivRoletype;
     @BindView(R.id.iv_apitype)
     ImageView ivApitype;
-    @BindView(R.id.ll_award_details)
-    LinearLayout llAwardDetails;
     @BindView(R.id.view1)
     View view1;
     @BindView(R.id.view2)
@@ -109,7 +104,7 @@ public class CenterFragment extends BaseFragment implements CenterContract.View 
         initUserInfo();
     }
 
-    @OnClick({R.id.iv_edit, R.id.ll_center_anquan, R.id.ll_shenfencard, R.id.ll_add_sk_type, R.id.ll_tj_friend, R.id.ll_lx_kf, R.id.ll_center_message, R.id.tv_logout, R.id.ll_award_details})
+    @OnClick({R.id.iv_edit, R.id.ll_shenfencard, R.id.ll_add_sk_type, R.id.ll_tj_friend, R.id.ll_lx_kf, R.id.ll_center_message, R.id.tv_logout})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.iv_edit:
@@ -130,9 +125,6 @@ public class CenterFragment extends BaseFragment implements CenterContract.View 
                                     }
                                 })
                         .show();
-                break;
-            case R.id.ll_center_anquan:
-                SecurityCenterActivity.startThis(mainActivity);
                 break;
             case R.id.ll_shenfencard:
                 int iDstatus = AccountManager.getInstance().getIDstatus();//0未验证，1等待人工审核 2 已验证 99 验证失败
@@ -179,9 +171,6 @@ public class CenterFragment extends BaseFragment implements CenterContract.View 
                             }
                         }, null, false)
                         .show();
-                break;
-            case R.id.ll_award_details:
-                AwardDetailsActivity.startThis(mainActivity);
                 break;
         }
     }

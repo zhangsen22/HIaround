@@ -44,13 +44,13 @@
             android:id="@+id/rb_property"
             android:drawableTop="@drawable/property"
             style="@style/button_tag_style"
-            android:text="钱包" />
+            android:text="奖励" />
 
         <RadioButton
             android:id="@+id/rb_center"
             android:drawableTop="@drawable/center"
             style="@style/button_tag_style"
-            android:text="我的" />
+            android:text="设置" />
 
         </RadioGroup>
 

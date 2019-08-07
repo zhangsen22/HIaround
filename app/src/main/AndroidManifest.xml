@@ -194,11 +194,6 @@
         </receiver>
 
         <activity
-            android:name=".ui.activity.AwardDetailsActivity"
-            android:configChanges="screenSize|keyboardHidden|orientation|fontScale|locale|uiMode|screenLayout|layoutDirection"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="adjustPan|stateHidden" />
-        <activity
             android:name=".ui.activity.GuaDanActivity"
             android:configChanges="screenSize|keyboardHidden|orientation|fontScale|locale|uiMode|screenLayout|layoutDirection"
             android:screenOrientation="portrait"

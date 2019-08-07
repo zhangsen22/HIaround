@@ -179,10 +179,10 @@ public class MainActivity extends BaseActivity implements MainContract.View {
                     centerFragment.onActivityResultCenter(requestCode);
                 }
             } else if (requestCode == Constants.REQUESTCODE_11) {
-                PropertyFragment propertyFragment = mainViewPagerAdapter.getPropertyFragment();
-                if (propertyFragment != null) {
-                    propertyFragment.onActivityResultProperty(requestCode);
-                }
+//                PropertyFragment propertyFragment = mainViewPagerAdapter.getPropertyFragment();
+//                if (propertyFragment != null) {
+//                    propertyFragment.onActivityResultProperty(requestCode);
+//                }
             } else if (requestCode == Constants.REQUESTCODE_12 || requestCode == Constants.REQUESTCODE_13 || requestCode == Constants.REQUESTCODE_14 || requestCode == Constants.REQUESTCODE_18) {
                 OrderFragment orderFragment = mainViewPagerAdapter.getOrderFragment();
                 if (orderFragment != null) {

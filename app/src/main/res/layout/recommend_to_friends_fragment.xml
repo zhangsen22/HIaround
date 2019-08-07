@@ -77,7 +77,7 @@
                     android:textSize="12sp"
                     android:textColor="@color/common_white"
                     android:gravity="center"
-                    android:background="@mipmap/n"
+                    android:background="@mipmap/cl"
                     android:textIsSelectable="true"
                     android:layout_marginTop="@dimen/y30"
                     android:layout_marginBottom="@dimen/y32"/>
@@ -113,7 +113,7 @@
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@mipmap/cf"/>
+                    android:src="@mipmap/ab"/>
 
                 <TextView
                     android:layout_width="wrap_content"
