@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/color_f9f9f9"
+    android:orientation="vertical">
+
+    <include layout="@layout/title"/>
+
+    <include layout="@layout/line_10_f9"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y90"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingRight="@dimen/y44"
+        android:paddingLeft="@dimen/y44"
+        android:background="@color/common_white">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:text="新密码"
+            android:textColor="@color/color_666666"
+            android:textSize="12sp" />
+
+        <EditText
+            android:id="@+id/et_forget_login_password"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textCursorDrawable="@drawable/my_cursor"
+            android:maxLines="1"
+            android:textColorHint="@color/color_999999"
+            android:textColor="@color/color_999999"
+            android:textSize="12sp"
+            android:inputType="textPassword"
+            android:hint="6-32位数字、字母或字符"
+            android:layout_marginLeft="@dimen/y76"/>
+
+    </LinearLayout>
+
+    <include layout="@layout/line_f9"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y90"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingRight="@dimen/y44"
+        android:paddingLeft="@dimen/y44"
+        android:background="@color/common_white">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:text="新密码确认"
+            android:textColor="@color/color_666666"
+            android:textSize="12sp" />
+
+        <EditText
+            android:id="@+id/etre_forget_login_password"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textCursorDrawable="@drawable/my_cursor"
+            android:maxLines="1"
+            android:textColorHint="@color/color_999999"
+            android:textColor="@color/color_999999"
+            android:textSize="12sp"
+            android:inputType="textPassword"
+            android:hint="6-32位数字、字母或字符"
+            android:layout_marginLeft="@dimen/y28"/>
+
+    </LinearLayout>
+
+   <include layout="@layout/line_f9"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y90"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingRight="@dimen/y44"
+        android:paddingLeft="@dimen/y44"
+        android:background="@color/common_white">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:text="输入手机号"
+            android:textColor="@color/color_666666"
+            android:textSize="12sp" />
+
+        <EditText
+            android:id="@+id/et_input_phonenumber"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textCursorDrawable="@drawable/my_cursor"
+            android:maxLines="1"
+            android:textColorHint="@color/color_999999"
+            android:textColor="@color/color_999999"
+            android:textSize="12sp"
+            android:inputType="number"
+            android:hint="输入手机号"
+            android:layout_marginLeft="@dimen/y28"/>
+
+    </LinearLayout>
+
+    <include layout="@layout/line_f9"/>
+
+    <LinearLayout
+        android:id="@+id/ll_image_code"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y90"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingRight="@dimen/y44"
+        android:paddingLeft="@dimen/y44"
+        android:background="@color/common_white"
+        android:visibility="gone">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="输入图片验证码"
+            android:textColor="@color/color_666666"
+            android:textSize="12sp" />
+
+        <EditText
+            android:id="@+id/et_image_number"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:background="@color/transparent"
+            android:inputType="phone"
+            android:maxLength="11"
+            android:maxLines="1"
+            android:paddingLeft="@dimen/space_10"
+            android:paddingRight="@dimen/space_10"
+            android:textColorHint="@color/color_999999"
+            android:textColor="@color/color_999999"
+            android:textSize="13sp"
+            android:hint="请输入图片验证码吗"/>
+
+        <ImageView
+            android:id="@+id/iv_image_code"
+            android:layout_width="@dimen/y100"
+            android:layout_height="@dimen/y100"
+            tools:src="@mipmap/ic_launcher"/>
+
+    </LinearLayout>
+
+    <include layout="@layout/line_f9"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y90"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingRight="@dimen/y44"
+        android:paddingLeft="@dimen/y44"
+        android:background="@color/common_white">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:text="短信验证码"
+            android:textColor="@color/color_666666"
+            android:textSize="12sp" />
+
+        <EditText
+            android:id="@+id/et_forget_login_smscode"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:textCursorDrawable="@drawable/my_cursor"
+            android:maxLines="1"
+            android:textColorHint="@color/color_999999"
+            android:textColor="@color/color_999999"
+            android:textSize="12sp"
+            android:inputType="number"
+            android:hint="输入短信验证码"
+            android:layout_marginLeft="@dimen/y28"/>
+
+        <TextView
+            android:id="@+id/tv_get_forget_login_smscode"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:text="发送验证码"
+            android:textColor="@color/color_ff5100"
+            android:textSize="12sp"
+            android:layout_marginLeft="@dimen/y20"/>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_submit_forget_login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@mipmap/cl"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/y68"
+        android:text="确 认"
+        android:gravity="center"
+        android:textColor="@color/common_white"
+        android:textSize="14sp"
+        android:paddingBottom="@dimen/y10"/>
+
+</LinearLayout>

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+    <!--如果MagicIndicator需要加背景颜色   需要在其外面嵌套一个父布局  在父布局添加背景颜色-->
+    <FrameLayout
+        android:id="@+id/ff_business_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@mipmap/ce">
+
+    <net.lucode.hackware.magicindicator.MagicIndicator
+        android:id="@+id/business_magicindicator"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y92"
+        android:layout_gravity="center_horizontal"/>
+
+    </FrameLayout>
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y200"
+        android:layout_marginRight="@dimen/y26"
+        android:layout_marginLeft="@dimen/y26"
+        android:layout_marginTop="@dimen/y4"
+        app:cardCornerRadius="@dimen/y8">
+
+    <com.bigkoo.convenientbanner.ConvenientBanner
+        android:id="@+id/banner"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:canLoop="true" />
+
+    </android.support.v7.widget.CardView>
+
+    <LinearLayout
+        android:id="@+id/ll_notry_click"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y76"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+        <ImageView
+            android:layout_width="@dimen/y30"
+            android:layout_height="@dimen/y30"
+            android:src="@mipmap/j"
+            android:layout_marginLeft="@dimen/y40"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="XOTC交易所疯狂大派送"
+            android:layout_marginLeft="@dimen/y20"
+            android:textSize="11sp"
+            android:textColor="@color/color_666666"
+            android:singleLine="true"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/k"
+            android:layout_marginRight="@dimen/y40"
+            android:layout_marginLeft="@dimen/y64"/>
+
+    </LinearLayout>
+
+    <include layout="@layout/line_f9"/>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/business_viewPager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+        <ImageView
+            android:id="@+id/iv_guadan"
+            android:layout_width="@dimen/y96"
+            android:layout_height="@dimen/y96"
+            android:background="@mipmap/bv"
+            android:layout_gravity="bottom|right"
+            android:gravity="center" />
+
+    </FrameLayout>
+
+</LinearLayout>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="business_title">
+        <item>我要购买</item>
+        <item>我要出售</item>
+        <item>大宗交易</item>
+    </string-array>
+
+    <string-array name="guadan_title">
+        <item>委托出售</item>
+        <item>委托购买</item>
+    </string-array>
+
+    <string-array name="property_title">
+        <item>币币账户</item>
+        <item>场外账户</item>
+    </string-array>
+
+    <string-array name="order_title">
+        <item>我的卖出</item>
+        <item>我的买入</item>
+        <item>我的委托单</item>
+    </string-array>
+
+    <string-array name="order_item_title">
+        <item>未完成</item>
+        <item>已完成</item>
+        <item>申诉中</item>
+        <item>已取消</item>
+    </string-array>
+
+    <string-array name="order_item_title_entrust">
+        <item>购买委托</item>
+        <item>出售委托</item>
+    </string-array>
+
+</resources>

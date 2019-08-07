@@ -1,0 +1,40 @@
+package hiaround.android.com.presenter.modle;
+
+import hiaround.android.com.modle.ImageCodeResponse;
+import hiaround.android.com.modle.SmsCodeResponse;
+import hiaround.android.com.net.retrofit.BaseRetrofitClient;
+import hiaround.android.com.net.retrofit.exception.ModelExceptionMap;
+import hiaround.android.com.net.retrofit.exception.ServerExceptionMap;
+import hiaround.android.com.net.retrofit.service.ApiServices;
+import io.reactivex.Observable;
+import io.reactivex.schedulers.Schedulers;
+
+public class GetSmsCodeModle {
+
+    /**
+     * 获取图片验证码
+     * @param phoneNum
+     * @return
+     */
+    public Observable<ImageCodeResponse> getImageCode(String phoneNum){
+        return BaseRetrofitClient.getInstance().create(ApiServices.class)
+                .getImageCode(phoneNum)
+                .subscribeOn(Schedulers.io())
+                .map(new ServerExceptionMap<ImageCodeResponse>())
+                .onErrorResumeNext(new ModelExceptionMap<ImageCodeResponse>());
+    }
+
+
+    /**
+     * 发送验证码接口
+     * @param phoneNum
+     * @return
+     */
+    public Observable<SmsCodeResponse> senSenSmsCode(String phoneNum){
+        return BaseRetrofitClient.getInstance().create(ApiServices.class)
+                .senSenSmsCode(phoneNum)
+                .subscribeOn(Schedulers.io())
+                .map(new ServerExceptionMap<SmsCodeResponse>())
+                .onErrorResumeNext(new ModelExceptionMap<SmsCodeResponse>());
+    }
+}

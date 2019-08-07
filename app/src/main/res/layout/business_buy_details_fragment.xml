@@ -1,0 +1,483 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:background="@color/color_f9f9f9">
+
+    <include layout="@layout/title"/>
+
+    <include layout="@layout/line"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/y90"
+                android:orientation="horizontal"
+                android:paddingLeft="@dimen/y26"
+                android:paddingRight="@dimen/y26"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="请在"
+                    android:textColor="@color/color_666666"
+                    android:textSize="12sp"
+                    android:gravity="center"/>
+
+                <TextView
+                    android:id="@+id/tv_count_down"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="14.59"
+                    android:textColor="@color/color_ff0000"
+                    android:textSize="14sp"
+                    android:gravity="center"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="分钟后内付款"
+                    android:textColor="@color/color_666666"
+                    android:textSize="12sp"
+                    android:gravity="center"/>
+
+                                </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/y90"
+                android:orientation="horizontal"
+                android:paddingLeft="@dimen/y26"
+                android:paddingRight="@dimen/y26"
+                android:gravity="center_vertical"
+                android:background="@color/common_white">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="订单号  :  "
+                    android:textColor="@color/color_666666"
+                    android:textSize="14sp"
+                    android:gravity="center"/>
+
+                <TextView
+                    android:id="@+id/tv_order_code"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="798456498789465"
+                    android:textColor="@color/color_666666"
+                    android:textSize="14sp"
+                    android:gravity="center"/>
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="@dimen/y1"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="订单状态"
+                    android:textColor="@color/color_ff5100"
+                    android:textSize="12sp"
+                    android:gravity="center"
+                    android:visibility="gone"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/y90"
+                android:orientation="horizontal"
+                android:paddingLeft="@dimen/y26"
+                android:paddingRight="@dimen/y26"
+                android:gravity="center_vertical"
+                android:background="@color/common_white"
+                android:layout_marginTop="@dimen/y20">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="请查收对方付款"
+                    android:textColor="@color/color_666666"
+                    android:textSize="13sp"
+                    android:gravity="center"/>
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="@dimen/y1"/>
+
+                <TextView
+                    android:id="@+id/tv_pay_price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="¥100.00"
+                    android:textColor="@color/color_ff5100"
+                    android:textSize="16sp"
+                    android:gravity="center"/>
+
+            </LinearLayout>
+
+            <include layout="@layout/line_f9"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/y90"
+                android:orientation="horizontal"
+                android:paddingLeft="@dimen/y26"
+                android:paddingRight="@dimen/y26"
+                android:gravity="center_vertical"
+                android:background="@color/common_white">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="交易单价"
+                    android:textColor="@color/color_666666"
+                    android:textSize="13sp"
+                    android:gravity="center"/>
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="@dimen/y1"/>
+
+                <TextView
+                    android:id="@+id/tv_biusness_price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="¥6.12"
+                    android:textColor="@color/color_666666"
+                    android:textSize="13sp"
+                    android:gravity="center"/>
+
+            </LinearLayout>
+
+            <include layout="@layout/line_f9"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/y90"
+                android:orientation="horizontal"
+                android:paddingLeft="@dimen/y26"
+                android:paddingRight="@dimen/y26"
+                android:gravity="center_vertical"
+                android:background="@color/common_white">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="交易数量"
+                    android:textColor="@color/color_666666"
+                    android:textSize="13sp"
+                    android:gravity="center"/>
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="@dimen/y1"/>
+
+                <TextView
+                    android:id="@+id/tv_biusness_num"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="53.59685"
+                    android:textColor="@color/color_666666"
+                    android:textSize="13sp"
+                    android:gravity="center"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/nbc"
+                    android:textColor="@color/color_666666"
+                    android:textSize="13sp"
+                    android:gravity="center"
+                    android:layout_marginLeft="@dimen/y6"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/y90"
+                android:orientation="horizontal"
+                android:background="@color/common_white"
+                android:paddingLeft="@dimen/y34"
+                android:paddingRight="@dimen/y26"
+                android:gravity="center_vertical"
+                android:layout_marginTop="@dimen/y24">
+
+                <ImageView
+                    android:id="@+id/tv_pay_image"
+                    android:layout_width="@dimen/y34"
+                    android:layout_height="@dimen/y34"
+                    android:src="@mipmap/h" />
+
+                <TextView
+                    android:id="@+id/tv_pay_type_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="微信"
+                    android:textColor="@color/color_666666"
+                    android:textSize="14sp"
+                    android:layout_marginLeft="@dimen/y16"/>
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="@dimen/y1"/>
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/y"/>
+
+            </LinearLayout>
+
+            <include layout="@layout/line_f9"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/y90"
+                android:orientation="horizontal"
+                android:background="@color/common_white"
+                android:paddingLeft="@dimen/y34"
+                android:paddingRight="@dimen/y26"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="收款方式"
+                    android:textColor="@color/color_666666"
+                    android:textSize="13sp" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="@dimen/y1"/>
+
+                <TextView
+                    android:id="@+id/tv_shoukuai_type_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="支付宝"
+                    android:textColor="@color/color_999999"
+                    android:textSize="13sp" />
+
+                <ImageView
+                    android:id="@+id/iv_popview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/bg"
+                    android:layout_marginLeft="@dimen/y16"/>
+
+            </LinearLayout>
+
+            <include layout="@layout/line_f9"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/y90"
+                android:orientation="horizontal"
+                android:background="@color/common_white"
+                android:paddingLeft="@dimen/y34"
+                android:paddingRight="@dimen/y26"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="收款人"
+                    android:textColor="@color/color_666666"
+                    android:textSize="13sp" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="@dimen/y1"/>
+
+                <TextView
+                    android:id="@+id/tv_shoukuai_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="郭金凤"
+                    android:textColor="@color/color_999999"
+                    android:textSize="13sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="（严禁任何备注和非实名付款）"
+                    android:textColor="@color/color_999999"
+                    android:textSize="13sp" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/bh"
+                    android:layout_marginLeft="@dimen/y12"/>
+
+            </LinearLayout>
+
+            <include layout="@layout/line_f9"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/y90"
+                android:orientation="horizontal"
+                android:background="@color/common_white"
+                android:paddingLeft="@dimen/y34"
+                android:paddingRight="@dimen/y26"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="账号"
+                    android:textColor="@color/color_666666"
+                    android:textSize="13sp" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="@dimen/y1"/>
+
+                <TextView
+                    android:id="@+id/tv_shoukuai_account"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="155586222"
+                    android:textColor="@color/color_999999"
+                    android:textSize="13sp" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/bg"
+                    android:layout_marginLeft="@dimen/y16"/>
+
+            </LinearLayout>
+
+            <include layout="@layout/line_f9"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/y90"
+                android:orientation="horizontal"
+                android:background="@color/common_white"
+                android:paddingLeft="@dimen/y34"
+                android:paddingRight="@dimen/y26"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="参考码"
+                    android:textColor="@color/color_666666"
+                    android:textSize="13sp" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/bi"
+                    android:layout_marginLeft="@dimen/y12"/>
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="@dimen/y1"/>
+
+                <TextView
+                    android:id="@+id/tv_shoukuai_cankaoma"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="98171"
+                    android:textColor="@color/color_999999"
+                    android:textSize="13sp" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/bg"
+                    android:layout_marginLeft="@dimen/y32"/>
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="支付说明：必须使用本APP实名认证的支付宝支付，负责有不放行风险。"
+                android:textColor="@color/color_ff5100"
+                android:textSize="10sp"
+                android:layout_marginLeft="@dimen/y26"
+                android:layout_marginTop="@dimen/y22"/>
+
+            <include layout="@layout/a2"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="·付款后，请务必点击“我已付款”，避免资金损失。\n·付款转账，请务必填写上方参考码。\n·日取消3笔以上交易，账户将被冻结。"
+                android:textColor="@color/color_999999"
+                android:textSize="12sp"
+                android:lineSpacingExtra="@dimen/y6"
+                android:layout_marginTop="@dimen/y28"
+                android:layout_marginLeft="@dimen/y36"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="@dimen/y28"
+                android:layout_marginBottom="@dimen/y42"
+                android:paddingLeft="@dimen/y36"
+                android:paddingRight="@dimen/y36">
+
+                <TextView
+                    android:id="@+id/tv_cancel_order"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@mipmap/bf"
+                    android:layout_gravity="center_horizontal"
+                    android:text="取消订单"
+                    android:gravity="center"
+                    android:textColor="@color/color_666666"
+                    android:textSize="14sp"
+                    android:paddingBottom="@dimen/y10" />
+
+                <View
+                    android:layout_width="@dimen/y20"
+                    android:layout_height="match_parent"/>
+
+                <TextView
+                    android:id="@+id/tv_re_pay"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@mipmap/n"
+                    android:layout_gravity="center_horizontal"
+                    android:text="我已付款"
+                    android:gravity="center"
+                    android:textColor="@color/common_white"
+                    android:textSize="14sp"
+                    android:paddingBottom="@dimen/y10" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="scan_frame_green_color">#FF5100</color>
+    <color name="scan_line_color">#F18B42</color>
+    <color name="scan_view_bg">#64000000</color>
+    <color name="scan_view_tip_color">#ffffff</color>
+</resources>

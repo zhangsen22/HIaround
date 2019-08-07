@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/color_f9f9f9">
+
+    <include layout="@layout/title"/>
+
+    <include layout="@layout/line_10_f9"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y100"
+        android:orientation="horizontal"
+        android:background="@color/common_white"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/tv_left"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            tools:text="我的钱包"
+            android:textSize="12sp"
+            android:textColor="@color/color_666666"
+            android:gravity="center"/>
+
+        <ImageView
+            android:layout_width="@dimen/y56"
+            android:layout_height="@dimen/y56"
+            android:src="@mipmap/ad"/>
+
+        <TextView
+            android:id="@+id/tv_right"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            tools:text="交易账户"
+            android:textSize="12sp"
+            android:textColor="@color/color_666666"
+            android:gravity="center"/>
+
+    </LinearLayout>
+
+    <include layout="@layout/line_f9"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y80"
+        android:orientation="horizontal"
+        android:background="@color/common_white"
+        android:paddingLeft="@dimen/y38"
+        android:paddingRight="@dimen/y38"
+        android:gravity="center_vertical">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="划转数量"
+        android:textColor="@color/color_666666"
+        android:textSize="12sp"/>
+
+        <EditText
+            android:id="@+id/et_huazhuan_num"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:textCursorDrawable="@drawable/my_cursor"
+            android:maxLines="1"
+            android:textColorHint="@color/color_999999"
+            android:textColor="@color/color_999999"
+            android:textSize="12sp"
+            android:hint="请输入您要划转的数量"
+            android:layout_marginLeft="@dimen/y60"
+            android:inputType="number|numberDecimal"/>
+
+        <TextView
+            android:id="@+id/tv_all"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:text="全部"
+            android:textColor="@color/color_ff5100"
+            android:textSize="12sp"/>
+
+    </LinearLayout>
+
+    <include layout="@layout/line_f9"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y80"
+        android:orientation="horizontal"
+        android:background="@color/common_white"
+        android:paddingLeft="@dimen/y38"
+        android:paddingRight="@dimen/y38"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="资金密码"
+            android:textColor="@color/color_666666"
+            android:textSize="12sp"/>
+
+        <EditText
+            android:id="@+id/et_huazhuan_password"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:textCursorDrawable="@drawable/my_cursor"
+            android:maxLines="1"
+            android:textColorHint="@color/color_999999"
+            android:textColor="@color/color_999999"
+            android:textSize="12sp"
+            android:inputType="textPassword"
+            android:hint="请输入资金密码"
+            android:layout_marginLeft="@dimen/y60"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_marginTop="@dimen/y20">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingLeft="@dimen/y38"
+            android:paddingRight="@dimen/y38">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="最多可转："
+                android:textColor="@color/color_666666"
+                android:textSize="12sp"/>
+
+            <TextView
+                android:id="@+id/et_huazhuan_more"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="419.27"
+                android:textColor="@color/color_666666"
+                android:textSize="12sp"/>
+        </LinearLayout>
+
+       <include layout="@layout/a1"/>
+
+        <TextView
+            android:id="@+id/tv_deteils"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/y38"
+            android:paddingRight="@dimen/y38"
+            android:layout_marginTop="@dimen/y30"
+            android:textSize="12sp"
+            android:textColor="@color/color_999999"
+            android:lineSpacingExtra="@dimen/y6"
+            tools:text="·请将资金划转到交易账户进行挂单和交易操作。\n·资金划转为内部资产转移不收取手续费。"/>
+
+        <TextView
+            android:id="@+id/tv_publish_zhuan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@mipmap/cl"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/y50"
+            android:text="确认划转"
+            android:gravity="center"
+            android:inputType="number|numberDecimal"
+            android:textColor="@color/common_white"
+            android:textSize="14sp"
+            android:paddingBottom="@dimen/y10"/>
+
+    </LinearLayout>
+
+</LinearLayout>

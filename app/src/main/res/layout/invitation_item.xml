@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y86"
+        android:background="@color/common_white"
+        android:paddingLeft="@dimen/y40"
+        android:paddingRight="@dimen/y40">
+
+        <TextView
+            android:id="@+id/tv_invitation_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="李四"
+            android:textColor="@color/color_666666"
+            android:textSize="13sp"
+            android:layout_gravity="center_vertical"/>
+
+        <TextView
+            android:id="@+id/tv_invitation_phone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="15330088022"
+            android:textColor="@color/color_666666"
+            android:textSize="13sp"
+            android:layout_gravity="center"/>
+
+        <TextView
+            android:id="@+id/tv_invitation_money"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="7.00"
+            android:textColor="@color/color_666666"
+            android:textSize="13sp"
+            android:layout_gravity="right|center_vertical"/>
+
+    </FrameLayout>
+
+    <include layout="@layout/line_f9"/>
+
+</LinearLayout>

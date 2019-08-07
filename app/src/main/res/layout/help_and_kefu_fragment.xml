@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ptr="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y108"
+        android:orientation="horizontal"
+        android:background="@color/common_white"
+        android:gravity="center_vertical">
+
+        <LinearLayout
+            android:id="@+id/ll_kefu_webchat"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:background="@mipmap/cb"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/cs"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="客服微信"
+                android:textSize="13sp"
+                android:textColor="@color/common_white"
+                android:gravity="center"
+                android:layout_marginTop="@dimen/y8"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_kefu_tb"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:background="@mipmap/cc"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/ct"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="客服telegram"
+                android:textSize="13sp"
+                android:textColor="@color/common_white"
+                android:gravity="center"
+                android:layout_marginTop="@dimen/y8"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>
+

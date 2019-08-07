@@ -1,0 +1,69 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+buildscript {
+    
+    repositories {
+        google()
+        jcenter()
+        maven { url 'https://jitpack.io' }
+        mavenCentral()
+        maven { url 'https://dl.bintray.com/umsdk/release' }
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.1.4'
+        classpath 'com.novoda:bintray-release:0.9'
+        classpath 'com.github.dcendents:android-maven-gradle-plugin:1.5'
+        classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.7'
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+        classpath("com.tinkerpatch.sdk:tinkerpatch-gradle-plugin:${TINKERPATCH_VERSION}") { changing = true }
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        jcenter()
+        maven { url 'https://jitpack.io' }
+        mavenCentral()
+        maven { url 'https://dl.bintray.com/umsdk/release' }
+    }
+}
+
+ext {
+    android = [
+            compileSdkVersion     : 28,
+            buildToolsVersion     : "28.0.3",
+            minSdkVersion         : 21,
+//            若使用华为Push通道，则app的targetSdkVersion必须设置为25或25以下，设置为26及以上，会导致EMUI 8.0设备无法弹出通知。
+            targetSdkVersion      : 26,
+            versionCode           : 209,
+            versionName           : "2.0.9",
+            sdkSourceCompatibility: JavaVersion.VERSION_1_8,
+            sdkTargetCompatibility: JavaVersion.VERSION_1_8,
+            appSourceCompatibility: JavaVersion.VERSION_1_8,
+            appTargetCompatibility: JavaVersion.VERSION_1_8
+    ]
+    dependencies = [
+            appcompatV7       : "com.android.support:appcompat-v7:28.0.0",
+            supportV4         : "com.android.support:support-v4:28.0.0",
+            recyclerview      : "com.android.support:recyclerview-v7:28.0.0",
+            cardview          : "com.android.support:cardview-v7:28.0.0",
+            design            : "com.android.support:design:28.0.0",
+            exifinterface     : "com.android.support:exifinterface:28.0.0",
+            supportAnnotations: "com.android.support:support-annotations:28.0.0",
+            multidex          : "com.android.support:multidex:1.0.1",
+            constraint        : "com.android.support.constraint:constraint-layout:1.1.3",
+
+            rxandroid         : "io.reactivex.rxjava2:rxandroid:2.1.0",
+            rxjava            : "io.reactivex.rxjava2:rxjava:2.2.4",
+            eventbus          : "org.greenrobot:eventbus:3.1.1",
+            gson              : "com.google.code.gson:gson:2.2.4",
+            glide             : "com.github.bumptech.glide:glide:4.7.1",
+            okHttp3           : 'com.squareup.okhttp3:okhttp:3.12.0'
+    ]
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}

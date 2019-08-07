@@ -1,0 +1,107 @@
+apply plugin: 'com.android.application'
+apply from: 'tinkerpatch.gradle'
+
+android {
+    compileSdkVersion rootProject.ext.android.compileSdkVersion
+    defaultConfig {
+        applicationId "hiaround.android.com"
+        minSdkVersion rootProject.ext.android.minSdkVersion
+        targetSdkVersion rootProject.ext.android.targetSdkVersion
+        versionCode rootProject.ext.android.versionCode
+        versionName rootProject.ext.android.versionName
+        multiDexEnabled true
+    }
+
+    signingConfigs {
+        release {
+//            storeFile file('hbuilder.jks')
+//            storePassword "iaroundbuilder"
+//            keyAlias "builder"
+//            keyPassword "iaroundbuilder"
+        }
+        debug {
+//            storeFile file('hbuilder.jks')
+//            storePassword "iaroundbuilder"
+//            keyAlias "builder"
+//            keyPassword "iaroundbuilder"
+//            storeFile file('debug.keystore')
+//            storePassword "android"
+//            keyAlias "androiddebugkey"
+//            keyPassword "android"
+        }
+    }
+    buildTypes {
+        release {
+            // 不显示Log
+            buildConfigField "boolean", "LOG_DEBUG", "false"
+            minifyEnabled true
+            multiDexEnabled true
+            // 移除无用的resource文件
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
+        }
+
+        debug {
+            debuggable true
+            minifyEnabled false
+            multiDexEnabled true
+//            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.debug
+        }
+    }
+    sourceSets {
+        main() {
+            jniLibs.srcDirs = ['libs']
+        }
+    }
+    compileOptions {
+        sourceCompatibility rootProject.ext.android.appSourceCompatibility
+        targetCompatibility rootProject.ext.android.appTargetCompatibility
+    }
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation 'com.android.support.constraint:constraint-layout:1.1.0'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    //    项目配置
+    implementation rootProject.ext.dependencies.appcompatV7
+    implementation rootProject.ext.dependencies.recyclerview
+    implementation rootProject.ext.dependencies.design
+    implementation rootProject.ext.dependencies.multidex
+    implementation rootProject.ext.dependencies.exifinterface
+    implementation rootProject.ext.dependencies.supportV4
+    //RxJava和Retrofit网络请求
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.8.1'
+    implementation rootProject.ext.dependencies.okHttp3
+    implementation 'com.squareup.retrofit2:retrofit:2.5.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.5.0'
+    implementation 'com.squareup.retrofit2:adapter-rxjava2:2.5.0'
+    implementation rootProject.ext.dependencies.rxandroid
+    implementation rootProject.ext.dependencies.rxjava
+    //权限请求
+    implementation 'com.github.tbruyelle:rxpermissions:0.10.2'
+    implementation project(':util')
+    //控件绑定
+    implementation 'com.jakewharton:butterknife:9.0.0-rc2'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:9.0.0-rc2'
+    implementation project(':magicindicator')
+    implementation project(':PullToRefreshLibrary')
+    implementation project(':library')
+    implementation project(':RxGalleryFinal')
+    implementation 'top.zibin:Luban:1.1.8'
+    // 滚轮选择器
+    implementation 'com.github.gzu-liyujiang.AndroidPicker:WheelPicker:latest.release'
+    implementation project(':YZxing-lib')
+    //无需引入tinker的任何库,使用tinkerpatch sdk即可
+    implementation("com.tinkerpatch.sdk:tinkerpatch-android-sdk:${TINKERPATCH_VERSION}") {
+        changing = true
+    }
+    implementation files('libs/googleBase64.jar')
+
+    implementation rootProject.ext.dependencies.eventbus
+    //轮播图
+    implementation 'com.bigkoo:convenientbanner:2.0.5'
+}

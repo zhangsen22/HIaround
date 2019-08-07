@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingTop="@dimen/y20"
+        android:paddingRight="@dimen/y30"
+        android:paddingBottom="@dimen/y24"
+        android:background="@color/common_white">
+
+        <TextView
+            android:id="@+id/tv_buy_sell"
+            android:layout_width="@dimen/y42"
+            android:layout_height="@dimen/y42"
+            tools:text="卖"
+            tools:background="@mipmap/aj"
+            android:textSize="12sp"
+            android:textColor="@color/common_white"
+            android:gravity="center"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center_vertical"
+            android:layout_marginLeft="@dimen/y20"
+            android:layout_marginTop="@dimen/y4">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="CNY"
+            android:textSize="13sp"
+            android:textColor="@color/color_ff5100"
+            android:gravity="center" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="/"
+            android:textSize="13sp"
+            android:textColor="@color/color_666666"
+            android:gravity="center"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/nbc"
+            android:textSize="13sp"
+            android:textColor="@color/color_666666"
+            android:gravity="center"/>
+
+        <TextView
+            android:id="@+id/tv_order_sell_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="2019-04-03 17:02:01"
+            android:textSize="13sp"
+            android:textColor="@color/color_999999"
+            android:gravity="center"
+            android:layout_marginLeft="@dimen/y18"/>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="@dimen/y1"/>
+
+        <TextView
+            android:id="@+id/tv_order_sell_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="等待对方付款"
+            android:textSize="13sp"
+            android:textColor="@color/color_666666"
+            android:gravity="center" />
+
+    </LinearLayout>
+
+           <LinearLayout
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:orientation="horizontal">
+
+               <LinearLayout
+                   android:layout_width="0dp"
+                   android:layout_weight="1"
+                   android:layout_height="wrap_content"
+                   android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="@dimen/y20">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="价格："
+                            android:textColor="@color/color_666666"
+                            android:textSize="12sp"/>
+
+                        <TextView
+                            android:id="@+id/tv_order_sell_price"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            tools:text="6.87"
+                            android:textColor="@color/color_666666"
+                            android:textSize="12sp"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="CNY"
+                            android:textColor="@color/color_666666"
+                            android:textSize="12sp"/>
+
+                    </LinearLayout>
+
+                   <LinearLayout
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:orientation="horizontal"
+                       android:layout_marginTop="@dimen/y20">
+
+                       <TextView
+                           android:layout_width="wrap_content"
+                           android:layout_height="wrap_content"
+                           android:text="总额："
+                           android:textColor="@color/color_666666"
+                           android:textSize="12sp"/>
+
+                       <TextView
+                           android:id="@+id/tv_order_sell_amount"
+                           android:layout_width="wrap_content"
+                           android:layout_height="wrap_content"
+                           tools:text="6.87"
+                           android:textColor="@color/color_666666"
+                           android:textSize="12sp"/>
+
+                       <TextView
+                           android:layout_width="wrap_content"
+                           android:layout_height="wrap_content"
+                           android:text="CNY"
+                           android:textColor="@color/color_666666"
+                           android:textSize="12sp"/>
+
+                   </LinearLayout>
+
+                   <LinearLayout
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:orientation="horizontal"
+                       android:layout_marginTop="@dimen/y20">
+
+                       <TextView
+                           android:layout_width="wrap_content"
+                           android:layout_height="wrap_content"
+                           android:text="数量："
+                           android:textColor="@color/color_666666"
+                           android:textSize="12sp"/>
+
+                       <TextView
+                           android:id="@+id/tv_order_sell_paycode"
+                           android:layout_width="wrap_content"
+                           android:layout_height="wrap_content"
+                           tools:text="6.87"
+                           android:textColor="@color/color_666666"
+                           android:textSize="12sp"/>
+
+                       <TextView
+                           android:layout_width="wrap_content"
+                           android:layout_height="wrap_content"
+                           android:text="@string/nbc"
+                           android:textColor="@color/color_666666"
+                           android:textSize="12sp"
+                           android:layout_marginLeft="@dimen/y6"/>
+
+                   </LinearLayout>
+
+               </LinearLayout>
+
+               <LinearLayout
+                   android:layout_width="0dp"
+                   android:layout_weight="1"
+                   android:layout_height="match_parent"
+                   android:orientation="vertical"
+                   android:gravity="bottom|right">
+
+                           <TextView
+                               android:id="@+id/tv_order_sell_qfb"
+                               android:layout_width="wrap_content"
+                               android:layout_height="wrap_content"
+                               android:text="撤销"
+                               android:textColor="@color/common_white"
+                               android:textSize="12sp"
+                               android:gravity="center"
+                               android:background="@mipmap/ai"
+                               android:layout_marginLeft="@dimen/y10"/>
+
+               </LinearLayout>
+
+           </LinearLayout>
+
+    </LinearLayout>
+
+    </LinearLayout>
+
+    <include layout="@layout/line_f9"/>
+
+</LinearLayout>

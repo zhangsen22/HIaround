@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.growalong.android.ui.tourguide.ArrowTowardsLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:background="@android:color/transparent"
+    android:orientation="vertical">
+
+
+    <LinearLayout
+        android:id="@+id/toolTip_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:orientation="vertical"
+        android:background="@drawable/corners_bg6"
+        android:padding="10dp">
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:textColor="#178cd9"
+            android:paddingBottom="3dp"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:paddingRight="5dp"
+            android:paddingLeft="5dp"
+            android:textSize="14sp"
+            android:padding="5dp"
+            android:textColor="@color/black"
+            tools:text="点此下载，离线收听，效果更佳" />
+        <Button
+            android:layout_marginTop="15dp"
+            android:id="@+id/button"
+            android:background="@drawable/tip_button_bg"
+            android:layout_gravity="right"
+            android:paddingRight="20dp"
+            android:clickable="false"
+            android:layout_marginRight="5dp"
+            android:paddingLeft="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp" />
+    </LinearLayout>
+
+</com.growalong.android.ui.tourguide.ArrowTowardsLayout>

@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/color_f9f9f9">
+
+    <include layout="@layout/title"/>
+
+    <include layout="@layout/line_10_f9"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y100"
+        android:orientation="horizontal"
+        android:paddingLeft="@dimen/y40"
+        android:paddingRight="@dimen/y40"
+        android:gravity="center_vertical"
+        android:background="@color/common_white">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="绑定手机"
+            android:textSize="12sp"
+            android:textColor="@color/color_666666"
+            android:gravity="center" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="已绑定"
+            android:textSize="12sp"
+            android:textColor="@color/color_999999"
+            android:gravity="center" />
+
+    </LinearLayout>
+
+    <include layout="@layout/line_f9"/>
+
+    <LinearLayout
+        android:id="@+id/ll_change_password"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y100"
+        android:orientation="horizontal"
+        android:paddingLeft="@dimen/y40"
+        android:paddingRight="@dimen/y40"
+        android:gravity="center_vertical"
+        android:background="@color/common_white">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="登陆密码"
+            android:textSize="12sp"
+            android:textColor="@color/color_666666"
+            android:gravity="center" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="修改"
+            android:textSize="12sp"
+            android:textColor="@color/color_999999"
+            android:gravity="center" />
+
+    </LinearLayout>
+
+    <include layout="@layout/line_f9"/>
+
+    <LinearLayout
+        android:id="@+id/ll_change_blanues_password"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y100"
+        android:orientation="horizontal"
+        android:paddingLeft="@dimen/y40"
+        android:paddingRight="@dimen/y40"
+        android:gravity="center_vertical"
+        android:background="@color/common_white">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="资金密码"
+            android:textSize="12sp"
+            android:textColor="@color/color_666666"
+            android:gravity="center" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="设置"
+            android:textSize="12sp"
+            android:textColor="@color/color_999999"
+            android:gravity="center" />
+
+    </LinearLayout>
+
+    <!--<include layout="@layout/line_f9"/>-->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y100"
+        android:orientation="horizontal"
+        android:paddingLeft="@dimen/y40"
+        android:paddingRight="@dimen/y40"
+        android:gravity="center_vertical"
+        android:background="@color/common_white"
+        android:visibility="gone">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="自动放币"
+            android:textSize="12sp"
+            android:textColor="@color/color_666666"
+            android:gravity="center" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"/>
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/CustomCheckboxTheme" />
+
+    </LinearLayout>
+
+    <!--<include layout="@layout/line_f9"/>-->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y100"
+        android:orientation="horizontal"
+        android:paddingLeft="@dimen/y40"
+        android:paddingRight="@dimen/y40"
+        android:gravity="center_vertical"
+        android:background="@color/common_white"
+        android:visibility="gone">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="自动买币"
+            android:textSize="12sp"
+            android:textColor="@color/color_666666"
+            android:gravity="center" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"/>
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/CustomCheckboxTheme" />
+
+    </LinearLayout>
+
+</LinearLayout>

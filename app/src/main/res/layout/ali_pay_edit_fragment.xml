@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/color_f9f9f9"
+    android:orientation="vertical">
+
+    <include layout="@layout/title"/>
+
+    <include layout="@layout/line_10_f9"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y90"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingLeft="@dimen/y26"
+        android:paddingRight="@dimen/y26"
+        android:background="@color/common_white">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="真实姓名"
+            android:textColor="@color/color_666666"
+            android:textSize="12sp" />
+
+        <EditText
+            android:id="@+id/et_alipay_name"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textCursorDrawable="@drawable/my_cursor"
+            android:maxLines="1"
+            android:textColorHint="@color/color_999999"
+            android:textColor="@color/color_999999"
+            android:textSize="12sp"
+            android:inputType="text"
+            android:hint="请输入您的真实姓名"
+            android:layout_marginLeft="@dimen/y52"/>
+
+    </LinearLayout>
+
+    <include layout="@layout/line_f9"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y90"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingLeft="@dimen/y26"
+        android:paddingRight="@dimen/y26"
+        android:background="@color/common_white">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="支付宝账号"
+            android:textColor="@color/color_666666"
+            android:textSize="12sp" />
+
+        <EditText
+            android:id="@+id/et_alipay_account"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textCursorDrawable="@drawable/my_cursor"
+            android:maxLines="1"
+            android:textColorHint="@color/color_999999"
+            android:textColor="@color/color_999999"
+            android:textSize="12sp"
+            android:inputType="text"
+            android:hint="请输入支付宝账号"
+            android:layout_marginLeft="@dimen/y28"/>
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="step1：添加支付宝ID"
+        android:textSize="10sp"
+        android:textColor="@color/color_f18b42"
+        android:layout_marginLeft="@dimen/y26"
+        android:layout_marginTop="@dimen/y20"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y90"
+        android:orientation="horizontal"
+        android:background="@color/common_white"
+        android:paddingLeft="@dimen/y26"
+        android:paddingRight="@dimen/y26"
+        android:gravity="center_vertical"
+        android:layout_marginTop="@dimen/y10">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="支付宝用户ID"
+            android:textColor="@color/color_666666"
+            android:textSize="12sp" />
+
+        <EditText
+            android:id="@+id/et_alipay_id"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:textCursorDrawable="@drawable/my_cursor"
+            android:maxLines="1"
+            android:textColorHint="@color/color_999999"
+            android:textColor="@color/color_999999"
+            android:inputType="text"
+            android:textSize="10sp"
+            android:hint="请输入支付宝用户ID"
+            android:layout_marginLeft="@dimen/y6"/>
+
+        <TextView
+            android:id="@+id/tv_alipay_getid"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="如何获取支付宝ID"
+            android:textColor="@color/color_ff5100"
+            android:textSize="10sp" />
+
+    </LinearLayout>
+
+        <include layout="@layout/a1"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/text14"
+        android:textColor="@color/color_666666"
+        android:textSize="10sp"
+        android:layout_marginLeft="@dimen/y26"
+        android:layout_marginRight="@dimen/y26"
+        android:layout_marginTop="@dimen/y28"
+        android:lineSpacingExtra="@dimen/y6"/>
+
+    <TextView
+        android:id="@+id/tv_alipay_scewm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@mipmap/cl"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/y28"
+        android:text="@string/text17"
+        android:gravity="center"
+        android:textColor="@color/common_white"
+        android:textSize="14sp"
+        android:paddingBottom="@dimen/y10"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/text15"
+        android:textSize="10sp"
+        android:textColor="@color/color_f18b42"
+        android:layout_marginLeft="@dimen/y26"
+        android:lineSpacingExtra="@dimen/y6"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/common_white"
+        android:paddingLeft="@dimen/y26"
+        android:paddingRight="@dimen/y26"
+        android:orientation="vertical"
+        android:layout_marginTop="@dimen/y28">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginTop="@dimen/y22">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="*"
+                android:textSize="11sp"
+                android:textColor="@color/color_ff0000"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/text16"
+                android:textSize="12sp"
+                android:textColor="@color/color_666666"/>
+
+        </LinearLayout>
+
+        <FrameLayout
+            android:layout_width="@dimen/y228"
+            android:layout_height="@dimen/y228"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/y36"
+            android:padding="@dimen/y10"
+            android:background="@mipmap/bn">
+
+            <ImageView
+                android:id="@+id/iv_alipay_image"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+        </FrameLayout>
+
+    </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/y80"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:paddingRight="@dimen/y22"
+                android:paddingLeft="@dimen/y24"
+                android:background="@color/common_white"
+                android:layout_marginTop="@dimen/y38">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/text18"
+                    android:textColor="@color/color_666666"
+                    android:textSize="12sp" />
+
+                <EditText
+                    android:id="@+id/et_alipay_password"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent"
+                    android:textCursorDrawable="@drawable/my_cursor"
+                    android:maxLines="1"
+                    android:textColorHint="@color/color_999999"
+                    android:textColor="@color/color_999999"
+                    android:inputType="textPassword"
+                    android:textSize="10sp"
+                    android:hint="请输入资金密码"
+                    android:layout_marginLeft="@dimen/y52" />
+
+                <TextView
+                    android:id="@+id/tv_forget_alipay_password"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/text19"
+                    android:textColor="@color/color_ff5100"
+                    android:textSize="10sp" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tv_alipay_submit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@mipmap/cl"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/y38"
+                android:text="@string/text21"
+                android:gravity="center"
+                android:textColor="@color/common_white"
+                android:textSize="14sp"
+                android:paddingBottom="@dimen/y10"
+                android:layout_marginBottom="@dimen/y18"/>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

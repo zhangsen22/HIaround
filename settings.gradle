@@ -1,0 +1,1 @@
+include ':app', ':util', ':magicindicator', ':PullToRefreshLibrary', ':library', ':RxGalleryFinal', ':YZxing-lib'

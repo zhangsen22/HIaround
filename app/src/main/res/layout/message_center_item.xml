@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/y30">
+
+    <TextView
+        android:id="@+id/tv_msg_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="您的账户于UTC时间2019-03-22 05：51：53已成功转出2711.0000 USDT，请注意查收。"
+        android:textSize="12sp"
+        android:textColor="@color/color_666666"
+        android:lineSpacingExtra="@dimen/y10"
+        android:maxLines="5"/>
+
+    <TextView
+        android:id="@+id/tv_msg_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="2019-03-29 20:35:59"
+        android:textSize="10sp"
+        android:textColor="@color/color_999999"
+        android:layout_gravity="right"
+        android:layout_marginTop="@dimen/y30"/>
+
+    </LinearLayout>
+
+    <include layout="@layout/line_f9"/>
+
+</LinearLayout>

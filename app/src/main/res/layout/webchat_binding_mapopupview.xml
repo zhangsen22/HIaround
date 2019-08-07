@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:background="@drawable/corners_bg6"
+    android:gravity="center_horizontal">
+
+    <ProgressBar
+        style="@android:style/Widget.ProgressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:indeterminate="false"
+        android:indeterminateBehavior="repeat"
+        android:indeterminateDrawable="@drawable/rotate_shape3"
+        android:layout_marginTop="@dimen/y128"
+        android:layout_marginRight="@dimen/y188"
+        android:layout_marginLeft="@dimen/y188"
+        android:minWidth="@dimen/y206"
+        android:minHeight="@dimen/y206"
+        android:maxWidth="@dimen/y206"
+        android:maxHeight="@dimen/y206"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/color_333333"
+        android:textSize="15sp"
+        android:text="绑定申请中"
+        android:layout_marginTop="@dimen/y70" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y1"
+        android:background="@mipmap/l"
+        android:layout_marginLeft="@dimen/y30"
+        android:layout_marginRight="@dimen/y30"
+        android:layout_marginTop="@dimen/y70"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/color_ff5100"
+        android:textSize="12sp"
+        android:text="请耐心等待绑定二维码"
+        android:layout_marginTop="@dimen/y40"
+        android:layout_marginBottom="@dimen/y36"/>
+
+</LinearLayout>
