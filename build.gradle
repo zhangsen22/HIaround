@@ -37,8 +37,8 @@ ext {
             minSdkVersion         : 21,
 //            若使用华为Push通道，则app的targetSdkVersion必须设置为25或25以下，设置为26及以上，会导致EMUI 8.0设备无法弹出通知。
             targetSdkVersion      : 26,
-            versionCode           : 209,
-            versionName           : "2.0.9",
+            versionCode           : 100,
+            versionName           : "1.0.0",
             sdkSourceCompatibility: JavaVersion.VERSION_1_8,
             sdkTargetCompatibility: JavaVersion.VERSION_1_8,
             appSourceCompatibility: JavaVersion.VERSION_1_8,
