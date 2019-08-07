@@ -38,6 +38,14 @@ public class AddMakeStyleFragment extends BaseFragment {
     LinearLayout llWebchatClick;
     @BindView(R.id.fl_title_comtent)
     FrameLayout flTitleComtent;
+    @BindView(R.id.tv_yunshanfu)
+    TextView tvYunshanfu;
+    @BindView(R.id.ll_yunshanfu_click)
+    LinearLayout llYunshanfuClick;
+    @BindView(R.id.tv_juhema)
+    TextView tvJuhema;
+    @BindView(R.id.ll_juhema_click)
+    LinearLayout llJuhemaClick;
     private AddMakeStyleActivity addMakeStyleActivity;
 
     public static AddMakeStyleFragment newInstance(@Nullable String taskId) {
@@ -66,10 +74,10 @@ public class AddMakeStyleFragment extends BaseFragment {
     @Override
     public void lazyLoadData() {
         super.lazyLoadData();
-        GALogger.d(TAG,"lazyLoadData  ........");
+        GALogger.d(TAG, "lazyLoadData  ........");
     }
 
-    @OnClick({R.id.iv_back, R.id.ll_alipay_click, R.id.ll_ylcard_click, R.id.ll_webchat_click})
+    @OnClick({R.id.iv_back, R.id.ll_alipay_click, R.id.ll_ylcard_click, R.id.ll_webchat_click,R.id.ll_yunshanfu_click, R.id.ll_juhema_click})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.iv_back:
@@ -84,6 +92,10 @@ public class AddMakeStyleFragment extends BaseFragment {
             case R.id.ll_webchat_click:
                 WebChatListActivity.startThis(addMakeStyleActivity);
                 break;
+            case R.id.ll_yunshanfu_click:
+                break;
+            case R.id.ll_juhema_click:
+                break;
         }
     }
 
@@ -91,21 +103,21 @@ public class AddMakeStyleFragment extends BaseFragment {
     public void onResume() {
         super.onResume();
         tvTitle.setText("添加收款方式");
-        if(AccountManager.getInstance().isHaveAliPayee()){
+        if (AccountManager.getInstance().isHaveAliPayee()) {
             tvAlipay.setText("已绑定");
-        }else {
+        } else {
             tvAlipay.setText("未绑定");
         }
-        if(AccountManager.getInstance().isHaveBankPayee()){
+        if (AccountManager.getInstance().isHaveBankPayee()) {
             tvYlcard.setText("已绑定");
-        }else {
+        } else {
             tvYlcard.setText("未绑定");
         }
-        if(AccountManager.getInstance().isHaveWechatPayee()){
+        if (AccountManager.getInstance().isHaveWechatPayee()) {
             tvWebchat.setText("已绑定");
-        }else {
+        } else {
             tvWebchat.setText("未绑定");
         }
-        GALogger.d(TAG,"onResume  ........");
+        GALogger.d(TAG, "onResume  ........");
     }
 }

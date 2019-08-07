@@ -5,6 +5,7 @@ import android.support.annotation.Nullable;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -30,7 +31,6 @@ import hiaround.android.com.ui.activity.LoginActivity;
 import hiaround.android.com.ui.activity.MainActivity;
 import hiaround.android.com.ui.activity.MessageCenterActivity;
 import hiaround.android.com.ui.activity.RecommendToFriendsActivity;
-import hiaround.android.com.ui.activity.SecurityCenterActivity;
 import hiaround.android.com.ui.activity.WebViewActivity;
 import hiaround.android.com.util.ToastUtil;
 
@@ -57,7 +57,9 @@ public class CenterFragment extends BaseFragment implements CenterContract.View 
     @BindView(R.id.tv_logout)
     TextView tvLogout;
     @BindView(R.id.ll_center_bg)
-    LinearLayout llCenterBg;
+    FrameLayout llCenterBg;
+    @BindView(R.id.ll_center_bg1)
+    FrameLayout llCenterBg1;
     @BindView(R.id.iv_roletype)
     ImageView ivRoletype;
     @BindView(R.id.iv_apitype)
@@ -93,6 +95,7 @@ public class CenterFragment extends BaseFragment implements CenterContract.View 
     protected void initView(View root) {
         GALogger.d(TAG, "CenterFragment   is    initView");
         setRootViewPaddingTop(llCenterBg);
+        setRootViewPaddingTop(llCenterBg1);
     }
 
     @Override
