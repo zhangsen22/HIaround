@@ -18,7 +18,7 @@ public class GetSmsCodeModle {
      */
     public Observable<ImageCodeResponse> getImageCode(String phoneNum){
         return BaseRetrofitClient.getInstance().create(ApiServices.class)
-                .getImageCode(phoneNum)
+                .getImageCode("86"+phoneNum)
                 .subscribeOn(Schedulers.io())
                 .map(new ServerExceptionMap<ImageCodeResponse>())
                 .onErrorResumeNext(new ModelExceptionMap<ImageCodeResponse>());
@@ -32,7 +32,7 @@ public class GetSmsCodeModle {
      */
     public Observable<SmsCodeResponse> senSenSmsCode(String phoneNum){
         return BaseRetrofitClient.getInstance().create(ApiServices.class)
-                .senSenSmsCode(phoneNum)
+                .senSenSmsCode("86"+phoneNum)
                 .subscribeOn(Schedulers.io())
                 .map(new ServerExceptionMap<SmsCodeResponse>())
                 .onErrorResumeNext(new ModelExceptionMap<SmsCodeResponse>());

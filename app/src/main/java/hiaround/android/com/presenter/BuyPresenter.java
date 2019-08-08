@@ -1,6 +1,6 @@
 package hiaround.android.com.presenter;
 
-import hiaround.android.com.modle.BuyResponse;
+import hiaround.android.com.modle.BuyAmountListResponse;
 import hiaround.android.com.net.retrofit.ModelResultObserver;
 import hiaround.android.com.net.retrofit.exception.ModelException;
 import hiaround.android.com.presenter.contract.BuyContract;
@@ -19,41 +19,23 @@ public class BuyPresenter implements BuyContract.Presenter{
     }
 
     @Override
-    public void getBuyRefresh(long minId) {
-        mModel.getSellinfo(minId).observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new ModelResultObserver<BuyResponse>() {
-                    @Override
-                    public void onSuccess(BuyResponse buyResponse) {
-                        mView.getBuyRefreshSuccess(buyResponse);
-                    }
-
-                    @Override
-                    public void onFailure(ModelException ex) {
-                        super.onFailure(ex);
-                        mView.getBuyRefreshError();
-                    }
-                });
-    }
-
-    @Override
-    public void getBuyLoadMore(long minId) {
-        mModel.getSellinfo(minId).observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new ModelResultObserver<BuyResponse>() {
-                    @Override
-                    public void onSuccess(BuyResponse buyResponse) {
-                        mView.getBuyLoadMoreSuccess(buyResponse);
-                    }
-
-                    @Override
-                    public void onFailure(ModelException ex) {
-                        super.onFailure(ex);
-                        mView.getBuyLoadMoreError();
-                    }
-                });
-    }
-
-    @Override
     public void starLoadData() {
 
+    }
+
+    @Override
+    public void buyAmountList() {
+        mModel.buyAmountList().observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new ModelResultObserver<BuyAmountListResponse>() {
+                    @Override
+                    public void onSuccess(BuyAmountListResponse buyResponse) {
+                        mView.buyAmountListSuccess(buyResponse);
+                    }
+
+                    @Override
+                    public void onFailure(ModelException ex) {
+                        super.onFailure(ex);
+                    }
+                });
     }
 }

@@ -20,7 +20,7 @@ public class LoginModle {
      */
     public Observable<AccountInfo> login(String phoneNum,String pwd,long time){
         return BaseRetrofitClient.getInstance().create(ApiServices.class)
-                .login(phoneNum,pwd,time)
+                .login("86"+phoneNum,pwd,time)
                 .subscribeOn(Schedulers.io())
                 .map(new ServerExceptionMap<AccountInfo>())
                 .onErrorResumeNext(new ModelExceptionMap<AccountInfo>());

@@ -2,6 +2,7 @@ package hiaround.android.com.net.retrofit.service;
 
 import hiaround.android.com.app.AccountInfo;
 import hiaround.android.com.modle.BaseBean;
+import hiaround.android.com.modle.BuyAmountListResponse;
 import hiaround.android.com.modle.BuyBusinessResponse;
 import hiaround.android.com.modle.BuyResponse;
 import hiaround.android.com.modle.DomainModel;
@@ -142,6 +143,13 @@ public interface ApiServices {
     @FormUrlEncoded
     @POST(ApiConstants.getSellinfo)
     Observable<BuyResponse> getSellinfo(@Field("minId") long minId);
+
+    /**
+     * 交易 我要买  获取购买金额列表
+     * @return
+     */
+    @POST(ApiConstants.buyAmountList)
+    Observable<BuyAmountListResponse> buyAmountList();
 
     /**
      * 获取挂取的买单信息

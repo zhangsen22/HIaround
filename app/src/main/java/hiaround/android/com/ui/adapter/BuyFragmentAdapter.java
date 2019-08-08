@@ -1,124 +1,104 @@
 package hiaround.android.com.ui.adapter;
-
 import android.content.Context;
 import android.support.annotation.NonNull;
-import android.text.TextUtils;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.TextView;
 import com.growalong.util.util.GALogger;
-import java.text.DecimalFormat;
-import hiaround.android.com.MyApplication;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import butterknife.BindView;
 import hiaround.android.com.R;
-import hiaround.android.com.modle.BuyItem;
-import hiaround.android.com.ui.activity.BusinessBuyActivity;
-import hiaround.android.com.ui.adapter.poweradapter.PowerAdapter;
-import hiaround.android.com.ui.adapter.poweradapter.PowerHolder;
 
-public class BuyFragmentAdapter extends PowerAdapter<BuyItem> {
+public class BuyFragmentAdapter extends RecyclerView.Adapter {
 
     private static final String TAG = BuyFragmentAdapter.class.getSimpleName();
     private Context mContext;
-
+    private List<String> mPriceList;
     private LayoutInflater inflater;
+    private Map<Integer, Boolean> map = new HashMap<>();
+    private boolean onBind;
+    private int checkedPosition = -1;
+    private OnBuyCheckListener onBuyCheckListener;
 
-    public BuyFragmentAdapter(Context context) {
+    public BuyFragmentAdapter(Context context, List<String> priceList,OnBuyCheckListener onCheckListener) {
         super();
         mContext = context;
         inflater = LayoutInflater.from(mContext);
+        this.mPriceList = priceList;
+        this.onBuyCheckListener = onCheckListener;
     }
 
+
+    @NonNull
     @Override
-    public PowerHolder<BuyItem> onViewHolderCreate(@NonNull ViewGroup parent, int viewType) {
+    public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int i) {
         return new BuyItemHolder(inflater.inflate(R.layout.buy_item, parent, false));
     }
 
     @Override
-    public void onViewHolderBind(@NonNull PowerHolder<BuyItem> holder, int position) {
-        ((BuyItemHolder) holder).onBind(list.get(position), position);
+    public void onBindViewHolder(@NonNull RecyclerView.ViewHolder viewHolder, int position) {
+        ((BuyItemHolder) viewHolder).onBind(mPriceList.get(position), position);
     }
 
-    public class BuyItemHolder extends PowerHolder<BuyItem> {
-        TextView tvName;
-        TextView tvTradetimes;
-        TextView tvTradesuccrate;
-        TextView tvNumber;
-        TextView tvMinPrice;
-        TextView tvMaxPrice;
-        TextView tvSinglePrice;
-        TextView tvBuy;
-        ImageView ivIdcard;
-        ImageView ivAilpay;
-        ImageView ivWebpay;
-        ImageView ivApiType;
-        LinearLayout llBuy;
+    @Override
+    public int getItemCount() {
+        return mPriceList.size();
+    }
 
+    public class BuyItemHolder extends RecyclerView.ViewHolder {
+        @BindView(R.id.cb_buy_check)
+        CheckBox cbBuyCheck;
+        @BindView(R.id.tv_buy_price)
+        TextView tvBuyPrice;
         public BuyItemHolder(View itemView) {
             super(itemView);
-            tvName = itemView.findViewById(R.id.tv_name);
-            ivApiType = itemView.findViewById(R.id.iv_api_type);
-            tvTradetimes = itemView.findViewById(R.id.tv_tradetimes);
-            tvTradesuccrate = itemView.findViewById(R.id.tv_tradesuccrate);
-            tvNumber = itemView.findViewById(R.id.tv_number);
-            tvMinPrice = itemView.findViewById(R.id.tv_min_price);
-            tvMaxPrice = itemView.findViewById(R.id.tv_max_price);
-            tvSinglePrice = itemView.findViewById(R.id.tv_single_price);
-            tvBuy = itemView.findViewById(R.id.tv_buy);
-            ivIdcard = itemView.findViewById(R.id.iv_idcard);
-            ivAilpay = itemView.findViewById(R.id.iv_ailpay);
-            ivWebpay = itemView.findViewById(R.id.iv_webpay);
-            llBuy = itemView.findViewById(R.id.ll_buy);
+            cbBuyCheck = itemView.findViewById(R.id.cb_buy_check);
+            tvBuyPrice = itemView.findViewById(R.id.tv_buy_price);
         }
 
-        @Override
-        public void onBind(@NonNull final BuyItem buyItem, int position) {
-            if (buyItem != null) {
-                GALogger.d(TAG, "buyItem    " + buyItem.toString());
-                tvBuy.setText("去购买");
-                String nickname = buyItem.getNickname();
-                if (!TextUtils.isEmpty(nickname)) {
-                    tvName.setText(nickname);
-                }
-                if (buyItem.getApiType() == 1) {
-                    ivApiType.setVisibility(View.VISIBLE);
-                    ivApiType.setImageResource(R.mipmap.st);
-                } else {
-                    ivApiType.setVisibility(View.GONE);
-                }
-                tvTradetimes.setText(buyItem.getTradeTimes() + "");
-                tvTradesuccrate.setText(buyItem.getTradeSuccRate() + "%");
-                tvNumber.setText(new DecimalFormat("0.00").format(buyItem.getMaxNum()));
-                tvMinPrice.setText(MyApplication.appContext.getResources().getString(R.string.rmb) + new DecimalFormat("0.00").format(buyItem.getPrice() * buyItem.getMinNum()));
-                tvMaxPrice.setText(MyApplication.appContext.getResources().getString(R.string.rmb) + new DecimalFormat("0.00").format(buyItem.getPrice() * buyItem.getMaxNum()));
-                tvSinglePrice.setText(MyApplication.appContext.getResources().getString(R.string.rmb) + new DecimalFormat("0.00").format(buyItem.getPrice()));
-                if (buyItem.isSupportBank()) {
-                    ivIdcard.setVisibility(View.VISIBLE);
-                } else {
-                    ivIdcard.setVisibility(View.GONE);
-                }
-
-                if (buyItem.isSupportAli()) {
-                    ivAilpay.setVisibility(View.VISIBLE);
-                } else {
-                    ivAilpay.setVisibility(View.GONE);
-                }
-
-                if (buyItem.isSupportWechat()) {
-                    ivWebpay.setVisibility(View.VISIBLE);
-                } else {
-                    ivWebpay.setVisibility(View.GONE);
-                }
-
-                llBuy.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        BusinessBuyActivity.startThis(mContext, buyItem);
+        public void onBind(String s, int position) {
+            tvBuyPrice.setText(s);
+            cbBuyCheck.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                @Override
+                public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                    if (buttonView.isPressed()) {
+                        GALogger.d(TAG, "isChecked           " + isChecked);
+                        if (isChecked == true) {
+                            map.clear();
+                            map.put(position, true);
+                            checkedPosition = position;
+                            if (onBuyCheckListener != null) {
+                                onBuyCheckListener.onBuyCheck(position, s);
+                            }
+                        } else {
+                            map.remove(position);
+                            if (map.size() == 0) {
+                                checkedPosition = -1; //-1 代表一个都未选择
+                            }
+                        }
+                        if (!onBind) {
+                            notifyDataSetChanged();
+                        }
                     }
-                });
+                }
+            });
+            onBind = true;
+            if (map != null && map.containsKey(position)) {
+                cbBuyCheck.setChecked(true);
+            } else {
+                cbBuyCheck.setChecked(false);
             }
+            onBind = false;
         }
+    }
+
+    public interface OnBuyCheckListener {
+        void onBuyCheck(int position, String s);
     }
 }

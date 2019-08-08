@@ -20,7 +20,7 @@ public class ForgetPwdModle extends GetSmsCodeModle{
      */
     public Observable<BaseBean> forgetPwd(String pwd, String phoneNum, String imageCode, String smsCode){
         return BaseRetrofitClient.getInstance().create(ApiServices.class)
-                .forgetPwd(pwd,phoneNum,imageCode,smsCode)
+                .forgetPwd(pwd,"86"+phoneNum,imageCode,smsCode)
                 .subscribeOn(Schedulers.io())
                 .map(new ServerExceptionMap<BaseBean>())
                 .onErrorResumeNext(new ModelExceptionMap<BaseBean>());

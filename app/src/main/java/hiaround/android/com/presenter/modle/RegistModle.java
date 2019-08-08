@@ -36,14 +36,14 @@ public class RegistModle extends GetSmsCodeModle{
             , String pwd
             , final long time, final String password){
         return BaseRetrofitClient.getInstance().create(ApiServices.class)
-                .regist(phoneNum,invitedCode,imageCode,smsCode,pwd)
+                .regist("86"+phoneNum,invitedCode,imageCode,smsCode,pwd)
                 .flatMap(new Function<RegistResponse, ObservableSource<AccountInfo>>() {
                     @Override
                     public ObservableSource<AccountInfo> apply(RegistResponse registResponse){
                         if(registResponse != null){
                             int code = registResponse.getRet();
                             if(code == 0){
-                                return BaseRetrofitClient.getInstance().create(ApiServices.class).login(phoneNum,Md5Utils.getMD5(password + time),time);
+                                return BaseRetrofitClient.getInstance().create(ApiServices.class).login("86"+phoneNum,Md5Utils.getMD5(password + time),time);
                             }else {
                                 return Observable.error(ModelExceptionBuilder.build(new ModelException(code, registResponse.getMsgg())));
                             }

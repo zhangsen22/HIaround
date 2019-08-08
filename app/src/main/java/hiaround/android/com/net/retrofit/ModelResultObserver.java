@@ -96,7 +96,7 @@ public abstract class ModelResultObserver<T> implements Observer<T> {
             String phoneNumber = AccountManager.getInstance().getPhoneNumber();
             String passWord = AccountManager.getInstance().getPassWord();
             BaseRetrofitClient.getInstance().create(ApiServices.class)
-                    .login(phoneNumber, Md5Utils.getMD5(passWord+currentTime),currentTime)
+                    .login("86"+phoneNumber, Md5Utils.getMD5(passWord+currentTime),currentTime)
                     .subscribeOn(Schedulers.io())
                     .map(new ServerExceptionMap<AccountInfo>())
                     .onErrorResumeNext(new ModelExceptionMap<AccountInfo>()).observeOn(AndroidSchedulers.mainThread())

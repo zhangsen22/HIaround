@@ -20,36 +20,12 @@ public class LargeAmountPresenter implements LargeAmountContract.Presenter{
 
     @Override
     public void getHugeBillinfoRefresh(long minId) {
-        mModel.getHugeBillinfo(minId).observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new ModelResultObserver<LargeAmountResponse>() {
-                    @Override
-                    public void onSuccess(LargeAmountResponse largeAmountResponse) {
-                        mView.getHugeBillinfoRefreshSuccess(largeAmountResponse);
-                    }
 
-                    @Override
-                    public void onFailure(ModelException ex) {
-                        super.onFailure(ex);
-                        mView.getHugeBillinfoRefreshError();
-                    }
-                });
     }
 
     @Override
     public void getHugeBillinfoLoadMore(long minId) {
-        mModel.getHugeBillinfo(minId).observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new ModelResultObserver<LargeAmountResponse>() {
-                    @Override
-                    public void onSuccess(LargeAmountResponse largeAmountResponse) {
-                        mView.getHugeBillinfoLoadMoreSuccess(largeAmountResponse);
-                    }
 
-                    @Override
-                    public void onFailure(ModelException ex) {
-                        super.onFailure(ex);
-                        mView.getHugeBillinfoLoadMoreError();
-                    }
-                });
     }
 
     @Override

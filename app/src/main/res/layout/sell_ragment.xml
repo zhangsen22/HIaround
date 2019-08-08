@@ -1,20 +1,167 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:ptr="http://schemas.android.com/apk/res-auto"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <com.handmark.pulltorefresh.library.PullToRefreshRecyclerView
-        android:id="@+id/sell_pull_refresh_recycler"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:cacheColorHint="#00000000"
-        android:divider="@null"
-        android:fadingEdge="none"
-        android:listSelector="#00000000"
-        ptr:ptrMode="pullFromStart"
-        ptr:ptrOverScroll="false"/>
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginLeft="@dimen/y44"
+        android:layout_marginRight="@dimen/y44"
+        android:background="@drawable/corners_bg20x">
 
-</FrameLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="出售金额"
+            android:textColor="@color/color_333333"
+            android:textSize="13sp"
+            android:layout_marginLeft="@dimen/y44"
+            android:layout_marginTop="@dimen/y30"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="@dimen/y38"
+            android:layout_marginLeft="@dimen/y44"
+            android:layout_marginRight="@dimen/y44">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/rmb"
+                android:textColor="@color/color_333333"
+                android:textSize="30sp" />
+
+            <EditText
+                android:id="@+id/et_sell_num"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:textCursorDrawable="@drawable/my_cursor"
+                android:inputType="phone"
+                android:maxLength="11"
+                android:maxLines="1"
+                android:paddingLeft="@dimen/space_10"
+                android:paddingRight="@dimen/space_10"
+                android:textColorHint="@color/color_c5c5c5"
+                android:textColor="@color/color_666666"
+                android:textSize="15sp"
+                android:hint="请输入您的出售数量"
+                android:layout_marginLeft="@dimen/y30"/>
+
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/y1"
+            android:background="@mipmap/l"
+            android:layout_marginTop="@dimen/y20"
+            android:layout_marginLeft="@dimen/y30"
+            android:layout_marginRight="@dimen/y30"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="@dimen/y18"
+            android:layout_marginLeft="@dimen/y44"
+            android:layout_marginRight="@dimen/y44">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="总量约"
+                android:textColor="@color/color_ff5100"
+                android:textSize="12sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="XXXXX"
+                android:textColor="@color/color_ff5100"
+                android:textSize="12sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="USDT"
+                android:textColor="@color/color_ff5100"
+                android:textSize="12sp" />
+
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/y1"
+            android:background="@mipmap/l"
+            android:layout_marginTop="@dimen/y52"
+            android:layout_marginLeft="@dimen/y30"
+            android:layout_marginRight="@dimen/y30"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginLeft="@dimen/y44"
+            android:layout_marginRight="@dimen/y44"
+            android:layout_marginTop="@dimen/y28"
+            android:layout_marginBottom="@dimen/y30"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="请选择支付方式"
+                android:textColor="@color/color_333333"
+                android:textSize="13sp" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="@dimen/y1"
+                android:layout_weight="1"/>
+
+            <ImageView
+                android:layout_width="@dimen/y26"
+                android:layout_height="@dimen/y26"
+                android:src="@mipmap/h" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="微信支付"
+                android:textColor="@color/color_333333"
+                android:textSize="13sp"
+                android:layout_marginLeft="@dimen/y12"/>
+
+            <ImageView
+                android:layout_width="@dimen/y12"
+                android:layout_height="@dimen/y20"
+                android:src="@mipmap/y"
+                android:layout_marginLeft="@dimen/y16"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/go_sell"
+        android:text="出售"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@mipmap/cl"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/y32"
+        android:gravity="center"
+        android:textColor="@color/common_white"
+        android:textSize="16sp"
+        android:paddingBottom="@dimen/y10" />
+
+</LinearLayout>

@@ -62,4 +62,11 @@
         <item name="android:layout_height">@dimen/y50</item>
     </style>
 
+    <style name="CustomCheckboxTheme3" parent="@android:style/Widget.CompoundButton.CheckBox">
+        <item name="android:background">@drawable/a3</item>
+        <item name="android:button">@null</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
 </resources>
