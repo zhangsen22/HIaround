@@ -7,12 +7,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 import hiaround.android.com.BaseFragment;
+import hiaround.android.com.ui.fragment.OrderItemDetailsFragment;
 import hiaround.android.com.ui.fragment.OrderItemFragment;
 
 public class OrderViewPagerAdapter extends FragmentPagerAdapter {
 
     private BaseFragment mCurrentPrimaryItem = null;
-    private OrderItemFragment orderItemFragment;
     private List<BaseFragment> fragmentList;
     private String[] mTitles;
 
@@ -23,8 +23,13 @@ public class OrderViewPagerAdapter extends FragmentPagerAdapter {
             fragmentList = new ArrayList<>();
         }
         for (int i = 0; i < titles.length; i++) {
-            orderItemFragment = OrderItemFragment.newInstance(i+1);
-            fragmentList.add(orderItemFragment);
+            if(i < 2){
+                OrderItemFragment orderItemFragment = OrderItemFragment.newInstance(i+1);
+                fragmentList.add(orderItemFragment);
+            }else {
+                OrderItemDetailsFragment orderItemDetailsFragment = OrderItemDetailsFragment.newInstance(3,2);
+                fragmentList.add(orderItemDetailsFragment);
+            }
         }
     }
 

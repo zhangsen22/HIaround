@@ -5,7 +5,6 @@ import android.support.annotation.NonNull;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.lxj.xpopup.core.BottomPopupView;
 import com.lxj.xpopup.interfaces.OnSelectListener;
@@ -18,16 +17,15 @@ import hiaround.android.com.ui.activity.AddMakeStyleActivity;
  * Description:
  * Create by dance, at 2019/5/5
  */
-public class PagerBottomPopup1 extends BottomPopupView implements CompoundButton.OnCheckedChangeListener {
+public class PagerBottomPopup1 extends BottomPopupView implements CompoundButton.OnCheckedChangeListener, View.OnClickListener {
 
-    LinearLayout llWebchat;
-    LinearLayout llAlpiy;
-    LinearLayout llBank;
+    TextView tvWebchat;
+    TextView tvAlpiy;
+    TextView tvBank;
     private Context context;
     CheckBox cbWebchat;
     CheckBox cbAlpiy;
     CheckBox cbBank;
-    TextView tvAddShoukuan;
     private OnSelectListener selectListener;
     private int type = 0;//1为支付宝，2为微信，3为银行账户
     private String text;
@@ -46,42 +44,38 @@ public class PagerBottomPopup1 extends BottomPopupView implements CompoundButton
     @Override
     protected void onCreate() {
         super.onCreate();
-        llWebchat = findViewById(R.id.ll_webchat);
-        llAlpiy = findViewById(R.id.ll_alpiy);
-        llBank = findViewById(R.id.ll_bank);
+        tvWebchat = findViewById(R.id.tv_webchat);
+        tvAlpiy = findViewById(R.id.tv_alpiy);
+        tvBank = findViewById(R.id.tv_bank);
         cbWebchat = findViewById(R.id.cb_webchat);
         cbAlpiy = findViewById(R.id.cb_alpiy);
         cbBank = findViewById(R.id.cb_bank);
-        tvAddShoukuan = findViewById(R.id.tv_add_shoukuan);
         cbWebchat.setOnCheckedChangeListener(this);
         cbAlpiy.setOnCheckedChangeListener(this);
         cbBank.setOnCheckedChangeListener(this);
-        tvAddShoukuan.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                AddMakeStyleActivity.startThis(context);
-                postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        if (popupInfo.autoDismiss) dismiss();
-                    }
-                }, 100);
-            }
-        });
+        tvWebchat.setOnClickListener(this);
+        tvAlpiy.setOnClickListener(this);
+        tvBank.setOnClickListener(this);
         if (AccountManager.getInstance().isHaveAliPayee()) {
-            llAlpiy.setVisibility(VISIBLE);
+            cbAlpiy.setVisibility(VISIBLE);
+            tvAlpiy.setVisibility(GONE);
         } else {
-            llAlpiy.setVisibility(GONE);
+            cbAlpiy.setVisibility(GONE);
+            tvAlpiy.setVisibility(VISIBLE);
         }
         if (AccountManager.getInstance().isHaveBankPayee()) {
-            llBank.setVisibility(VISIBLE);
+            cbBank.setVisibility(VISIBLE);
+            tvBank.setVisibility(GONE);
         } else {
-            llBank.setVisibility(GONE);
+            cbBank.setVisibility(GONE);
+            tvBank.setVisibility(VISIBLE);
         }
         if (AccountManager.getInstance().isHaveWechatPayee()) {
-            llWebchat.setVisibility(VISIBLE);
+            cbWebchat.setVisibility(VISIBLE);
+            tvWebchat.setVisibility(GONE);
         } else {
-            llWebchat.setVisibility(GONE);
+            cbWebchat.setVisibility(GONE);
+            tvWebchat.setVisibility(VISIBLE);
         }
     }
 
@@ -115,31 +109,31 @@ public class PagerBottomPopup1 extends BottomPopupView implements CompoundButton
                 }
                 break;
             case R.id.cb_webchat:
-                    if (isChecked) {
-                        cbBank.setChecked(false);
-                        cbAlpiy.setChecked(false);
-                        type = 2;
-                        text = "微信支付";
-                    } else {
-                        type = 0;
-                        text = "请选择一种收款方式";
-                    }
+                if (isChecked) {
+                    cbBank.setChecked(false);
+                    cbAlpiy.setChecked(false);
+                    type = 2;
+                    text = "微信支付";
+                } else {
+                    type = 0;
+                    text = "请选择一种收款方式";
+                }
                 break;
             case R.id.cb_idcast:
-                    if (isChecked) {
-                        cbAlpiy.setChecked(false);
-                        cbWebchat.setChecked(false);
-                        type = 3;
-                        text = "银行卡";
-                    } else {
-                        type = 0;
-                        text = "请选择一种收款方式";
-                    }
+                if (isChecked) {
+                    cbAlpiy.setChecked(false);
+                    cbWebchat.setChecked(false);
+                    type = 3;
+                    text = "银行卡";
+                } else {
+                    type = 0;
+                    text = "请选择一种收款方式";
+                }
                 break;
         }
 
-        if(selectListener != null){
-            selectListener.onSelect(type,text);
+        if (selectListener != null) {
+            selectListener.onSelect(type, text);
         }
         postDelayed(new Runnable() {
             @Override
@@ -147,5 +141,21 @@ public class PagerBottomPopup1 extends BottomPopupView implements CompoundButton
                 if (popupInfo.autoDismiss) dismiss();
             }
         }, 500);
+    }
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.tv_webchat:
+            case R.id.tv_alpiy:
+            case R.id.tv_bank:
+                AddMakeStyleActivity.startThis(context);
+                postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        if (popupInfo.autoDismiss) dismiss();
+                    }
+                }, 100);
+        }
     }
 }

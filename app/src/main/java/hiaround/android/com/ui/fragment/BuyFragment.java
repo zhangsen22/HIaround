@@ -151,7 +151,7 @@ public class BuyFragment extends BaseFragment implements BuyContract.View, BuyFr
 
     @Override
     public void onBuyCheck(int position, String s) {
-        payMoney = s.substring(0, s.length());
+        payMoney = s.replaceAll("","元");
     }
 
     @OnClick({R.id.ll_choose_paytype, R.id.go_buy})

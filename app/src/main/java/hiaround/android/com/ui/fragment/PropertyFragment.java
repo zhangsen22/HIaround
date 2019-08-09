@@ -22,6 +22,8 @@ public class PropertyFragment extends BaseFragment implements AwardDetailsContra
     private static final String TAG = PropertyFragment.class.getSimpleName();
     @BindView(R.id.ll_property_bg)
     LinearLayout flTitleComtent;
+    @BindView(R.id.tv_account_money1)
+    TextView tvAccountMoney1;
     private MainActivity awardDetailsActivity;
     @BindView(R.id.tv_business_reward)
     TextView tvBusinessReward;
@@ -29,12 +31,6 @@ public class PropertyFragment extends BaseFragment implements AwardDetailsContra
     TextView tvYesterdayEarnings1;
     @BindView(R.id.ll_business_reward)
     LinearLayout llBusinessReward;
-    @BindView(R.id.tv_guadan_reward)
-    TextView tvGuadanReward;
-    @BindView(R.id.tv_yesterday_earnings2)
-    TextView tvYesterdayEarnings2;
-    @BindView(R.id.ll_guadan_reward)
-    LinearLayout llGuadanReward;
     @BindView(R.id.tv_tuiguang_reward)
     TextView tvTuiguangReward;
     @BindView(R.id.tv_yesterday_earnings3)
@@ -86,10 +82,9 @@ public class PropertyFragment extends BaseFragment implements AwardDetailsContra
     public void rewardLogSuccess(RewardLogResponse rewardLogResponse) {
         if (rewardLogResponse != null) {
             this.rewardLogResponse = rewardLogResponse;
+            tvAccountMoney1.setText(new DecimalFormat("0.00").format(rewardLogResponse.getTotTradeReward()+rewardLogResponse.getTotTGReward()+rewardLogResponse.getTotAgentReward()));
             tvBusinessReward.setText(new DecimalFormat("0.00").format(rewardLogResponse.getTotTradeReward()));
             tvYesterdayEarnings1.setText(new DecimalFormat("0.00").format(rewardLogResponse.getLastTradeReward()));
-            tvGuadanReward.setText(new DecimalFormat("0.00").format(rewardLogResponse.getTotBillReward()));
-            tvYesterdayEarnings2.setText(new DecimalFormat("0.00").format(rewardLogResponse.getLastBillReward()));
             tvTuiguangReward.setText(new DecimalFormat("0.00").format(rewardLogResponse.getTotTGReward()));
             tvYesterdayEarnings3.setText(new DecimalFormat("0.00").format(rewardLogResponse.getLastTGReward()));
             tvDailiReward.setText(new DecimalFormat("0.00").format(rewardLogResponse.getTotAgentReward()));
@@ -112,7 +107,7 @@ public class PropertyFragment extends BaseFragment implements AwardDetailsContra
         hideLoadingDialog();
     }
 
-    @OnClick({R.id.ll_business_reward, R.id.ll_guadan_reward, R.id.ll_tuigunang_reward, R.id.ll_daili_reward})
+    @OnClick({R.id.ll_business_reward, R.id.ll_tuigunang_reward, R.id.ll_daili_reward})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.ll_business_reward:
@@ -120,11 +115,11 @@ public class PropertyFragment extends BaseFragment implements AwardDetailsContra
                     RewardDetailActivity.startThis(awardDetailsActivity, 1, rewardLogResponse);
                 }
                 break;
-            case R.id.ll_guadan_reward:
-                if (rewardLogResponse != null) {
-                    RewardDetailActivity.startThis(awardDetailsActivity, 4, rewardLogResponse);
-                }
-                break;
+//            case R.id.ll_guadan_reward:
+//                if (rewardLogResponse != null) {
+//                    RewardDetailActivity.startThis(awardDetailsActivity, 4, rewardLogResponse);
+//                }
+//                break;
             case R.id.ll_tuigunang_reward:
                 if (rewardLogResponse != null) {
                     RewardDetailActivity.startThis(awardDetailsActivity, 2, rewardLogResponse);

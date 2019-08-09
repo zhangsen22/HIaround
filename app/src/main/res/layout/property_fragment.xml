@@ -18,7 +18,6 @@
             android:gravity="center_horizontal">
 
             <TextView
-                android:id="@+id/tv_account_sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="累计奖励"
@@ -42,7 +41,6 @@
                     android:textSize="24sp" />
 
                 <TextView
-                    android:id="@+id/tv_bi_type"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/cny"
@@ -63,8 +61,7 @@
             android:paddingLeft="@dimen/y40"
             android:paddingTop="@dimen/y20"
             android:paddingBottom="@dimen/y24"
-            android:background="@color/common_white"
-            android:visibility="gone">
+            android:background="@color/common_white">
 
             <LinearLayout
                 android:layout_width="0dp"
@@ -164,119 +161,119 @@
 
         </LinearLayout>
 
-        <!--<include layout="@layout/line_f9"/>-->
-
-        <LinearLayout
-            android:id="@+id/ll_guadan_reward"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center_vertical"
-            android:paddingRight="@dimen/y40"
-            android:paddingLeft="@dimen/y40"
-            android:paddingTop="@dimen/y20"
-            android:paddingBottom="@dimen/y24"
-            android:background="@color/common_white">
-
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="挂单奖励"
-                    android:textColor="@color/color_666666"
-                    android:textSize="12sp" />
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_marginTop="@dimen/y26">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="累计收益："
-                        android:textColor="@color/color_666666"
-                        android:textSize="12sp" />
-
-                    <TextView
-                        android:id="@+id/tv_guadan_reward"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        tools:text="367.09"
-                        android:textColor="@color/color_ff5100"
-                        android:textSize="12sp" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/nbc"
-                        android:textColor="@color/color_666666"
-                        android:textSize="12sp" />
-
-                </LinearLayout>
-
-            </LinearLayout>
-
-            <ImageView
-                android:layout_width="@dimen/y1"
-                android:layout_height="@dimen/y56"
-                android:src="@mipmap/t"/>
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:gravity="center"
-                android:layout_marginLeft="@dimen/y100"
-                android:layout_marginRight="@dimen/y100">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="上期收益"
-                    android:textColor="@color/color_666666"
-                    android:textSize="12sp"/>
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_marginTop="@dimen/y34">
-
-                    <TextView
-                        android:id="@+id/tv_yesterday_earnings2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        tools:text="1.00"
-                        android:textColor="@color/color_ff5100"
-                        android:textSize="12sp" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/nbc"
-                        android:textColor="@color/color_ff5100"
-                        android:textSize="12sp" />
-
-                </LinearLayout>
-
-            </LinearLayout>
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@mipmap/y"
-                android:layout_marginLeft="@dimen/y20"/>
-
-        </LinearLayout>
-
         <include layout="@layout/line_f9"/>
+
+        <!--<LinearLayout-->
+            <!--android:id="@+id/ll_guadan_reward"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:orientation="horizontal"-->
+            <!--android:gravity="center_vertical"-->
+            <!--android:paddingRight="@dimen/y40"-->
+            <!--android:paddingLeft="@dimen/y40"-->
+            <!--android:paddingTop="@dimen/y20"-->
+            <!--android:paddingBottom="@dimen/y24"-->
+            <!--android:background="@color/common_white">-->
+
+            <!--<LinearLayout-->
+                <!--android:layout_width="0dp"-->
+                <!--android:layout_weight="1"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:orientation="vertical">-->
+
+                <!--<TextView-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:text="挂单奖励"-->
+                    <!--android:textColor="@color/color_666666"-->
+                    <!--android:textSize="12sp" />-->
+
+                <!--<LinearLayout-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:orientation="horizontal"-->
+                    <!--android:layout_marginTop="@dimen/y26">-->
+
+                    <!--<TextView-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:text="累计收益："-->
+                        <!--android:textColor="@color/color_666666"-->
+                        <!--android:textSize="12sp" />-->
+
+                    <!--<TextView-->
+                        <!--android:id="@+id/tv_guadan_reward"-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--tools:text="367.09"-->
+                        <!--android:textColor="@color/color_ff5100"-->
+                        <!--android:textSize="12sp" />-->
+
+                    <!--<TextView-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:text="@string/nbc"-->
+                        <!--android:textColor="@color/color_666666"-->
+                        <!--android:textSize="12sp" />-->
+
+                <!--</LinearLayout>-->
+
+            <!--</LinearLayout>-->
+
+            <!--<ImageView-->
+                <!--android:layout_width="@dimen/y1"-->
+                <!--android:layout_height="@dimen/y56"-->
+                <!--android:src="@mipmap/t"/>-->
+
+            <!--<LinearLayout-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:orientation="vertical"-->
+                <!--android:gravity="center"-->
+                <!--android:layout_marginLeft="@dimen/y100"-->
+                <!--android:layout_marginRight="@dimen/y100">-->
+
+                <!--<TextView-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:text="上期收益"-->
+                    <!--android:textColor="@color/color_666666"-->
+                    <!--android:textSize="12sp"/>-->
+
+                <!--<LinearLayout-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:orientation="horizontal"-->
+                    <!--android:layout_marginTop="@dimen/y34">-->
+
+                    <!--<TextView-->
+                        <!--android:id="@+id/tv_yesterday_earnings2"-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--tools:text="1.00"-->
+                        <!--android:textColor="@color/color_ff5100"-->
+                        <!--android:textSize="12sp" />-->
+
+                    <!--<TextView-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:text="@string/nbc"-->
+                        <!--android:textColor="@color/color_ff5100"-->
+                        <!--android:textSize="12sp" />-->
+
+                <!--</LinearLayout>-->
+
+            <!--</LinearLayout>-->
+
+            <!--<ImageView-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:src="@mipmap/y"-->
+                <!--android:layout_marginLeft="@dimen/y20"/>-->
+
+        <!--</LinearLayout>-->
+
+        <!--<include layout="@layout/line_f9"/>-->
 
         <LinearLayout
             android:id="@+id/ll_tuigunang_reward"

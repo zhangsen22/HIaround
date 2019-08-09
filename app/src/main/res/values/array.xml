@@ -25,7 +25,7 @@
     <string-array name="order_title">
         <item>我的卖出</item>
         <item>我的买入</item>
-        <!--<item>我的委托单</item>-->
+        <item>出售委托</item>
     </string-array>
 
     <string-array name="order_item_title">
