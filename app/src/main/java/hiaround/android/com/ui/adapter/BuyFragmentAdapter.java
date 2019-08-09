@@ -25,6 +25,7 @@ public class BuyFragmentAdapter extends RecyclerView.Adapter {
     private boolean onBind;
     private int checkedPosition = -1;
     private OnBuyCheckListener onBuyCheckListener;
+    private String unit;
 
     public BuyFragmentAdapter(Context context, List<String> priceList,OnBuyCheckListener onCheckListener) {
         super();
@@ -58,6 +59,10 @@ public class BuyFragmentAdapter extends RecyclerView.Adapter {
         return mPriceList.size();
     }
 
+    public void setUnit(String unit) {
+        this.unit = unit;
+    }
+
     public class BuyItemHolder extends RecyclerView.ViewHolder {
         @BindView(R.id.cb_buy_check)
         CheckBox cbBuyCheck;
@@ -70,7 +75,7 @@ public class BuyFragmentAdapter extends RecyclerView.Adapter {
         }
 
         public void onBind(String s, int position) {
-            tvBuyPrice.setText(s);
+            tvBuyPrice.setText(s+unit);
             cbBuyCheck.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                 @Override
                 public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {

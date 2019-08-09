@@ -134,6 +134,7 @@ public class BuyFragment extends BaseFragment implements BuyContract.View, BuyFr
             cloudQuickPayList = buyResponse.getCloudQuickPayList();
             //默认展示微信价格
             priceList.addAll(wechatList);
+            buyFragmentAdapter.setUnit(buyResponse.getUnit());
             buyFragmentAdapter.notifyDataSetChanged();
         }
     }
@@ -151,7 +152,7 @@ public class BuyFragment extends BaseFragment implements BuyContract.View, BuyFr
 
     @Override
     public void onBuyCheck(int position, String s) {
-        payMoney = s.replaceAll("","元");
+        payMoney = s;
     }
 
     @OnClick({R.id.ll_choose_paytype, R.id.go_buy})

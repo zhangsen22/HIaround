@@ -61,10 +61,10 @@ public class OrderEntrustDetailsAdapter extends PowerAdapter<MyEntrustinfoItem> 
         public void onBind(@NonNull final MyEntrustinfoItem myEntrustinfoItem, int position) {
             if(childType == 1){
                 tvBuySell.setText("买");
-                tvBuySell.setBackgroundResource(R.mipmap.aj);
+                tvBuySell.setBackgroundResource(R.mipmap.bu);
             }else if(childType == 2){
                 tvBuySell.setText("卖");
-                tvBuySell.setBackgroundResource(R.mipmap.aj);
+                tvBuySell.setBackgroundResource(R.mipmap.bu);
             }
 
             long puttime = myEntrustinfoItem.getPuttime();

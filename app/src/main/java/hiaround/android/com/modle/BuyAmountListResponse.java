@@ -3,7 +3,7 @@ package hiaround.android.com.modle;
 import java.util.List;
 
 public class BuyAmountListResponse extends BaseBean {
-
+    private String unit;
     private List<String> wechatList;
     private List<String> cloudQuickPayList;
 
@@ -15,10 +15,15 @@ public class BuyAmountListResponse extends BaseBean {
         return cloudQuickPayList;
     }
 
+    public String getUnit() {
+        return unit;
+    }
+
     @Override
     public String toString() {
         return "BuyAmountListResponse{" +
-                "wechatList=" + wechatList +
+                "unit='" + unit + '\'' +
+                ", wechatList=" + wechatList +
                 ", cloudQuickPayList=" + cloudQuickPayList +
                 '}';
     }

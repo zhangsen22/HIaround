@@ -19,7 +19,7 @@
             android:layout_width="@dimen/y42"
             android:layout_height="@dimen/y42"
             android:text="买"
-            android:background="@mipmap/aj"
+            android:background="@mipmap/bu"
             android:textSize="12sp"
             android:textColor="@color/common_white"
             android:gravity="center"/>

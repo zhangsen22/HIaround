@@ -20,7 +20,7 @@
             android:layout_width="@dimen/y42"
             android:layout_height="@dimen/y42"
             tools:text="卖"
-            tools:background="@mipmap/aj"
+            tools:background="@mipmap/bu"
             android:textSize="12sp"
             android:textColor="@color/common_white"
             android:gravity="center"/>

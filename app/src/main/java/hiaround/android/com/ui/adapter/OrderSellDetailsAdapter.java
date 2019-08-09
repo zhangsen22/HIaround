@@ -79,7 +79,7 @@ public class OrderSellDetailsAdapter extends PowerAdapter<MySellOrBuyinfoItem> {
             int tradeSource = mySellOrBuyinfoItem.getTradeSource();
             if(tradeSource == 1){
                 tvOrderSellShuoming.setText("卖");
-                tvOrderSellShuoming.setBackgroundResource(R.mipmap.aj);
+                tvOrderSellShuoming.setBackgroundResource(R.mipmap.bu);
             }else {
                 tvOrderSellShuoming.setText("充");
                 tvOrderSellShuoming.setBackgroundResource(R.mipmap.bu);
