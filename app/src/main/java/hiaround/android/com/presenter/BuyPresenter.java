@@ -1,6 +1,7 @@
 package hiaround.android.com.presenter;
 
 import hiaround.android.com.modle.BuyAmountListResponse;
+import hiaround.android.com.modle.BuyBusinessResponse;
 import hiaround.android.com.net.retrofit.ModelResultObserver;
 import hiaround.android.com.net.retrofit.exception.ModelException;
 import hiaround.android.com.presenter.contract.BuyContract;
@@ -35,6 +36,25 @@ public class BuyPresenter implements BuyContract.Presenter{
                     @Override
                     public void onFailure(ModelException ex) {
                         super.onFailure(ex);
+                    }
+                });
+    }
+
+    @Override
+    public void quickBuy(String amount, int type) {
+        mView.showLoading();
+        mModel.quickBuy(amount,type).observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new ModelResultObserver<BuyBusinessResponse>() {
+                    @Override
+                    public void onSuccess(BuyBusinessResponse buyResponse) {
+                        mView.quickBuySuccess(buyResponse,type);
+                        mView.hideLoading();
+                    }
+
+                    @Override
+                    public void onFailure(ModelException ex) {
+                        super.onFailure(ex);
+                        mView.hideLoading();
                     }
                 });
     }

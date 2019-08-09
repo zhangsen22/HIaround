@@ -94,94 +94,18 @@
                 android:background="@drawable/corners_bg20s"
                 android:layout_marginLeft="@dimen/y44"
                 android:layout_marginRight="@dimen/y44"
-                android:paddingTop="@dimen/y38"
                 android:orientation="vertical">
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:layout_marginLeft="@dimen/y44"
-                        android:gravity="center_vertical">
-
-                        <TextView
-                            android:id="@+id/tv_buy"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="我要买"
-                            android:textColor="@color/color_333333"
-                            android:textSize="15sp" />
-
-                        <ImageView
-                            android:layout_width="@dimen/y30"
-                            android:layout_height="@dimen/y30"
-                            android:src="@mipmap/b"
-                            android:layout_marginLeft="@dimen/y16"/>
-
-                        <TextView
-                            android:id="@+id/tv_sell"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="我要卖"
-                            android:textColor="@color/color_999999"
-                            android:textSize="15sp"
-                            android:layout_marginLeft="@dimen/y16"/>
-
-                        <View
-                            android:layout_width="0dp"
-                            android:layout_height="@dimen/y1"
-                            android:layout_weight="1"/>
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="1"
-                            android:textColor="@color/color_666666"
-                            android:textSize="13sp" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/usdt"
-                            android:textColor="@color/color_666666"
-                            android:textSize="13sp" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="="
-                            android:textColor="@color/color_666666"
-                            android:textSize="13sp" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            tools:text="6.92"
-                            android:textColor="@color/color_666666"
-                            android:textSize="13sp" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/cny"
-                            android:textColor="@color/color_666666"
-                            android:textSize="13sp"
-                            android:layout_marginRight="@dimen/y30"/>
-
-                    </LinearLayout>
-
-                </LinearLayout>
+                        <net.lucode.hackware.magicindicator.MagicIndicator
+                            android:id="@+id/gusadan_magicindicator"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/y92"
+                            android:layout_gravity="center_horizontal"/>
 
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/y1"
                     android:background="@mipmap/l"
-                    android:layout_marginTop="@dimen/y34"
                     android:layout_marginLeft="@dimen/y30"
                     android:layout_marginRight="@dimen/y30"/>
 

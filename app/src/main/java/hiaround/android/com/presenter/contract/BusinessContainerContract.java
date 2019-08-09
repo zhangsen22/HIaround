@@ -4,7 +4,7 @@ import hiaround.android.com.IBasePresenter;
 import hiaround.android.com.IBaseView;
 import hiaround.android.com.modle.WalletResponse;
 
-public interface PropertyContract {
+public interface BusinessContainerContract {
     interface Presenter extends IBasePresenter {
         //资产查询
         void getInfo();

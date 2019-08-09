@@ -7,13 +7,9 @@ import hiaround.android.com.modle.BuyResponse;
 public interface SellContract {
 
     interface Presenter extends IBasePresenter {
-        void getSellRefresh(long minId);
-        void getSellLoadMore(long minId);
+        void quickSell(int type,String financePwd,double rmb,long time);
     }
     interface View extends IBaseView<Presenter> {
-        void getSellRefreshSuccess(BuyResponse buyResponse);
-        void getSellRefreshError();
-        void getSellLoadMoreSuccess(BuyResponse buyResponse);
-        void getSellLoadMoreError();
+        void quickSellSuccess();
     }
 }

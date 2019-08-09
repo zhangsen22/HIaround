@@ -15,9 +15,11 @@ public class BusinessViewPagerAdapter extends FragmentPagerAdapter {
     private BuyFragment buyFragment;
     private SellFragment sellFragment;
     private List<Fragment> fragmentList;
+    private String[] mTitles;
 
-    public BusinessViewPagerAdapter(FragmentManager fm) {
+    public BusinessViewPagerAdapter(FragmentManager fm, String[] titles) {
         super(fm);
+        this.mTitles = titles;
         if (fragmentList == null) {
             fragmentList = new ArrayList<>();
         }
@@ -29,6 +31,11 @@ public class BusinessViewPagerAdapter extends FragmentPagerAdapter {
             sellFragment = SellFragment.newInstance("");
         }
         fragmentList.add(sellFragment);
+    }
+
+    @Override
+    public CharSequence getPageTitle(int position) {
+        return mTitles[position];
     }
 
     @Override

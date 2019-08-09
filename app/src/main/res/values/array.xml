@@ -12,6 +12,11 @@
         <item>委托购买</item>
     </string-array>
 
+    <string-array name="guadan_t1itle">
+        <item>我要买</item>
+        <item>我要卖</item>
+    </string-array>
+
     <string-array name="property_title">
         <item>币币账户</item>
         <item>场外账户</item>

@@ -3,16 +3,16 @@ package hiaround.android.com.presenter;
 import hiaround.android.com.modle.WalletResponse;
 import hiaround.android.com.net.retrofit.ModelResultObserver;
 import hiaround.android.com.net.retrofit.exception.ModelException;
-import hiaround.android.com.presenter.contract.PropertyContract;
-import hiaround.android.com.presenter.modle.PropertyModle;
+import hiaround.android.com.presenter.contract.BusinessContainerContract;
+import hiaround.android.com.presenter.modle.BusinessContainerModle;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 
-public class PropertyPresenter implements PropertyContract.Presenter{
+public class BusinessContainerPresenter implements BusinessContainerContract.Presenter{
 
-    private PropertyContract.View mView;
-    private PropertyModle mModel;
+    private BusinessContainerContract.View mView;
+    private BusinessContainerModle mModel;
 
-    public PropertyPresenter(PropertyContract.View view, PropertyModle model){
+    public BusinessContainerPresenter(BusinessContainerContract.View view, BusinessContainerModle model){
         mView = view;
         mModel = model;
         mView.setPresenter(this);

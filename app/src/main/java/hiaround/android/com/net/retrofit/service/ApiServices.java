@@ -376,6 +376,16 @@ public interface ApiServices {
     Observable<BuyBusinessResponse> buy(@Field("billId") long billId, @Field("num") double num, @Field("type") int type);
 
     /**
+     * 一键购买
+     * @param amount
+     * @param type
+     * @return
+     */
+    @FormUrlEncoded
+    @POST(ApiConstants.quickBuy)
+    Observable<BuyBusinessResponse> quickBuy(@Field("amount") String amount, @Field("type") int type);
+
+    /**
      * 玩家点击我已付款
      * @param tradeId
      * @return
@@ -397,6 +407,19 @@ public interface ApiServices {
     @POST(ApiConstants.sell)
     Observable<SellResponse> sell(@Field("billId") long billId, @Field("num") double num, @Field("type") int type
             , @Field("financePwd") String financePwd, @Field("time") long time);
+
+    /**
+     * 一键出售
+     * @param type
+     * @param financePwd
+     * @param rmb
+     * @param time
+     * @return
+     */
+    @FormUrlEncoded
+    @POST(ApiConstants.quickSell)
+    Observable<BaseBean> quickSell( @Field("type") int type
+            , @Field("financePwd") String financePwd, @Field("rmb") double rmb,@Field("time") long time);
 
     /**
      * 玩家点击放币

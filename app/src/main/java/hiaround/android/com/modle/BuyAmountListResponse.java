@@ -5,7 +5,6 @@ import java.util.List;
 public class BuyAmountListResponse extends BaseBean {
 
     private List<String> wechatList;
-
     private List<String> cloudQuickPayList;
 
     public List<String> getWechatList() {

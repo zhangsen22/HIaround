@@ -278,6 +278,44 @@
     <include layout="@layout/line_f9"/>
 
     <LinearLayout
+        android:id="@+id/ll_zijinmima"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y100"
+        android:orientation="horizontal"
+        android:paddingLeft="@dimen/y40"
+        android:paddingRight="@dimen/y40"
+        android:gravity="center_vertical"
+        android:background="@color/common_white">
+
+        <ImageView
+            android:layout_width="@dimen/y30"
+            android:layout_height="@dimen/y30"
+            android:src="@mipmap/p" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="资金密码"
+            android:textSize="13sp"
+            android:textColor="@color/color_666666"
+            android:gravity="center"
+            android:layout_marginLeft="@dimen/y30"/>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"/>
+
+        <ImageView
+            android:layout_width="@dimen/y12"
+            android:layout_height="@dimen/y20"
+            android:src="@mipmap/y"/>
+
+    </LinearLayout>
+
+    <include layout="@layout/line_f9"/>
+
+    <LinearLayout
         android:id="@+id/ll_lx_kf"
         android:layout_width="match_parent"
         android:layout_height="@dimen/y100"

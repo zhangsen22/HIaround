@@ -152,6 +152,16 @@ public class BusinessBuyDetailsFragment extends BaseFragment implements Business
                     tvShoukuaiAccount.setText(bankPayee.getAccount());
                     ivPopview.setVisibility(View.GONE);
                 }
+            }else if (type == 4) {
+                tvPayTypeName.setText("云闪付");
+                tvShoukuaiTypeName.setText("云闪付");
+                tvPayImage.setImageResource(R.mipmap.af);
+//                BankPayee bankPayee = GsonUtil.getInstance().getServerBean(payee, BankPayee.class);
+//                if (bankPayee != null) {
+//                    tvShoukuaiName.setText(bankPayee.getName());
+//                    tvShoukuaiAccount.setText(bankPayee.getAccount());
+//                    ivPopview.setVisibility(View.GONE);
+//                }
             }
 
             tvShoukuaiCankaoma.setText(buyBusinessResponse.getPayCode() + "");

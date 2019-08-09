@@ -4,19 +4,25 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.text.TextUtils;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
 import com.growalong.util.util.GALogger;
 import com.growalong.util.util.PackageUtil;
 import com.lxj.xpopup.XPopup;
 import com.lxj.xpopup.interfaces.OnConfirmListener;
 import com.lxj.xpopup.interfaces.OnInputConfirmListener;
 import com.lxj.xpopup.interfaces.XPopupCallback;
+
 import butterknife.BindView;
+import butterknife.ButterKnife;
 import butterknife.OnClick;
+import butterknife.Unbinder;
 import hiaround.android.com.BaseFragment;
 import hiaround.android.com.MyApplication;
 import hiaround.android.com.R;
@@ -26,6 +32,7 @@ import hiaround.android.com.presenter.CenterPresenter;
 import hiaround.android.com.presenter.contract.CenterContract;
 import hiaround.android.com.presenter.modle.CenterModle;
 import hiaround.android.com.ui.activity.AddMakeStyleActivity;
+import hiaround.android.com.ui.activity.BalancePassWordActivity;
 import hiaround.android.com.ui.activity.IdentityActivity;
 import hiaround.android.com.ui.activity.LoginActivity;
 import hiaround.android.com.ui.activity.MainActivity;
@@ -70,6 +77,8 @@ public class CenterFragment extends BaseFragment implements CenterContract.View 
     View view2;
     @BindView(R.id.tv_shenfencard_status)
     TextView tvShenfencardStatus;
+    @BindView(R.id.ll_zijinmima)
+    LinearLayout llZijinmima;
     private MainActivity mainActivity;
     private CenterPresenter presenter;
 
@@ -107,7 +116,7 @@ public class CenterFragment extends BaseFragment implements CenterContract.View 
         initUserInfo();
     }
 
-    @OnClick({R.id.iv_edit, R.id.ll_shenfencard, R.id.ll_add_sk_type, R.id.ll_tj_friend, R.id.ll_lx_kf, R.id.ll_center_message, R.id.tv_logout})
+    @OnClick({R.id.iv_edit, R.id.ll_shenfencard, R.id.ll_add_sk_type, R.id.ll_tj_friend, R.id.ll_lx_kf, R.id.ll_center_message, R.id.tv_logout,R.id.ll_zijinmima})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.iv_edit:
@@ -175,6 +184,9 @@ public class CenterFragment extends BaseFragment implements CenterContract.View 
                         }, null, false)
                         .show();
                 break;
+            case R.id.ll_zijinmima:
+                BalancePassWordActivity.startThis(mainActivity);
+                break;
         }
     }
 
@@ -227,13 +239,13 @@ public class CenterFragment extends BaseFragment implements CenterContract.View 
         }
 
         int iDstatus = AccountManager.getInstance().getIDstatus();//0未验证，1等待人工审核 2 已验证 99 验证失败
-        if(iDstatus == 0){
+        if (iDstatus == 0) {
             tvShenfencardStatus.setText("未验证");
-        }else if(iDstatus == 1){
+        } else if (iDstatus == 1) {
             tvShenfencardStatus.setText("等待人工审核");
-        }else if(iDstatus == 2){
+        } else if (iDstatus == 2) {
             tvShenfencardStatus.setText("已验证");
-        }else if(iDstatus == 99){
+        } else if (iDstatus == 99) {
             tvShenfencardStatus.setText("验证失败");
         }
     }

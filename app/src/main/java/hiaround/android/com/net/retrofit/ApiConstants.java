@@ -51,4 +51,6 @@ public class ApiConstants {
     public static final String wechatLogin = "user/wechatLogin";//微信登录
     public static final String recommendReward = "trade/recommendReward";//推荐奖励
     public static final String buyAmountList = "trade/buyAmountList";//交易 我要买  获取购买金额列表
+    public static final String quickBuy = "trade/quickBuy";//一键购买
+    public static final String quickSell = "trade/quickSell";//一键出售
 }

@@ -34,6 +34,13 @@ public class BuyFragmentAdapter extends RecyclerView.Adapter {
         this.onBuyCheckListener = onCheckListener;
     }
 
+    public int getCheckedPosition() {
+        return checkedPosition;
+    }
+
+    public void setCheckedPosition(int checkedPosition) {
+        this.checkedPosition = checkedPosition;
+    }
 
     @NonNull
     @Override
