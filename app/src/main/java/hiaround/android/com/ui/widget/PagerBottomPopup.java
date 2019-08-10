@@ -67,11 +67,11 @@ public class PagerBottomPopup extends BottomPopupView implements CompoundButton.
         if(selectListener != null){
             selectListener.onSelect(type,text);
         }
-        postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                if(popupInfo.autoDismiss)dismiss();
-            }
-        },500);
+//        postDelayed(new Runnable() {
+//            @Override
+//            public void run() {
+//                if(popupInfo.autoDismiss)dismiss();
+//            }
+//        },500);
     }
 }

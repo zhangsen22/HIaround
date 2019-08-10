@@ -130,7 +130,7 @@ public class SellFragment extends BaseFragment implements SellContract.View {
             case R.id.ll_choose_paytype1:
                 new XPopup.Builder(getContext())
                         .moveUpToKeyboard(false) //如果不加这个，评论弹窗会移动到软键盘上面
-                        .asCustom(new PagerBottomPopup1(getContext(), new OnSelectListener() {
+                        .asCustom(new PagerBottomPopup1(getContext(),payType, new OnSelectListener() {
                             @Override
                             public void onSelect(int type, String text) {
 //private int type = 0;//1为支付宝，2为微信，3为银行账户

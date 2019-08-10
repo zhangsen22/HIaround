@@ -29,11 +29,13 @@ public class PagerBottomPopup1 extends BottomPopupView implements CompoundButton
     private OnSelectListener selectListener;
     private int type = 0;//1为支付宝，2为微信，3为银行账户
     private String text;
+    private int payType;
 
-    public PagerBottomPopup1(@NonNull Context context, OnSelectListener selectListener) {
+    public PagerBottomPopup1(@NonNull Context context, int payType,OnSelectListener selectListener) {
         super(context);
         this.selectListener = selectListener;
         this.context = context;
+        this.payType = payType;
     }
 
     @Override
@@ -56,6 +58,23 @@ public class PagerBottomPopup1 extends BottomPopupView implements CompoundButton
         tvWebchat.setOnClickListener(this);
         tvAlpiy.setOnClickListener(this);
         tvBank.setOnClickListener(this);
+        if(payType == 0){
+            cbAlpiy.setChecked(false);
+            cbBank.setChecked(false);
+            cbWebchat.setChecked(false);
+        }else if(payType == 1){
+            cbAlpiy.setChecked(true);
+            cbBank.setChecked(false);
+            cbWebchat.setChecked(false);
+        }else if(payType == 2){
+            cbAlpiy.setChecked(false);
+            cbBank.setChecked(false);
+            cbWebchat.setChecked(true);
+        }else if(payType == 3){
+            cbAlpiy.setChecked(false);
+            cbBank.setChecked(true);
+            cbWebchat.setChecked(false);
+        }
         if (AccountManager.getInstance().isHaveAliPayee()) {
             cbAlpiy.setVisibility(VISIBLE);
             tvAlpiy.setVisibility(GONE);
@@ -97,7 +116,7 @@ public class PagerBottomPopup1 extends BottomPopupView implements CompoundButton
     @Override
     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
         switch (buttonView.getId()) {
-            case R.id.cb_alipay:
+            case R.id.cb_alpiy:
                 if (isChecked) {
                     cbWebchat.setChecked(false);
                     cbBank.setChecked(false);
@@ -105,7 +124,7 @@ public class PagerBottomPopup1 extends BottomPopupView implements CompoundButton
                     text = "支付宝";
                 } else {
                     type = 0;
-                    text = "请选择一种收款方式";
+                    text = "";
                 }
                 break;
             case R.id.cb_webchat:
@@ -116,10 +135,10 @@ public class PagerBottomPopup1 extends BottomPopupView implements CompoundButton
                     text = "微信支付";
                 } else {
                     type = 0;
-                    text = "请选择一种收款方式";
+                    text = "";
                 }
                 break;
-            case R.id.cb_idcast:
+            case R.id.cb_bank:
                 if (isChecked) {
                     cbAlpiy.setChecked(false);
                     cbWebchat.setChecked(false);
@@ -127,7 +146,7 @@ public class PagerBottomPopup1 extends BottomPopupView implements CompoundButton
                     text = "银行卡";
                 } else {
                     type = 0;
-                    text = "请选择一种收款方式";
+                    text = "";
                 }
                 break;
         }
@@ -135,12 +154,12 @@ public class PagerBottomPopup1 extends BottomPopupView implements CompoundButton
         if (selectListener != null) {
             selectListener.onSelect(type, text);
         }
-        postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                if (popupInfo.autoDismiss) dismiss();
-            }
-        }, 500);
+//        postDelayed(new Runnable() {
+//            @Override
+//            public void run() {
+//                if (popupInfo.autoDismiss) dismiss();
+//            }
+//        }, 500);
     }
 
     @Override
