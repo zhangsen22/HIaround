@@ -58,7 +58,6 @@
             <CheckBox
                 android:id="@+id/cb_bank"
                 style="@style/CustomCheckboxTheme2"
-                android:checked="true"
                 android:visibility="gone"/>
 
         </FrameLayout>
@@ -110,7 +109,6 @@
             <CheckBox
                 android:id="@+id/cb_webchat"
                 style="@style/CustomCheckboxTheme2"
-                android:checked="true"
                 android:visibility="gone"/>
 
         </FrameLayout>
