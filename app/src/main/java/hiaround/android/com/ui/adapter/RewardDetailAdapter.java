@@ -6,9 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-
-import java.text.DecimalFormat;
-
+import java.math.BigDecimal;
 import hiaround.android.com.R;
 import hiaround.android.com.modle.RewardDetailItem;
 import hiaround.android.com.ui.adapter.poweradapter.PowerAdapter;
@@ -49,7 +47,7 @@ public class RewardDetailAdapter extends PowerAdapter<RewardDetailItem> {
         @Override
         public void onBind(@NonNull RewardDetailItem rewardDetailItem, int position) {
             tvDate.setText(rewardDetailItem.getDate());
-            tvJiangli.setText(new DecimalFormat("0.0000").format(rewardDetailItem.getValue()));
+            tvJiangli.setText(new BigDecimal(rewardDetailItem.getValue()).setScale(2,BigDecimal.ROUND_DOWN).toString());
         }
     }
 }

@@ -15,7 +15,7 @@ import com.growalong.util.util.GALogger;
 import com.handmark.pulltorefresh.library.PullToRefreshBase;
 import com.handmark.pulltorefresh.library.PullToRefreshRecyclerView;
 import com.handmark.pulltorefresh.library.internal.RecycleViewLoadingLayout;
-import java.text.DecimalFormat;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 import butterknife.BindView;
@@ -142,13 +142,13 @@ public class RewardDetailFragment extends BaseFragment implements RewardDetailCo
         mRecyclerView.postDelayed(refreshAction, DEFAULT_TIME);
         if (fromType > 0) {
             if (fromType == 1) {
-                tvAllJiangli.setText(new DecimalFormat("0.0000").format(mRewardLogResponse.getTotTradeReward()));
-                tvLastJiangli.setText(new DecimalFormat("0.0000").format(mRewardLogResponse.getLastTradeReward()));
+                tvAllJiangli.setText(new BigDecimal(mRewardLogResponse.getTotTradeReward()).setScale(2,BigDecimal.ROUND_DOWN).toString());
+                tvLastJiangli.setText(new BigDecimal(mRewardLogResponse.getLastTradeReward()).setScale(2,BigDecimal.ROUND_DOWN).toString());
                 tvTitle.setText("交易奖励详细");
                 llRewardBottomDetails.setVisibility(View.GONE);
             } else if (fromType == 2) {
-                tvAllJiangli.setText(new DecimalFormat("0.0000").format(mRewardLogResponse.getTotTGReward()));
-                tvLastJiangli.setText(new DecimalFormat("0.0000").format(mRewardLogResponse.getLastTGReward()));
+                tvAllJiangli.setText(new BigDecimal(mRewardLogResponse.getTotTGReward()).setScale(2,BigDecimal.ROUND_DOWN).toString());
+                tvLastJiangli.setText(new BigDecimal(mRewardLogResponse.getLastTGReward()).setScale(2,BigDecimal.ROUND_DOWN).toString());
                 tvTitle.setText("推广分红详细");
                 llRewardBottomDetails.setVisibility(View.VISIBLE);
                 tvRewardBottomType1.setText(MyApplication.appContext.getResources().getString(R.string.text1));
@@ -156,8 +156,8 @@ public class RewardDetailFragment extends BaseFragment implements RewardDetailCo
                 tvRewardBottomNum1.setText(mRewardLogResponse.getFirstTG()+"");
                 tvRewardBottomNum2.setText(mRewardLogResponse.getSecondTG()+"");
             } else if (fromType == 3) {
-                tvAllJiangli.setText(new DecimalFormat("0.0000").format(mRewardLogResponse.getTotAgentReward()));
-                tvLastJiangli.setText(new DecimalFormat("0.0000").format(mRewardLogResponse.getLastAgentReward()));
+                tvAllJiangli.setText(new BigDecimal(mRewardLogResponse.getTotAgentReward()).setScale(2,BigDecimal.ROUND_DOWN).toString());
+                tvLastJiangli.setText(new BigDecimal(mRewardLogResponse.getLastAgentReward()).setScale(2,BigDecimal.ROUND_DOWN).toString());
                 tvTitle.setText("代理奖励详细");
                 llRewardBottomDetails.setVisibility(View.VISIBLE);
                 tvRewardBottomType1.setText(MyApplication.appContext.getResources().getString(R.string.text3));
@@ -165,8 +165,8 @@ public class RewardDetailFragment extends BaseFragment implements RewardDetailCo
                 tvRewardBottomNum1.setText(mRewardLogResponse.getFirstAgentTG()+"");
                 tvRewardBottomNum2.setText(mRewardLogResponse.getSecondAgentTG()+"");
             } else if (fromType == 4) {
-                tvAllJiangli.setText(new DecimalFormat("0.0000").format(mRewardLogResponse.getTotBillReward()));
-                tvLastJiangli.setText(new DecimalFormat("0.0000").format(mRewardLogResponse.getLastBillReward()));
+                tvAllJiangli.setText(new BigDecimal(mRewardLogResponse.getTotBillReward()).setScale(2,BigDecimal.ROUND_DOWN).toString());
+                tvLastJiangli.setText(new BigDecimal(mRewardLogResponse.getLastBillReward()).setScale(2,BigDecimal.ROUND_DOWN).toString());
                 tvTitle.setText("挂单奖励详细");
                 llRewardBottomDetails.setVisibility(View.GONE);
             }

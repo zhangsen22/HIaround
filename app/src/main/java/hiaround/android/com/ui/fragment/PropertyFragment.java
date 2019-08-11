@@ -6,6 +6,8 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.growalong.util.util.GALogger;
+
+import java.math.BigDecimal;
 import java.text.DecimalFormat;
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -83,13 +85,13 @@ public class PropertyFragment extends BaseFragment implements AwardDetailsContra
     public void rewardLogSuccess(RewardLogResponse rewardLogResponse) {
         if (rewardLogResponse != null) {
             this.rewardLogResponse = rewardLogResponse;
-            tvAccountMoney1.setText(new DecimalFormat("0.0000").format(rewardLogResponse.getTotTradeReward()+rewardLogResponse.getTotTGReward()+rewardLogResponse.getTotAgentReward()));
-            tvBusinessReward.setText(new DecimalFormat("0.0000").format(rewardLogResponse.getTotTradeReward()));
-            tvYesterdayEarnings1.setText(new DecimalFormat("0.0000").format(rewardLogResponse.getLastTradeReward()));
-            tvTuiguangReward.setText(new DecimalFormat("0.0000").format(rewardLogResponse.getTotTGReward()));
-            tvYesterdayEarnings3.setText(new DecimalFormat("0.0000").format(rewardLogResponse.getLastTGReward()));
-            tvDailiReward.setText(new DecimalFormat("0.0000").format(rewardLogResponse.getTotAgentReward()));
-            tvYesterdayEarnings4.setText(new DecimalFormat("0.0000").format(rewardLogResponse.getLastAgentReward()));
+            tvAccountMoney1.setText(new BigDecimal(rewardLogResponse.getTotTradeReward()+rewardLogResponse.getTotTGReward()+rewardLogResponse.getTotAgentReward()).setScale(2,BigDecimal.ROUND_DOWN).toString());
+            tvBusinessReward.setText(new BigDecimal(rewardLogResponse.getTotTradeReward()).setScale(2,BigDecimal.ROUND_DOWN).toString());
+            tvYesterdayEarnings1.setText(new BigDecimal(rewardLogResponse.getLastTradeReward()).setScale(2,BigDecimal.ROUND_DOWN).toString());
+            tvTuiguangReward.setText(new BigDecimal(rewardLogResponse.getTotTGReward()).setScale(2,BigDecimal.ROUND_DOWN).toString());
+            tvYesterdayEarnings3.setText(new BigDecimal(rewardLogResponse.getLastTGReward()).setScale(2,BigDecimal.ROUND_DOWN).toString());
+            tvDailiReward.setText(new BigDecimal(rewardLogResponse.getTotAgentReward()).setScale(2,BigDecimal.ROUND_DOWN).toString());
+            tvYesterdayEarnings4.setText(new BigDecimal(rewardLogResponse.getLastAgentReward()).setScale(2,BigDecimal.ROUND_DOWN).toString());
         }
     }
 
