@@ -49,7 +49,7 @@ public class RewardDetailAdapter extends PowerAdapter<RewardDetailItem> {
         @Override
         public void onBind(@NonNull RewardDetailItem rewardDetailItem, int position) {
             tvDate.setText(rewardDetailItem.getDate());
-            tvJiangli.setText(new DecimalFormat("0.00").format(rewardDetailItem.getValue()));
+            tvJiangli.setText(new DecimalFormat("0.0000").format(rewardDetailItem.getValue()));
         }
     }
 }
