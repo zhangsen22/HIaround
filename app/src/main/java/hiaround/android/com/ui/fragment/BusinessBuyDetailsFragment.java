@@ -109,7 +109,7 @@ public class BusinessBuyDetailsFragment extends BaseFragment implements Business
     @Override
     protected void initView(View root) {
         setRootViewPaddingTop(flTitleComtent);
-        tvTitle.setText("购买"+MyApplication.appContext.getResources().getString(R.string.nbc));
+        tvTitle.setText("购买"+MyApplication.appContext.getResources().getString(R.string.usdt));
     }
 
     @Override
@@ -259,7 +259,7 @@ public class BusinessBuyDetailsFragment extends BaseFragment implements Business
                     public void onDismiss() {
                         Log.e("tag", "onDismiss");
                     }
-                }).asConfirm("你确定要退出购买"+MyApplication.appContext.getResources().getString(R.string.nbc)+"吗?", "",
+                }).asConfirm("你确定要退出购买"+MyApplication.appContext.getResources().getString(R.string.usdt)+"吗?", "",
                 "取消", "确定",
                 new OnConfirmListener() {
                     @Override

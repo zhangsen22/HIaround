@@ -275,7 +275,7 @@ public class EntrustSaleFragment extends BaseFragment implements EntrustSaleCont
         if (walletResponse != null) {
             hotNum = walletResponse.getHotNum();
             GALogger.d(TAG,"hotNum    "+hotNum);
-            tvUserPrice.setText(new DecimalFormat("0.000000").format(hotNum) + MyApplication.appContext.getResources().getString(R.string.nbc));
+            tvUserPrice.setText(new DecimalFormat("0.000000").format(hotNum) + MyApplication.appContext.getResources().getString(R.string.cny));
         }
     }
 
