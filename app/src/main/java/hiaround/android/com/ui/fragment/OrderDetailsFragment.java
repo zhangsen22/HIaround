@@ -10,11 +10,9 @@ import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import com.growalong.util.util.DateUtil;
 import com.growalong.util.util.GsonUtil;
 import com.lxj.xpopup.XPopup;
-import java.text.DecimalFormat;
 import butterknife.BindView;
 import butterknife.OnClick;
 import hiaround.android.com.BaseFragment;
@@ -112,9 +110,9 @@ public class OrderDetailsFragment extends BaseFragment {
             }else if(status == 40){
                 tvOrderDetailsStatus.setText("已关闭");
             }
-            tvOrderDetailsPrice.setText(MyApplication.appContext.getResources().getString(R.string.rmb)+new DecimalFormat("0.00").format(orderDetailsModle.getNum()*orderDetailsModle.getPrice()));
-            tvOrderDetailsSingleprice.setText(MyApplication.appContext.getResources().getString(R.string.rmb)+new DecimalFormat("0.0000").format(orderDetailsModle.getPrice()));
-            tvOrderDetailsNum.setText(new DecimalFormat("0.00").format(orderDetailsModle.getNum()));
+            tvOrderDetailsPrice.setText(MyApplication.appContext.getResources().getString(R.string.rmb)+orderDetailsModle.getUsdtTotalMoneyFmt());
+            tvOrderDetailsSingleprice.setText(MyApplication.appContext.getResources().getString(R.string.rmb)+orderDetailsModle.getUsdtPriceFmt());
+            tvOrderDetailsNum.setText(orderDetailsModle.getUsdtNumFmt());
             tvOrderDetailsTime.setText(DateUtil.getCurrentDateString3(orderDetailsModle.getCreateTime()));
             tvOrderDetailsCankaoma.setText(orderDetailsModle.getPayCode()+"");
             int payType = orderDetailsModle.getPayType();
@@ -149,7 +147,7 @@ public class OrderDetailsFragment extends BaseFragment {
                     }
                 }
             }
-            tvOrderDetailsAllprice.setText(MyApplication.appContext.getResources().getString(R.string.rmb)+new DecimalFormat("0.00").format(orderDetailsModle.getNum()*orderDetailsModle.getPrice()));
+            tvOrderDetailsAllprice.setText(MyApplication.appContext.getResources().getString(R.string.rmb)+orderDetailsModle.getUsdtTotalMoneyFmt());
         }
     }
 

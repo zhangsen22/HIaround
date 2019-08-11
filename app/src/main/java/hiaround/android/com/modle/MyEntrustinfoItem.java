@@ -14,6 +14,10 @@ public class MyEntrustinfoItem {
     private long puttime;//：21313131    //挂单时间
     private int status;//:1            //状态 0为当前正常挂单 1为已完成 2为已撤销
 
+    private String usdtTotalMoneyFmt;
+    private String usdtPriceFmt ;
+    private String usdtNumFmt;
+
     public long getId() {
         return id;
     }
@@ -58,6 +62,18 @@ public class MyEntrustinfoItem {
         return status;
     }
 
+    public String getUsdtTotalMoneyFmt() {
+        return usdtTotalMoneyFmt;
+    }
+
+    public String getUsdtPriceFmt() {
+        return usdtPriceFmt;
+    }
+
+    public String getUsdtNumFmt() {
+        return usdtNumFmt;
+    }
+
     @Override
     public String toString() {
         return "MyEntrustinfoItem{" +
@@ -72,6 +88,9 @@ public class MyEntrustinfoItem {
                 ", supportBank=" + supportBank +
                 ", puttime=" + puttime +
                 ", status=" + status +
+                ", usdtTotalMoneyFmt='" + usdtTotalMoneyFmt + '\'' +
+                ", usdtPriceFmt='" + usdtPriceFmt + '\'' +
+                ", usdtNumFmt='" + usdtNumFmt + '\'' +
                 '}';
     }
 }

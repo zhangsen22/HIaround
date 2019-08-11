@@ -94,9 +94,9 @@ public class OrderBuyDetailsAdapter extends PowerAdapter<MySellOrBuyinfoItem> {
             }else if(status == 40){
                 tvOrderSellStatus.setText("已关闭");
             }
-            tvOrderSellPrice.setText(new DecimalFormat("0.00").format(myBuyinfoItem.getPrice()));
-            tvOrderSellAmount.setText(new DecimalFormat("0.00").format(myBuyinfoItem.getPrice()*myBuyinfoItem.getNum()));
-            tvOrderSellPaycode.setText(new DecimalFormat("0.00").format(myBuyinfoItem.getNum()));
+            tvOrderSellPrice.setText(myBuyinfoItem.getUsdtPriceFmt());
+            tvOrderSellAmount.setText(myBuyinfoItem.getUsdtTotalMoneyFmt());
+            tvOrderSellPaycode.setText(myBuyinfoItem.getUsdtNumFmt());
 
             if(childType == 1){
                 if(status == 1){

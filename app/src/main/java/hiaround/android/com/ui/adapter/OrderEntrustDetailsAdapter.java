@@ -77,9 +77,9 @@ public class OrderEntrustDetailsAdapter extends PowerAdapter<MyEntrustinfoItem> 
             }else if(status == 2){
                 tvOrderSellStatus.setText("已撤销");
             }
-            tvOrderSellPrice.setText(new DecimalFormat("0.00").format(myEntrustinfoItem.getPrice()));
-            tvOrderSellAmount.setText(new DecimalFormat("0.00").format(myEntrustinfoItem.getPrice()*myEntrustinfoItem.getMaxNum()));
-            tvOrderSellPaycode.setText(new DecimalFormat("0.00").format(myEntrustinfoItem.getMaxNum()));
+            tvOrderSellPrice.setText(myEntrustinfoItem.getUsdtPriceFmt());
+            tvOrderSellAmount.setText(myEntrustinfoItem.getUsdtTotalMoneyFmt());
+            tvOrderSellPaycode.setText(myEntrustinfoItem.getUsdtNumFmt());
 
             tvOrderSellQfb.setOnClickListener(new View.OnClickListener() {
                 @Override

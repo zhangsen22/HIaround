@@ -15,7 +15,9 @@ public class MySellOrBuyinfoItem implements Parcelable {
     private long payTime;//:            //付款时间
     private int payCode;//:1234            //付款参考码
     private int tradeSource;//1: 卖  其他:充
-
+    private String usdtTotalMoneyFmt;
+    private String usdtPriceFmt ;
+    private String usdtNumFmt;
     private Object payee;//付款信息json
 
     protected MySellOrBuyinfoItem(Parcel in) {
@@ -30,6 +32,9 @@ public class MySellOrBuyinfoItem implements Parcelable {
         payCode = in.readInt();
         tradeSource = in.readInt();
         payee = in.readValue(ClassLoader.getSystemClassLoader());
+        usdtTotalMoneyFmt = in.readString();
+        usdtPriceFmt = in.readString();
+        usdtNumFmt = in.readString();
     }
 
     @Override
@@ -45,6 +50,9 @@ public class MySellOrBuyinfoItem implements Parcelable {
         dest.writeInt(payCode);
         dest.writeInt(tradeSource);
         dest.writeValue(payee);
+        dest.writeString(usdtTotalMoneyFmt);
+        dest.writeString(usdtPriceFmt);
+        dest.writeString(usdtNumFmt);
     }
 
     @Override
@@ -109,6 +117,18 @@ public class MySellOrBuyinfoItem implements Parcelable {
         return payee;
     }
 
+    public String getUsdtTotalMoneyFmt() {
+        return usdtTotalMoneyFmt;
+    }
+
+    public String getUsdtPriceFmt() {
+        return usdtPriceFmt;
+    }
+
+    public String getUsdtNumFmt() {
+        return usdtNumFmt;
+    }
+
     @Override
     public String toString() {
         return "MySellOrBuyinfoItem{" +
@@ -122,7 +142,10 @@ public class MySellOrBuyinfoItem implements Parcelable {
                 ", payTime=" + payTime +
                 ", payCode=" + payCode +
                 ", tradeSource=" + tradeSource +
-                ", payee='" + payee + '\'' +
+                ", usdtTotalMoneyFmt='" + usdtTotalMoneyFmt + '\'' +
+                ", usdtPriceFmt='" + usdtPriceFmt + '\'' +
+                ", usdtNumFmt='" + usdtNumFmt + '\'' +
+                ", payee=" + payee +
                 '}';
     }
 
