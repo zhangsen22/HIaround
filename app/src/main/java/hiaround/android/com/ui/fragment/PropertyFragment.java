@@ -73,6 +73,7 @@ public class PropertyFragment extends BaseFragment implements AwardDetailsContra
     public void lazyLoadData() {
         super.lazyLoadData();
         GALogger.d(TAG, "TradingAccountFragment   is    lazyLoadData");
+        setLoadDataWhenVisible();
         //初始化presenter
         new AwardDetailsPresenter(this, new AwardDetailsModle());
         awardDetailsPresenter.rewardLog();
