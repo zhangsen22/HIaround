@@ -7,17 +7,26 @@ public class SellResponse extends BaseBean implements Parcelable {
     private String tradeId;//:"fdsafds"        //订单号
     private int payCode;//:1234            //付款参考码
     private long creatTime;
+    private String usdtTotalMoneyFmt;
+    private String usdtPriceFmt ;
+    private String usdtNumFmt;
 
-    public SellResponse(String tradeId, int payCode, long creatTime) {
+    public SellResponse(String tradeId, int payCode, long creatTime, String usdtTotalMoneyFmt, String usdtPriceFmt, String usdtNumFmt) {
         this.tradeId = tradeId;
         this.payCode = payCode;
         this.creatTime = creatTime;
+        this.usdtTotalMoneyFmt = usdtTotalMoneyFmt;
+        this.usdtPriceFmt = usdtPriceFmt;
+        this.usdtNumFmt = usdtNumFmt;
     }
 
     protected SellResponse(Parcel in) {
         tradeId = in.readString();
         payCode = in.readInt();
         creatTime = in.readLong();
+        usdtTotalMoneyFmt = in.readString();
+        usdtPriceFmt = in.readString();
+        usdtNumFmt = in.readString();
     }
 
     @Override
@@ -25,6 +34,9 @@ public class SellResponse extends BaseBean implements Parcelable {
         dest.writeString(tradeId);
         dest.writeInt(payCode);
         dest.writeLong(creatTime);
+        dest.writeString(usdtTotalMoneyFmt);
+        dest.writeString(usdtPriceFmt);
+        dest.writeString(usdtNumFmt);
     }
 
     @Override
@@ -60,12 +72,27 @@ public class SellResponse extends BaseBean implements Parcelable {
         this.creatTime = creatTime;
     }
 
+    public String getUsdtTotalMoneyFmt() {
+        return usdtTotalMoneyFmt;
+    }
+
+    public String getUsdtPriceFmt() {
+        return usdtPriceFmt;
+    }
+
+    public String getUsdtNumFmt() {
+        return usdtNumFmt;
+    }
+
     @Override
     public String toString() {
         return "SellResponse{" +
                 "tradeId='" + tradeId + '\'' +
                 ", payCode=" + payCode +
                 ", creatTime=" + creatTime +
+                ", usdtTotalMoneyFmt='" + usdtTotalMoneyFmt + '\'' +
+                ", usdtPriceFmt='" + usdtPriceFmt + '\'' +
+                ", usdtNumFmt='" + usdtNumFmt + '\'' +
                 '}';
     }
 }

@@ -329,7 +329,7 @@ public class BusinessSellFragment extends BaseFragment implements CompoundButton
     public void sellSuccess(SellResponse sellResponse) {
         if (sellResponse != null) {
             sellResponse.setCreatTime(System.currentTimeMillis());
-            BusinessSellDetailsActivity.startThis(businessSellActivity, sellResponse, buyItem.getPrice(), Double.parseDouble(etBusinessSellNum.getText().toString().trim()), buyItem.getNickname());
+            BusinessSellDetailsActivity.startThis(businessSellActivity, sellResponse, buyItem.getNickname());
             businessSellActivity.finish();
         }
     }

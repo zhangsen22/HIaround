@@ -9,7 +9,6 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.growalong.util.util.DateUtil;
 import com.growalong.util.util.GALogger;
-import java.text.DecimalFormat;
 import hiaround.android.com.BaseActivity;
 import hiaround.android.com.R;
 import hiaround.android.com.app.AccountManager;
@@ -200,7 +199,7 @@ public class OrderSellDetailsAdapter extends PowerAdapter<MySellOrBuyinfoItem> {
             tvOrderSellQfb.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    BusinessSellDetailsActivity.startThis(mContext, new SellResponse(mySellOrBuyinfoItem.getTradeid(), mySellOrBuyinfoItem.getPayCode(), mySellOrBuyinfoItem.getCreateTime()), mySellOrBuyinfoItem.getPrice(), mySellOrBuyinfoItem.getNum(), AccountManager.getInstance().getNickname(),Constants.REQUESTCODE_12);
+                    BusinessSellDetailsActivity.startThis(mContext, new SellResponse(mySellOrBuyinfoItem.getTradeid(), mySellOrBuyinfoItem.getPayCode(), mySellOrBuyinfoItem.getCreateTime(),mySellOrBuyinfoItem.getUsdtTotalMoneyFmt(),mySellOrBuyinfoItem.getUsdtPriceFmt(),mySellOrBuyinfoItem.getUsdtNumFmt()), AccountManager.getInstance().getNickname(),Constants.REQUESTCODE_12);
                 }
             });
             tvOrderSellSs.setOnClickListener(new View.OnClickListener() {

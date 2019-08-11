@@ -11,9 +11,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import com.growalong.util.util.DateUtil;
 import com.growalong.util.util.GALogger;
-
-import java.text.DecimalFormat;
-
 import butterknife.BindView;
 import butterknife.OnClick;
 import hiaround.android.com.BaseFragment;
@@ -61,17 +58,13 @@ public class BusinessSellDetailsFragment extends BaseFragment implements Busines
     private BusinessSellDetailsActivity businessSellDetailsActivity;
     private BusinessSellDetailsPresenter presenter;
     private SellResponse sellResponse;
-    private double price;
-    private double num;
     private String nickname;
     private long createTime = 0;
     private CountDownTimer timer;
 
-    public static BusinessSellDetailsFragment newInstance(@Nullable SellResponse sellResponse, double price, double num, String nickname) {
+    public static BusinessSellDetailsFragment newInstance(@Nullable SellResponse sellResponse, String nickname) {
         Bundle arguments = new Bundle();
         arguments.putParcelable("sellResponse", sellResponse);
-        arguments.putDouble("price", price);
-        arguments.putDouble("num", num);
         arguments.putString("nickname", nickname);
         BusinessSellDetailsFragment fragment = new BusinessSellDetailsFragment();
         fragment.setArguments(arguments);
@@ -84,8 +77,6 @@ public class BusinessSellDetailsFragment extends BaseFragment implements Busines
         businessSellDetailsActivity = (BusinessSellDetailsActivity) getActivity();
         sellResponse = getArguments().getParcelable("sellResponse");
         createTime = sellResponse.getCreatTime();
-        price = getArguments().getDouble("price");
-        num = getArguments().getDouble("num");
         nickname = getArguments().getString("nickname");
     }
 
@@ -129,13 +120,13 @@ public class BusinessSellDetailsFragment extends BaseFragment implements Busines
             timer.start();
         }
         tvOrderCode.setText(sellResponse.getTradeId());
-        tvPayPrice.setText(MyApplication.appContext.getResources().getString(R.string.rmb) +new DecimalFormat("0.00").format( price * num));
-        tvBiusnessPrice.setText(MyApplication.appContext.getResources().getString(R.string.rmb) + new DecimalFormat("0.00").format(price));
-        tvBiusnessNum.setText(num+"");
+        tvPayPrice.setText(MyApplication.appContext.getResources().getString(R.string.rmb) +sellResponse.getUsdtTotalMoneyFmt());
+        tvBiusnessPrice.setText(MyApplication.appContext.getResources().getString(R.string.rmb) + sellResponse.getUsdtPriceFmt());
+        tvBiusnessNum.setText(sellResponse.getUsdtNumFmt()+"");
         tvSellName.setText(nickname);
         tvSellTime.setText(DateUtil.getCurrentDateString3(System.currentTimeMillis()));
         tvShoukuaiCankaoma.setText(sellResponse.getPayCode()+"");
-        tvSellReciveMonery.setText(new DecimalFormat("0.00").format(price * num));
+        tvSellReciveMonery.setText(sellResponse.getUsdtTotalMoneyFmt());
     }
 
     @OnClick({R.id.iv_back, R.id.tv_sell_shensu, R.id.tv_sell_fangbi})

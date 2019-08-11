@@ -13,20 +13,16 @@ import hiaround.android.com.ui.fragment.BusinessSellDetailsFragment;
 public class BusinessSellDetailsActivity extends BaseActivity {
     private static final String TAG = ChangePwdActivity.class.getSimpleName();
 
-    public static void startThis(BaseActivity activity, SellResponse sellResponse,double price,double num,String nickname,int requestCode) {
+    public static void startThis(BaseActivity activity, SellResponse sellResponse,String nickname,int requestCode) {
         Intent intent = new Intent(activity, BusinessSellDetailsActivity.class);
         intent.putExtra("sellResponse",sellResponse);
-        intent.putExtra("price",price);
-        intent.putExtra("num",num);
         intent.putExtra("nickname",nickname);
         activity.startActivityForResult(intent,requestCode);
     }
 
-    public static void startThis(BaseActivity activity, SellResponse sellResponse,double price,double num,String nickname) {
+    public static void startThis(BaseActivity activity, SellResponse sellResponse,String nickname) {
         Intent intent = new Intent(activity, BusinessSellDetailsActivity.class);
         intent.putExtra("sellResponse",sellResponse);
-        intent.putExtra("price",price);
-        intent.putExtra("num",num);
         intent.putExtra("nickname",nickname);
         activity.startActivity(intent);
     }
@@ -43,13 +39,11 @@ public class BusinessSellDetailsActivity extends BaseActivity {
     @Override
     protected void initData() {
         SellResponse sellResponse = getIntent().getParcelableExtra("sellResponse");
-        double price = getIntent().getDoubleExtra("price",0);
-        double num = getIntent().getDoubleExtra("num",0);
         String nickname = getIntent().getStringExtra("nickname");
         BusinessSellDetailsFragment businessSellDetailsFragment = (BusinessSellDetailsFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.contentFrame);
         if (businessSellDetailsFragment == null) {
-            businessSellDetailsFragment = BusinessSellDetailsFragment.newInstance(sellResponse,price,num,nickname);
+            businessSellDetailsFragment = BusinessSellDetailsFragment.newInstance(sellResponse,nickname);
             ActivityUtils.addFragmentToActivity(getSupportFragmentManager(),
                     businessSellDetailsFragment, R.id.contentFrame);
         }

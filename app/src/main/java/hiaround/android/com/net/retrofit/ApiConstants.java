@@ -46,7 +46,7 @@ public class ApiConstants {
     public static final String wechat = "user/paysetup/wechat";//微信收款设置
     public static final String detelePay = "user/paysetup/delete";//删除收款设置
     public static final String setDefaultPay = "user/paysetup/setDefault";//设置默认收款设置
-    public static final String DOWNLOADAPK = "xotc.apk";//设置默认收款设置
+    public static final String DOWNLOADAPK = "Gmix.apk";//设置默认收款设置
     public static final String wechatLogin = "user/wechatLogin";//微信登录
     public static final String recommendReward = "trade/recommendReward";//推荐奖励
     public static final String buyAmountList = "trade/buyAmountList";//交易 我要买  获取购买金额列表
