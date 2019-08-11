@@ -1,6 +1,7 @@
 package hiaround.android.com.presenter;
 
 import hiaround.android.com.modle.BaseBean;
+import hiaround.android.com.modle.SellLimitResponse;
 import hiaround.android.com.net.retrofit.ModelResultObserver;
 import hiaround.android.com.net.retrofit.exception.ModelException;
 import hiaround.android.com.presenter.contract.SellContract;
@@ -38,6 +39,22 @@ public class SellPresenter implements SellContract.Presenter{
                     public void onFailure(ModelException ex) {
                         super.onFailure(ex);
                         mView.hideLoading();
+                    }
+                });
+    }
+
+    @Override
+    public void sellLimit() {
+        mModel.sellLimit().observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new ModelResultObserver<SellLimitResponse>() {
+                    @Override
+                    public void onSuccess(SellLimitResponse sellLimitResponse) {
+                        mView.sellLimitSuccess(sellLimitResponse);
+                    }
+
+                    @Override
+                    public void onFailure(ModelException ex) {
+                        super.onFailure(ex);
                     }
                 });
     }

@@ -3,6 +3,7 @@ package hiaround.android.com.presenter.modle;
 import hiaround.android.com.modle.BaseBean;
 import hiaround.android.com.modle.BuyAmountListResponse;
 import hiaround.android.com.modle.BuyBusinessResponse;
+import hiaround.android.com.modle.SellLimitResponse;
 import hiaround.android.com.net.retrofit.BaseRetrofitClient;
 import hiaround.android.com.net.retrofit.exception.ModelExceptionMap;
 import hiaround.android.com.net.retrofit.exception.ServerExceptionMap;
@@ -50,6 +51,18 @@ public class BuyModle {
                 .subscribeOn(Schedulers.io())
                 .map(new ServerExceptionMap<BaseBean>())
                 .onErrorResumeNext(new ModelExceptionMap<BaseBean>());
+    }
+
+    /**
+     * 一键出售区间值
+     * @return
+     */
+    public Observable<SellLimitResponse> sellLimit(){
+        return BaseRetrofitClient.getInstance().create(ApiServices.class)
+                .sellLimit()
+                .subscribeOn(Schedulers.io())
+                .map(new ServerExceptionMap<SellLimitResponse>())
+                .onErrorResumeNext(new ModelExceptionMap<SellLimitResponse>());
     }
 
 }

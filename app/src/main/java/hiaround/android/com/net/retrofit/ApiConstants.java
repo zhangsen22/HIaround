@@ -52,4 +52,5 @@ public class ApiConstants {
     public static final String buyAmountList = "trade/buyAmountList";//交易 我要买  获取购买金额列表
     public static final String quickBuy = "trade/quickBuy";//一键购买
     public static final String quickSell = "trade/quickSell";//一键出售
+    public static final String sellLimit = "trade/sellLimit";//一键出售区间值
 }

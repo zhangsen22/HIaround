@@ -9,6 +9,8 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import com.growalong.util.util.EditTextManager;
 import com.growalong.util.util.GALogger;
 import com.growalong.util.util.GsonUtil;
 import com.growalong.util.util.Md5Utils;
@@ -21,6 +23,7 @@ import butterknife.OnClick;
 import hiaround.android.com.BaseFragment;
 import hiaround.android.com.R;
 import hiaround.android.com.app.Constants;
+import hiaround.android.com.modle.SellLimitResponse;
 import hiaround.android.com.modle.UsdtPriceResponse;
 import hiaround.android.com.presenter.SellPresenter;
 import hiaround.android.com.presenter.contract.SellContract;
@@ -53,6 +56,9 @@ public class SellFragment extends BaseFragment implements SellContract.View {
     TextView tvForgetAlipayPassword;
     private MainActivity mainActivity;
     private SellPresenter sellPresenter;
+    private double sellMinVal;
+    private double sellMaxVal;
+    private String unit;
     private int payType = 0;//默认请选择一种支付方式
 
     public static SellFragment newInstance(@Nullable String taskId) {
@@ -80,7 +86,7 @@ public class SellFragment extends BaseFragment implements SellContract.View {
         if (usdtPriceResponse != null) {
             tvUsdtRmb.setText(new DecimalFormat("0.000").format(usdtPriceResponse.getMinSellUsdtPrice()));
         }
-
+        EditTextManager.setMoneyEditText(etSellNum);
         etSellNum.addTextChangedListener(new TextWatcherUtils() {
             @Override
             public void afterTextChanged(Editable s) {
@@ -89,6 +95,11 @@ public class SellFragment extends BaseFragment implements SellContract.View {
                     double num = Double.parseDouble(s.toString());
                     if (num <= 0) {
                         ToastUtil.shortShow("出售不能小于0");
+                        tvSellUsdtnum.setText(new DecimalFormat("0.000000").format(0));
+                        return;
+                    }
+                    if(num<sellMinVal||num>sellMaxVal){
+                        ToastUtil.shortShow("出售的金额在"+sellMinVal+unit+"至"+sellMaxVal+unit);
                         tvSellUsdtnum.setText(new DecimalFormat("0.000000").format(0));
                         return;
                     }
@@ -105,8 +116,10 @@ public class SellFragment extends BaseFragment implements SellContract.View {
     public void lazyLoadData() {
         super.lazyLoadData();
         GALogger.d(TAG, "SellFragment  is  lazyLoadData");
+        setLoadDataWhenVisible();
         //初始化presenter
         new SellPresenter(this, new BuyModle());
+        sellPresenter.sellLimit();
     }
 
     @Override
@@ -163,6 +176,10 @@ public class SellFragment extends BaseFragment implements SellContract.View {
                     ToastUtil.shortShow("金额不能为零");
                     return;
                 }
+                if(d_businessBuyMoney<sellMinVal||d_businessBuyMoney>sellMaxVal){
+                    ToastUtil.shortShow("出售的金额在"+sellMinVal+unit+"至"+sellMaxVal+unit);
+                    return;
+                }
                 if (payType == 0) {
                     ToastUtil.shortShow("请选择一种支付方式");
                     return;
@@ -182,6 +199,16 @@ public class SellFragment extends BaseFragment implements SellContract.View {
     public void quickSellSuccess() {
         ToastUtil.shortShow("您的单子已出售,请到订单列表查看");
 
+    }
+
+    @Override
+    public void sellLimitSuccess(SellLimitResponse sellLimitResponse) {
+        if(sellLimitResponse != null){
+            sellMinVal = sellLimitResponse.getSellMinVal();
+            sellMaxVal = sellLimitResponse.getSellMaxVal();
+            unit = sellLimitResponse.getUnit();
+            etSellNum.setHint(sellMinVal+unit+"至"+sellMaxVal+unit);
+        }
     }
 
     @OnClick(R.id.tv_forget_alipay_password)

@@ -25,6 +25,7 @@ import hiaround.android.com.modle.UsdtPriceResponse;
 import hiaround.android.com.modle.WalletResponse;
 import hiaround.android.com.modle.WebChatEditModle;
 import hiaround.android.com.modle.WechatLoginModle;
+import hiaround.android.com.modle.SellLimitResponse;
 import hiaround.android.com.net.retrofit.ApiConstants;
 import io.reactivex.Observable;
 import okhttp3.ResponseBody;
@@ -589,4 +590,11 @@ public interface ApiServices {
     @FormUrlEncoded
     @POST(ApiConstants.recommendReward)
     Observable<InvitationResponse> recommendReward(@Field("upUserId") long upUserId);
+
+    /**
+     * 一键出售区间值
+     * @return
+     */
+    @POST(ApiConstants.sellLimit)
+    Observable<SellLimitResponse> sellLimit();
 }
