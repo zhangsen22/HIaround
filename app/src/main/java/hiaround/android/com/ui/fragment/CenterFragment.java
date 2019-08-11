@@ -1,5 +1,6 @@
 package hiaround.android.com.ui.fragment;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.text.TextUtils;
@@ -39,6 +40,8 @@ import hiaround.android.com.ui.activity.MainActivity;
 import hiaround.android.com.ui.activity.MessageCenterActivity;
 import hiaround.android.com.ui.activity.RecommendToFriendsActivity;
 import hiaround.android.com.ui.activity.WebViewActivity;
+import hiaround.android.com.ui.widget.KeFuPopupView;
+import hiaround.android.com.ui.widget.WenChatSaoPopupView;
 import hiaround.android.com.util.ToastUtil;
 
 public class CenterFragment extends BaseFragment implements CenterContract.View {
@@ -151,7 +154,9 @@ public class CenterFragment extends BaseFragment implements CenterContract.View 
                 RecommendToFriendsActivity.startThis(mainActivity);
                 break;
             case R.id.ll_lx_kf:
-                WebViewActivity.launchVerifyCode(MyApplication.appContext, Constants.KEFUANDHELP, true);
+                new XPopup.Builder(getContext())
+                        .hasStatusBarShadow(true) //启用状态栏阴影
+                        .asCustom(new KeFuPopupView(getContext())).show();
                 break;
             case R.id.ll_center_message:
                 MessageCenterActivity.startThis(mainActivity);

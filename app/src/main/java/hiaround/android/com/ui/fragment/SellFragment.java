@@ -89,12 +89,12 @@ public class SellFragment extends BaseFragment implements SellContract.View {
                     double num = Double.parseDouble(s.toString());
                     if (num <= 0) {
                         ToastUtil.shortShow("出售不能小于0");
-                        tvSellUsdtnum.setText(new DecimalFormat("0.000").format(0));
+                        tvSellUsdtnum.setText(new DecimalFormat("0.000000").format(0));
                         return;
                     }
                     UsdtPriceResponse usdtPriceResponse = GsonUtil.getInstance().getServerBean(SharedPreferencesUtils.getString(Constants.USDTPRICE), UsdtPriceResponse.class);
                     if (usdtPriceResponse != null) {
-                        tvSellUsdtnum.setText(new DecimalFormat("0.000").format(num / usdtPriceResponse.getMinSellUsdtPrice()));
+                        tvSellUsdtnum.setText(new DecimalFormat("0.000000").format(num / usdtPriceResponse.getMinSellUsdtPrice()));
                     }
                 }
             }

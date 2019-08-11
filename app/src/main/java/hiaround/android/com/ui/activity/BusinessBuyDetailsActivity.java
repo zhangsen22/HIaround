@@ -15,12 +15,9 @@ public class BusinessBuyDetailsActivity extends BaseActivity {
     private static final String TAG = BusinessBuyDetailsActivity.class.getSimpleName();
     private BusinessBuyDetailsFragment businessBuyDetailsFragment;
 
-    public static void startThis(BaseActivity activity, BuyBusinessResponse buyBusinessResponse, double price,double num,int type) {
+    public static void startThis(BaseActivity activity, BuyBusinessResponse buyBusinessResponse) {
         Intent intent = new Intent(activity, BusinessBuyDetailsActivity.class);
         intent.putExtra("buyBusinessResponse",buyBusinessResponse);
-        intent.putExtra("price",price);
-        intent.putExtra("num",num);
-        intent.putExtra("type",type);
         activity.startActivity(intent);
     }
 
@@ -36,13 +33,10 @@ public class BusinessBuyDetailsActivity extends BaseActivity {
     @Override
     protected void initData() {
         BuyBusinessResponse buyBusinessResponse = getIntent().getParcelableExtra("buyBusinessResponse");
-        double price = getIntent().getDoubleExtra("price",0);
-        double num = getIntent().getDoubleExtra("num",0);
-        int type = getIntent().getIntExtra("type",0);
         businessBuyDetailsFragment = (BusinessBuyDetailsFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.contentFrame);
         if (businessBuyDetailsFragment == null) {
-            businessBuyDetailsFragment = BusinessBuyDetailsFragment.newInstance(buyBusinessResponse,price,num,type);
+            businessBuyDetailsFragment = BusinessBuyDetailsFragment.newInstance(buyBusinessResponse);
             ActivityUtils.addFragmentToActivity(getSupportFragmentManager(),
                     businessBuyDetailsFragment, R.id.contentFrame);
         }

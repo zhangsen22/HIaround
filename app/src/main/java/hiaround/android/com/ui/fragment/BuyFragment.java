@@ -140,12 +140,12 @@ public class BuyFragment extends BaseFragment implements BuyContract.View, BuyFr
     }
 
     @Override
-    public void quickBuySuccess(BuyBusinessResponse buyBusinessResponse, int type) {
+    public void quickBuySuccess(BuyBusinessResponse buyBusinessResponse) {
         if (buyBusinessResponse != null) {
             buyBusinessResponse.setCurrentTime(System.currentTimeMillis());
             UsdtPriceResponse usdtPriceResponse = GsonUtil.getInstance().getServerBean(SharedPreferencesUtils.getString(Constants.USDTPRICE), UsdtPriceResponse.class);
             if (usdtPriceResponse != null) {
-                BusinessBuyDetailsActivity.startThis(mainActivity, buyBusinessResponse, usdtPriceResponse.getMinSellUsdtPrice(), Double.parseDouble(payMoney) / usdtPriceResponse.getMinSellUsdtPrice(), type);
+                BusinessBuyDetailsActivity.startThis(mainActivity, buyBusinessResponse);
             }
         }
     }

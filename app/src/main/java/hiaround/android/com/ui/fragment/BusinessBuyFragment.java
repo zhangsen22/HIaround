@@ -257,7 +257,7 @@ public class BusinessBuyFragment extends BaseFragment implements BusinessBuyCont
     public void buySuccess(BuyBusinessResponse buyBusinessResponse,int type) {
         if (buyBusinessResponse != null) {
             buyBusinessResponse.setCurrentTime(System.currentTimeMillis());
-            BusinessBuyDetailsActivity.startThis(businessBuyActivity, buyBusinessResponse, buyItem.getPrice(), Double.parseDouble(etBusinessBuyNum.getText().toString().trim()), type);
+//            BusinessBuyDetailsActivity.startThis(businessBuyActivity, buyBusinessResponse, buyItem.getPrice(), Double.parseDouble(etBusinessBuyNum.getText().toString().trim()), type);
             businessBuyActivity.finish();
         }
     }

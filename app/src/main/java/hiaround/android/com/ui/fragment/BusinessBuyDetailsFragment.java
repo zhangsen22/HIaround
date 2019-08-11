@@ -16,9 +16,7 @@ import com.growalong.util.util.bean.MessageEvent;
 import com.lxj.xpopup.XPopup;
 import com.lxj.xpopup.interfaces.OnConfirmListener;
 import com.lxj.xpopup.interfaces.XPopupCallback;
-
 import org.greenrobot.eventbus.EventBus;
-
 import butterknife.BindView;
 import butterknife.OnClick;
 import hiaround.android.com.BaseFragment;
@@ -74,18 +72,13 @@ public class BusinessBuyDetailsFragment extends BaseFragment implements Business
     private BusinessBuyDetailsActivity businessBuyDetailsActivity;
     private BusinessBuyDetailsPresenter presenter;
     private BuyBusinessResponse buyBusinessResponse;
-    private double price;
-    private double num;
-    private int type;
     private long createTime = 0;
+    private int type;
     private CountDownTimer timer;
 
-    public static BusinessBuyDetailsFragment newInstance(@Nullable BuyBusinessResponse buyBusinessResponse, double price, double num, int type) {
+    public static BusinessBuyDetailsFragment newInstance(@Nullable BuyBusinessResponse buyBusinessResponse) {
         Bundle arguments = new Bundle();
         arguments.putParcelable("buyBusinessResponse", buyBusinessResponse);
-        arguments.putDouble("price", price);
-        arguments.putDouble("num", num);
-        arguments.putInt("type", type);
         BusinessBuyDetailsFragment fragment = new BusinessBuyDetailsFragment();
         fragment.setArguments(arguments);
         return fragment;
@@ -96,9 +89,6 @@ public class BusinessBuyDetailsFragment extends BaseFragment implements Business
         super.onCreate(savedInstanceState);
         businessBuyDetailsActivity = (BusinessBuyDetailsActivity) getActivity();
         buyBusinessResponse = getArguments().getParcelable("buyBusinessResponse");
-        price = getArguments().getDouble("price");
-        num = getArguments().getDouble("num");
-        type = getArguments().getInt("type");
     }
 
     @Override
@@ -110,19 +100,20 @@ public class BusinessBuyDetailsFragment extends BaseFragment implements Business
     protected void initView(View root) {
         setRootViewPaddingTop(flTitleComtent);
         tvTitle.setText("购买"+MyApplication.appContext.getResources().getString(R.string.usdt));
+        type = buyBusinessResponse.getPayType();
     }
 
     @Override
     public void lazyLoadData() {
         super.lazyLoadData();
         tvOrderCode.setText(buyBusinessResponse.getTradeId());
-        tvPayPrice.setText(MyApplication.appContext.getResources().getString(R.string.rmb) + price * num + "");
-        tvBiusnessPrice.setText(MyApplication.appContext.getResources().getString(R.string.rmb) + price);
-        tvBiusnessNum.setText(num + "");
+        tvPayPrice.setText(MyApplication.appContext.getResources().getString(R.string.rmb) + buyBusinessResponse.getUsdtTotalMoneyFmt());
+        tvBiusnessPrice.setText(MyApplication.appContext.getResources().getString(R.string.rmb) + buyBusinessResponse.getUsdtPriceFmt());
+        tvBiusnessNum.setText(buyBusinessResponse.getUsdtNumFmt());
         createTime = buyBusinessResponse.getCurrentTime();
         String payee = GsonUtil.getInstance().objTojson(buyBusinessResponse.getPayee());
         if (!TextUtils.isEmpty(payee)) {
-            if (type == 1) {
+            if ( type == 1) {
                 tvPayTypeName.setText("支付宝");
                 tvShoukuaiTypeName.setText("支付宝");
                 tvPayImage.setImageResource(R.mipmap.g);

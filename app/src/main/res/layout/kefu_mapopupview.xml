@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:background="@drawable/corners_bg6"
+    android:gravity="center_horizontal">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/color_333333"
+        android:textSize="14sp"
+        android:text="联系客服"
+        android:layout_marginTop="@dimen/y28" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y1"
+        android:background="@mipmap/l"
+        android:layout_marginLeft="@dimen/y30"
+        android:layout_marginRight="@dimen/y30"
+        android:layout_marginTop="@dimen/y24"/>
+
+    <FrameLayout
+        android:layout_width="@dimen/y192"
+        android:layout_height="@dimen/y192"
+        android:background="@mipmap/q"
+        android:layout_marginTop="@dimen/y36"
+        android:layout_marginRight="@dimen/y194"
+        android:layout_marginLeft="@dimen/y194">
+
+    <ImageView
+        android:id="@+id/iv_webchat_image_code"
+        android:layout_width="@dimen/y148"
+        android:layout_height="@dimen/y148"
+        tools:src="@mipmap/ic_launcher"
+        android:layout_gravity="center"/>
+
+    </FrameLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/color_333333"
+        android:textSize="13sp"
+        android:text="客服微信"
+        android:layout_marginTop="@dimen/y10" />
+
+    <FrameLayout
+        android:layout_width="@dimen/y192"
+        android:layout_height="@dimen/y192"
+        android:background="@mipmap/q"
+        android:layout_marginTop="@dimen/y28"
+        android:layout_marginRight="@dimen/y194"
+        android:layout_marginLeft="@dimen/y194">
+
+        <ImageView
+            android:id="@+id/iv_tg_image_code"
+            android:layout_width="@dimen/y148"
+            android:layout_height="@dimen/y148"
+            tools:src="@mipmap/ic_launcher"
+            android:layout_gravity="center"/>
+
+    </FrameLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/color_333333"
+        android:textSize="13sp"
+        android:text="客服telegram"
+        android:layout_marginTop="@dimen/y10"
+        android:layout_marginBottom="@dimen/y40"/>
+
+</LinearLayout>

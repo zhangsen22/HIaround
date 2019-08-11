@@ -145,7 +145,7 @@ public class OrderBuyDetailsAdapter extends PowerAdapter<MySellOrBuyinfoItem> {
                     tvOrderSellSs.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            BusinessBuyDetailsActivity.startThis(mContext, new BuyBusinessResponse(myBuyinfoItem.getTradeid(), myBuyinfoItem.getPayCode(),myBuyinfoItem.getCreateTime(), myBuyinfoItem.getPayee()), myBuyinfoItem.getPrice(), myBuyinfoItem.getNum(), myBuyinfoItem.getPayType());
+                                BusinessBuyDetailsActivity.startThis(mContext, new BuyBusinessResponse(myBuyinfoItem.getTradeid(), myBuyinfoItem.getPayCode(),myBuyinfoItem.getCreateTime(),(myBuyinfoItem.getPrice()*myBuyinfoItem.getNum())+"",myBuyinfoItem.getPrice()+"", myBuyinfoItem.getNum()+"", myBuyinfoItem.getPayType(),myBuyinfoItem.getPayee()));
                         }
                     });
                 }else if(status == 2){
