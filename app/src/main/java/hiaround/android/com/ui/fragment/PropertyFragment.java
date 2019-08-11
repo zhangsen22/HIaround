@@ -82,13 +82,13 @@ public class PropertyFragment extends BaseFragment implements AwardDetailsContra
     public void rewardLogSuccess(RewardLogResponse rewardLogResponse) {
         if (rewardLogResponse != null) {
             this.rewardLogResponse = rewardLogResponse;
-            tvAccountMoney1.setText(new DecimalFormat("0.00").format(rewardLogResponse.getTotTradeReward()+rewardLogResponse.getTotTGReward()+rewardLogResponse.getTotAgentReward()));
-            tvBusinessReward.setText(new DecimalFormat("0.00").format(rewardLogResponse.getTotTradeReward()));
-            tvYesterdayEarnings1.setText(new DecimalFormat("0.00").format(rewardLogResponse.getLastTradeReward()));
-            tvTuiguangReward.setText(new DecimalFormat("0.00").format(rewardLogResponse.getTotTGReward()));
-            tvYesterdayEarnings3.setText(new DecimalFormat("0.00").format(rewardLogResponse.getLastTGReward()));
-            tvDailiReward.setText(new DecimalFormat("0.00").format(rewardLogResponse.getTotAgentReward()));
-            tvYesterdayEarnings4.setText(new DecimalFormat("0.00").format(rewardLogResponse.getLastAgentReward()));
+            tvAccountMoney1.setText(new DecimalFormat("0.0000").format(rewardLogResponse.getTotTradeReward()+rewardLogResponse.getTotTGReward()+rewardLogResponse.getTotAgentReward()));
+            tvBusinessReward.setText(new DecimalFormat("0.0000").format(rewardLogResponse.getTotTradeReward()));
+            tvYesterdayEarnings1.setText(new DecimalFormat("0.0000").format(rewardLogResponse.getLastTradeReward()));
+            tvTuiguangReward.setText(new DecimalFormat("0.0000").format(rewardLogResponse.getTotTGReward()));
+            tvYesterdayEarnings3.setText(new DecimalFormat("0.0000").format(rewardLogResponse.getLastTGReward()));
+            tvDailiReward.setText(new DecimalFormat("0.0000").format(rewardLogResponse.getTotAgentReward()));
+            tvYesterdayEarnings4.setText(new DecimalFormat("0.0000").format(rewardLogResponse.getLastAgentReward()));
         }
     }
 

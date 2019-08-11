@@ -21,17 +21,20 @@ import hiaround.android.com.modle.WechatPayee;
  */
 public class CenterErWeiMaPopupView extends CenterPopupView {
 
-    ImageView ivImageCode;
-    TextView tvAccount;
-    TextView tvPayTypeName;
-    TextView tvDespic;
+    private ImageView ivImageCode;
+    private TextView tvAccount;
+    private TextView tvPayTypeName;
+    private TextView tvDespic;
+    private TextView tvPayAllMoney;
     private int type;
     private String payee;
+    private String usdtTotalMoneyFmt;
 
-    public CenterErWeiMaPopupView(@NonNull Context context, int type, String payee) {
+    public CenterErWeiMaPopupView(@NonNull Context context, int type, String payee, String usdtTotalMoneyFmt) {
         super(context);
         this.type = type;
         this.payee = payee;
+        this.usdtTotalMoneyFmt = usdtTotalMoneyFmt;
     }
 
     @Override
@@ -44,18 +47,25 @@ public class CenterErWeiMaPopupView extends CenterPopupView {
         super.initPopupContent();
         ivImageCode = findViewById(R.id.iv_image_code);
         tvAccount = findViewById(R.id.tv_account);
+        tvPayAllMoney = findViewById(R.id.tv_pay_all_money);
         tvPayTypeName = findViewById(R.id.tv_pay_type_name);
         tvDespic = findViewById(R.id.tv_despic);
+        if(usdtTotalMoneyFmt == null){
+            tvPayAllMoney.setVisibility(GONE);
+        }else {
+            tvPayAllMoney.setVisibility(VISIBLE);
+            tvPayAllMoney.setText(usdtTotalMoneyFmt);
+        }
         Bitmap bitmapLog = BitmapFactory.decodeResource(MyApplication.appContext.getResources(), R.drawable.ic_launcher_round);
         if (type == 1) {//收款方式,1为支付宝，2为微信，3为银行账户
             tvPayTypeName.setText("请用支付宝扫一扫");
-            AliPayee aliPayee =  GsonUtil.getInstance().getServerBean(payee,AliPayee.class);
-            if(aliPayee != null){
+            AliPayee aliPayee = GsonUtil.getInstance().getServerBean(payee, AliPayee.class);
+            if (aliPayee != null) {
                 String account = aliPayee.getAccount();
-                if(!TextUtils.isEmpty(account)){
+                if (!TextUtils.isEmpty(account)) {
                     tvAccount.setVisibility(VISIBLE);
                     tvAccount.setText(account);
-                }else {
+                } else {
                     tvAccount.setVisibility(GONE);
                     tvDespic.setText("扫描二维码验证");
                 }
@@ -65,13 +75,13 @@ public class CenterErWeiMaPopupView extends CenterPopupView {
             }
         } else if (type == 2) {
             tvPayTypeName.setText("请用微信扫一扫");
-            WechatPayee wechatPayee =  GsonUtil.getInstance().getServerBean(payee,WechatPayee.class);
-            if(wechatPayee != null){
+            WechatPayee wechatPayee = GsonUtil.getInstance().getServerBean(payee, WechatPayee.class);
+            if (wechatPayee != null) {
                 String account = wechatPayee.getAccount();
-                if(!TextUtils.isEmpty(account)){
+                if (!TextUtils.isEmpty(account)) {
                     tvAccount.setVisibility(VISIBLE);
                     tvAccount.setText(account);
-                }else {
+                } else {
                     tvAccount.setVisibility(GONE);
                     tvDespic.setText("扫描二维码验证");
                 }

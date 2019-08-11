@@ -160,7 +160,7 @@ public class OrderDetailsFragment extends BaseFragment {
             case R.id.iv_order_details_code_image:
                     new XPopup.Builder(getContext())
                             .hasStatusBarShadow(true) //启用状态栏阴影
-                            .asCustom(new CenterErWeiMaPopupView(getContext(),orderDetailsModle.getPayType(),GsonUtil.getInstance().objTojson(orderDetailsModle.getPayee())))
+                            .asCustom(new CenterErWeiMaPopupView(getContext(),orderDetailsModle.getPayType(),GsonUtil.getInstance().objTojson(orderDetailsModle.getPayee()),orderDetailsModle.getUsdtTotalMoneyFmt()))
                             .show();
                 break;
             case R.id.tv_order_details_copy:

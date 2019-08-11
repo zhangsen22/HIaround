@@ -124,7 +124,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="昨日奖励"
+                    android:text="今日奖励"
                     android:textColor="@color/color_666666"
                     android:textSize="12sp"/>
 
@@ -348,7 +348,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="昨日分红"
+                    android:text="今日奖励"
                     android:textColor="@color/color_666666"
                     android:textSize="12sp"/>
 
@@ -460,7 +460,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="昨日奖励"
+                    android:text="今日奖励"
                     android:textColor="@color/color_666666"
                     android:textSize="12sp"/>
 

@@ -227,7 +227,7 @@ public class BusinessBuyDetailsFragment extends BaseFragment implements Business
             case R.id.iv_popview:
                 new XPopup.Builder(getContext())
                         .hasStatusBarShadow(true) //启用状态栏阴影
-                        .asCustom(new CenterErWeiMaPopupView(getContext(),type,GsonUtil.getInstance().objTojson(buyBusinessResponse.getPayee())))
+                        .asCustom(new CenterErWeiMaPopupView(getContext(),type,GsonUtil.getInstance().objTojson(buyBusinessResponse.getPayee()),buyBusinessResponse.getUsdtTotalMoneyFmt()))
                         .show();
                 break;
         }

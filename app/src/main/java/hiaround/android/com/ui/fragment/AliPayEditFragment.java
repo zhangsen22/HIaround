@@ -162,7 +162,7 @@ public class AliPayEditFragment extends BaseFragment implements AliPayEditContra
                             public void onDismiss() {
                             }
                         })
-                        .asCustom(new CenterErWeiMaPopupView(getContext(),1,GsonUtil.getInstance().objTojson(new AliPayee(alipayAccount, alipayImage))))
+                        .asCustom(new CenterErWeiMaPopupView(getContext(),1,GsonUtil.getInstance().objTojson(new AliPayee(alipayAccount, alipayImage)),null))
                         .show();
                 break;
             case R.id.tv_forget_alipay_password:

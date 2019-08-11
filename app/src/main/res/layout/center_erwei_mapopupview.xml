@@ -26,31 +26,13 @@
         android:layout_marginRight="@dimen/y30"/>
 
     <TextView
-        android:id="@+id/tv_despic"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="@color/color_ff5100"
-        android:textSize="10sp"
-        android:layout_marginLeft="@dimen/y62"
-        android:layout_marginRight="@dimen/y62"
-        android:layout_marginTop="@dimen/y28"
-        android:text="若扫描二维码支付失败请复制账号进行转账"/>
-
-    <ImageView
-        android:id="@+id/iv_image_code"
-        android:layout_width="@dimen/y374"
-        android:layout_height="@dimen/y374"
-        android:layout_marginTop="@dimen/y40"
-        tools:src="@mipmap/ic_launcher"/>
-
-    <TextView
         android:id="@+id/tv_account"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/color_666666"
         android:textSize="10sp"
         tools:text="账号：15656588896"
-        android:layout_marginTop="@dimen/y26" />
+        android:layout_marginTop="@dimen/y28" />
 
     <TextView
         android:id="@+id/tv_pay_type_name"
@@ -59,7 +41,49 @@
         android:textColor="@color/color_666666"
         android:textSize="10sp"
         tools:text="请用支付宝扫一扫"
-        android:layout_marginTop="@dimen/y16"
-        android:layout_marginBottom="@dimen/y22"/>
+        android:layout_marginTop="@dimen/y16" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="@dimen/y30">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/color_ff5100"
+            android:textSize="38sp"
+            android:text="@string/rmb" />
+
+    <TextView
+        android:id="@+id/tv_pay_all_money"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/color_ff5100"
+        android:textSize="38sp"
+        android:layout_marginLeft="@dimen/y10"
+        tools:text="0.02" />
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/iv_image_code"
+        android:layout_width="@dimen/y374"
+        android:layout_height="@dimen/y374"
+        android:layout_marginTop="@dimen/y30"
+        tools:src="@mipmap/ic_launcher"/>
+
+    <TextView
+        android:id="@+id/tv_despic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/color_ff5100"
+        android:textSize="10sp"
+        android:layout_marginLeft="@dimen/y62"
+        android:layout_marginRight="@dimen/y62"
+        android:layout_marginTop="@dimen/y26"
+        android:layout_marginBottom="@dimen/y22"
+        android:text="若扫描二维码支付失败请复制账号进行转账"/>
 
 </LinearLayout>

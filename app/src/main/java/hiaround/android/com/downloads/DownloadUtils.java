@@ -112,7 +112,7 @@ public class DownloadUtils {
      *
      */
     public void download() {
-        final String filePath = FileUtils.getAPKCacheDir()+ "xotc.apk";
+        final String filePath = FileUtils.getAPKCacheDir()+ "Gmix.apk";
         mIsDownloading = true;
         retrofit.create(ApiServices.class)
                 .download()
