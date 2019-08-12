@@ -15,15 +15,19 @@ android {
     signingConfigs {
         release {
             storeFile file('hiaround.jks')
-            storePassword "iaroundbuilder1"
-            keyAlias "builder1"
-            keyPassword "iaroundbuilder1"
+            storePassword "hiaroundgmix"
+            keyAlias "gmix"
+            keyPassword "hiaroundgmix"
         }
         debug {
-            storeFile file('debug.keystore')
-            storePassword "android"
-            keyAlias "androiddebugkey"
-            keyPassword "android"
+            storeFile file('hiaround.jks')
+            storePassword "hiaroundgmix"
+            keyAlias "gmix"
+            keyPassword "hiaroundgmix"
+//            storeFile file('debug.keystore')
+//            storePassword "android"
+//            keyAlias "androiddebugkey"
+//            keyPassword "android"
         }
     }
     buildTypes {
