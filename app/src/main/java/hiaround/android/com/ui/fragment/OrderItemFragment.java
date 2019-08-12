@@ -126,25 +126,33 @@ public class OrderItemFragment extends BaseFragment {
             int currentItem = orderItemViewPager.getCurrentItem();
             if(orderViewPagerAdapter != null){
                 OrderItemDetailsFragment currentFragment = (OrderItemDetailsFragment) orderViewPagerAdapter.getCurrentFragment(currentItem);
-                currentFragment.onActivityResultOrderItemDetails(requestCode);
+                if(currentFragment != null) {
+                    currentFragment.onActivityResultOrderItemDetails(requestCode);
+                }
             }
         }else if(requestCode == Constants.REQUESTCODE_13){
             orderItemViewPager.setCurrentItem(1,false);
             if(orderViewPagerAdapter != null){
                 OrderItemDetailsFragment currentFragment = (OrderItemDetailsFragment) orderViewPagerAdapter.getCurrentFragment(1);
-                currentFragment.onActivityResultOrderItemDetails(requestCode);
+                if(currentFragment != null) {
+                    currentFragment.onActivityResultOrderItemDetails(requestCode);
+                }
             }
         }else if(requestCode == Constants.REQUESTCODE_14){
             orderItemViewPager.setCurrentItem(0,false);
             if(orderViewPagerAdapter != null){
                 OrderItemDetailsFragment currentFragment = (OrderItemDetailsFragment) orderViewPagerAdapter.getCurrentFragment(0);
-                currentFragment.onActivityResultOrderItemDetails(requestCode);
+                if(currentFragment != null) {
+                    currentFragment.onActivityResultOrderItemDetails(requestCode);
+                }
             }
         }else if(requestCode == Constants.REQUESTCODE_18){
             orderItemViewPager.setCurrentItem(1,false);
             if(orderViewPagerAdapter != null){
                 OrderItemDetailsFragment currentFragment = (OrderItemDetailsFragment) orderViewPagerAdapter.getCurrentFragment(1);
-                currentFragment.onActivityResultOrderItemDetails(requestCode);
+                if(currentFragment != null) {
+                    currentFragment.onActivityResultOrderItemDetails(requestCode);
+                }
             }
         }
     }

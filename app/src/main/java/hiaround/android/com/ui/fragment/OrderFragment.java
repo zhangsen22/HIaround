@@ -121,19 +121,25 @@ public class OrderFragment extends BaseFragment {
             int currentItem = orderViewPager.getCurrentItem();
             if (orderViewPagerAdapter != null) {
                 OrderItemFragment currentFragment = (OrderItemFragment) orderViewPagerAdapter.getCurrentFragment(currentItem);
-                currentFragment.onActivityResultOrderItem(requestCode);
+                if(currentFragment != null) {
+                    currentFragment.onActivityResultOrderItem(requestCode);
+                }
             }
         } else if (requestCode == Constants.REQUESTCODE_13 || requestCode == Constants.REQUESTCODE_14) {
             orderViewPager.setCurrentItem(2, false);
             if (orderViewPagerAdapter != null) {
                 OrderItemFragment currentFragment = (OrderItemFragment) orderViewPagerAdapter.getCurrentFragment(2);
-                currentFragment.onActivityResultOrderItem(requestCode);
+                if(currentFragment != null) {
+                    currentFragment.onActivityResultOrderItem(requestCode);
+                }
             }
         }else if(requestCode == Constants.REQUESTCODE_18){
             orderViewPager.setCurrentItem(1, false);
             if (orderViewPagerAdapter != null) {
                 OrderItemFragment currentFragment = (OrderItemFragment) orderViewPagerAdapter.getCurrentFragment(1);
-                currentFragment.onActivityResultOrderItem(requestCode);
+                if(currentFragment != null) {
+                    currentFragment.onActivityResultOrderItem(requestCode);
+                }
             }
         }
     }
