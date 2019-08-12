@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("hbuilder.android.com", appContext.getPackageName());
+        assertEquals("hiaround.android.com", appContext.getPackageName());
     }
 }

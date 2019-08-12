@@ -40,9 +40,9 @@ public class FileUtils {
         try {
             boolean sdCardExist = Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED); // 判断sd卡是否存在
             if (sdCardExist) {
-                sdDir = Environment.getExternalStorageDirectory() + "/hbuilder/";// SD卡根目录
+                sdDir = Environment.getExternalStorageDirectory() + "/hiaround/";// SD卡根目录
             } else {
-                sdDir = "/data/data/" + MyApplication.appContext.getPackageName() + "/"; //"/data/data/hbuilder.android.com/"
+                sdDir = "/data/data/" + MyApplication.appContext.getPackageName() + "/"; //"/data/data/hiaround.android.com/"
             }
             File file = new File(sdDir);
             if (!file.exists()) {

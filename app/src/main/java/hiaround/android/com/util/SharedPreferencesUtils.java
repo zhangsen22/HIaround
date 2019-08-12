@@ -18,7 +18,7 @@ import hiaround.android.com.MyApplication;
 public class SharedPreferencesUtils {
     private static SharedPreferences sharedPreferences;
     private static String TAG = "SharedPreferencesUtils";
-    private static String SP_NAME = "hbuilder_sp";
+    private static String SP_NAME = "hiaround_sp";
 
     /* 初始化 sp 模块
      * name: sp 文件名字,不通的进程可以通过名字来使用不通的文件来存储

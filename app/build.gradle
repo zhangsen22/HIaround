@@ -14,7 +14,7 @@ android {
 
     signingConfigs {
         release {
-            storeFile file('hbuilder1.jks')
+            storeFile file('hiaround.jks')
             storePassword "iaroundbuilder1"
             keyAlias "builder1"
             keyPassword "iaroundbuilder1"
