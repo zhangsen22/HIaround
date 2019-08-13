@@ -18,7 +18,8 @@
         android:background="@mipmap/ae"
         android:layout_marginLeft="@dimen/y24"
         android:layout_marginRight="@dimen/y24"
-        android:layout_marginBottom="@dimen/y30">
+        android:layout_marginBottom="@dimen/y30"
+        android:visibility="gone">
 
     <LinearLayout
         android:layout_width="match_parent"
