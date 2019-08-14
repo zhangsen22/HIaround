@@ -1,5 +1,4 @@
 apply plugin: 'com.android.application'
-apply from: 'tinkerpatch.gradle'
 
 android {
     compileSdkVersion rootProject.ext.android.compileSdkVersion
@@ -95,10 +94,6 @@ dependencies {
     // 滚轮选择器
     implementation 'com.github.gzu-liyujiang.AndroidPicker:WheelPicker:latest.release'
     implementation project(':YZxing-lib')
-    //无需引入tinker的任何库,使用tinkerpatch sdk即可
-    implementation("com.tinkerpatch.sdk:tinkerpatch-android-sdk:${TINKERPATCH_VERSION}") {
-        changing = true
-    }
     implementation files('libs/googleBase64.jar')
 
     implementation rootProject.ext.dependencies.eventbus

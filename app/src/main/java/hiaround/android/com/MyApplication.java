@@ -7,7 +7,6 @@ import android.support.multidex.MultiDex;
 import com.growalong.util.util.GALogger;
 import com.growalong.util.util.PackageUtil;
 import hiaround.android.com.crash.CrashHandler;
-import hiaround.android.com.manager.TinkerManager;
 import hiaround.android.com.net.retrofit.ApiConstants;
 import hiaround.android.com.observer.NetworkChangedReceiver;
 
@@ -18,18 +17,12 @@ public class MyApplication extends Application {
     public static volatile String hostAddress;
     public static volatile String h5_down_Address;//h5域名和apk下载地址域名
 
-    /**
-     * 由于在onCreate替换真正的Application,
-     * 我们建议在onCreate初始化TinkerPatch,而不是attachBaseContext
-     */
     @Override
     public void onCreate() {
         super.onCreate();
         GALogger.d(TAG,"onCreate");
         setHostAddress(ApiConstants.getGetDomainNameBase);
         appContext = getApplicationContext();
-        TinkerManager.getInstance().initTinkerPatch(appContext);
-
         // 获取当前进程名
         final String processName = PackageUtil.getProcessName(android.os.Process.myPid());
         // 获取当前包名
