@@ -52,7 +52,7 @@
                     android:textSize="12sp"
                     android:gravity="center"/>
 
-                                </LinearLayout>
+            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -234,28 +234,19 @@
                     android:textSize="14sp"
                     android:layout_marginLeft="@dimen/y16"/>
 
-                <View
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:layout_height="@dimen/y1"/>
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@mipmap/y"/>
-
             </LinearLayout>
 
-            <include layout="@layout/line_f9"/>
-
             <LinearLayout
+                android:id="@+id/ll_shoukuanfangshi"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/y90"
                 android:orientation="horizontal"
                 android:background="@color/common_white"
                 android:paddingLeft="@dimen/y34"
                 android:paddingRight="@dimen/y26"
-                android:gravity="center_vertical">
+                android:gravity="center_vertical"
+                android:layout_marginTop="@dimen/y3"
+                android:visibility="gone">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -283,6 +274,88 @@
                     android:layout_height="wrap_content"
                     android:src="@mipmap/bg"
                     android:layout_marginLeft="@dimen/y16"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_bankname"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/y90"
+                android:orientation="horizontal"
+                android:background="@color/common_white"
+                android:paddingLeft="@dimen/y34"
+                android:paddingRight="@dimen/y26"
+                android:gravity="center_vertical"
+                android:layout_marginTop="@dimen/y3"
+                android:visibility="gone">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="银行名"
+                    android:textColor="@color/color_666666"
+                    android:textSize="13sp" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="@dimen/y1"/>
+
+                <TextView
+                    android:id="@+id/tv_bank_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="155586222"
+                    android:textColor="@color/color_999999"
+                    android:textSize="13sp" />
+
+                <ImageView
+                    android:id="@+id/iv_copy_bankname"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/bh"
+                    android:layout_marginLeft="@dimen/y12"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_zhibankname"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/y90"
+                android:orientation="horizontal"
+                android:background="@color/common_white"
+                android:paddingLeft="@dimen/y34"
+                android:paddingRight="@dimen/y26"
+                android:gravity="center_vertical"
+                android:layout_marginTop="@dimen/y3"
+                android:visibility="gone">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="支行名"
+                    android:textColor="@color/color_666666"
+                    android:textSize="13sp" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="@dimen/y1"/>
+
+                <TextView
+                    android:id="@+id/tv_zhibank_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="155586222"
+                    android:textColor="@color/color_999999"
+                    android:textSize="13sp" />
+
+                <ImageView
+                    android:id="@+id/iv_copy_zhibank_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/bh"
+                    android:layout_marginLeft="@dimen/y12"/>
 
             </LinearLayout>
 
@@ -323,6 +396,13 @@
                     android:text="（严禁任何备注和非实名付款）"
                     android:textColor="@color/color_999999"
                     android:textSize="13sp" />
+
+                <ImageView
+                    android:id="@+id/iv_copy_username"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/bh"
+                    android:layout_marginLeft="@dimen/y12"/>
 
             </LinearLayout>
 
@@ -402,6 +482,13 @@
                     tools:text="98171"
                     android:textColor="@color/color_999999"
                     android:textSize="13sp" />
+
+                <ImageView
+                    android:id="@+id/iv_copy_tuijianma"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/bh"
+                    android:layout_marginLeft="@dimen/y12"/>
 
             </LinearLayout>
 
