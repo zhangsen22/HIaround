@@ -6,6 +6,7 @@ public class BuyAmountListResponse extends BaseBean {
     private String unit;
     private List<String> wechatList;
     private List<String> cloudQuickPayList;
+    private List<String> bankList;
 
     public List<String> getWechatList() {
         return wechatList;
@@ -19,12 +20,17 @@ public class BuyAmountListResponse extends BaseBean {
         return unit;
     }
 
+    public List<String> getBankList() {
+        return bankList;
+    }
+
     @Override
     public String toString() {
         return "BuyAmountListResponse{" +
                 "unit='" + unit + '\'' +
                 ", wechatList=" + wechatList +
                 ", cloudQuickPayList=" + cloudQuickPayList +
+                ", bankList=" + bankList +
                 '}';
     }
 }

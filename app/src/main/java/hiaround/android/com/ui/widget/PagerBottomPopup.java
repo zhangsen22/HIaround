@@ -16,14 +16,15 @@ import hiaround.android.com.R;
 public class PagerBottomPopup extends BottomPopupView implements CompoundButton.OnCheckedChangeListener {
 
     private CheckBox cbWebchat;
-    private CheckBox cbYunshanfu;
+    private CheckBox cbIdCast;
     private OnSelectListener selectListener;
-    private int type = 2;//1为支付宝，2为微信，3为银行账户        默认微信
+    private int type;//1为支付宝，2为微信，3为银行账户        默认微信
     private String text;
 
-    public PagerBottomPopup(@NonNull Context context, OnSelectListener selectListener) {
+    public PagerBottomPopup(@NonNull Context context,int payType, OnSelectListener selectListener) {
         super(context);
         this.selectListener = selectListener;
+        this.type = payType;
     }
 
     @Override
@@ -35,9 +36,16 @@ public class PagerBottomPopup extends BottomPopupView implements CompoundButton.
     protected void onCreate() {
         super.onCreate();
         cbWebchat = findViewById(R.id.cb_webchat);
-        cbYunshanfu = findViewById(R.id.cb_yunshanfu);
+        cbIdCast = findViewById(R.id.cb_idcast);
         cbWebchat.setOnCheckedChangeListener(this);
-        cbYunshanfu.setOnCheckedChangeListener(this);
+        cbIdCast.setOnCheckedChangeListener(this);
+        if(type == 2){
+            cbWebchat.setChecked(true);
+            cbIdCast.setChecked(false);
+        }else if(type == 3){
+            cbWebchat.setChecked(false);
+            cbIdCast.setChecked(true);
+        }
     }
 
     @Override
@@ -59,9 +67,26 @@ public class PagerBottomPopup extends BottomPopupView implements CompoundButton.
     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
         switch (buttonView.getId()) {
             case R.id.cb_webchat:
-                cbWebchat.setChecked(true);
-                type = 2;
-                text = "微信支付";
+                if (isChecked) {
+                    cbIdCast.setChecked(false);
+                    type = 2;
+                    text = "微信支付";
+                } else {
+                    cbIdCast.setChecked(true);
+                    type = 3;
+                    text = "银行卡支付";
+                }
+                break;
+            case R.id.cb_idcast:
+                if (isChecked) {
+                    cbWebchat.setChecked(false);
+                    type = 3;
+                    text = "银行卡支付";
+                } else {
+                    cbWebchat.setChecked(true);
+                    type = 2;
+                    text = "微信支付";
+                }
                 break;
         }
         if(selectListener != null){

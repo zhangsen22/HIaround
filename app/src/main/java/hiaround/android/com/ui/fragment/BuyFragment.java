@@ -54,7 +54,7 @@ public class BuyFragment extends BaseFragment implements BuyContract.View, BuyFr
     private BuyPresenter buyPresenter;
     private List<String> priceList;
     private List<String> wechatList;
-    private List<String> cloudQuickPayList;
+    private List<String> bankList;
     private int payType = 2;//默认微信付款
     private String payMoney;//付款的金额
     private MainActivity mainActivity;
@@ -131,7 +131,7 @@ public class BuyFragment extends BaseFragment implements BuyContract.View, BuyFr
         if (buyResponse != null) {
             priceList.clear();
             wechatList = buyResponse.getWechatList();
-            cloudQuickPayList = buyResponse.getCloudQuickPayList();
+            bankList = buyResponse.getBankList();
             //默认展示微信价格
             priceList.addAll(wechatList);
             buyFragmentAdapter.setUnit(buyResponse.getUnit());
@@ -161,16 +161,16 @@ public class BuyFragment extends BaseFragment implements BuyContract.View, BuyFr
             case R.id.ll_choose_paytype:
                 new XPopup.Builder(getContext())
                         .moveUpToKeyboard(false) //如果不加这个，评论弹窗会移动到软键盘上面
-                        .asCustom(new PagerBottomPopup(getContext(), new OnSelectListener() {
+                        .asCustom(new PagerBottomPopup(getContext(),payType, new OnSelectListener() {
                             @Override
-                            public void onSelect(int type, String text) {
+                            public void onSelect(int type, String text) {//1为支付宝，2为微信，3为银行账户        默认微信
                                 priceList.clear();
                                 if (type == 2) {
                                     ivPayIcon.setImageResource(R.mipmap.h);
                                     priceList.addAll(wechatList);
-                                } else if (type == 4) {
-                                    ivPayIcon.setImageResource(R.mipmap.af);
-                                    priceList.addAll(cloudQuickPayList);
+                                } else if (type == 3) {
+                                    ivPayIcon.setImageResource(R.mipmap.f);
+                                    priceList.addAll(bankList);
                                 }
                                 int checkedPosition = buyFragmentAdapter.getCheckedPosition();
                                 if (checkedPosition > priceList.size() - 1) {

@@ -305,7 +305,7 @@ public class HttpErrorCode {
             resString = "网络异常,请检查网络设置";
         } else {
             if(BuildConfig.DEBUG) {
-                resString = "服务器异常";
+                resString = "服务器繁忙";
             }
         }
         return resString;

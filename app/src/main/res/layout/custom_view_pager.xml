@@ -7,7 +7,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="@dimen/y78"
-        android:text="选择充值方式"
+        android:text="选择支付方式"
         android:textColor="@color/color_333333"
         android:textSize="14sp"
         android:layout_marginLeft="@dimen/y40"
@@ -44,12 +44,11 @@
 
         <CheckBox
             android:id="@+id/cb_webchat"
-            style="@style/CustomCheckboxTheme2"
-            android:checked="true"/>
+            style="@style/CustomCheckboxTheme2" />
 
     </LinearLayout>
 
-    <!--<include layout="@layout/line"/>-->
+    <include layout="@layout/line"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -58,18 +57,17 @@
         android:background="@color/common_white"
         android:paddingLeft="@dimen/y40"
         android:paddingRight="@dimen/y26"
-        android:gravity="center_vertical"
-        android:visibility="gone">
+        android:gravity="center_vertical">
 
         <ImageView
             android:layout_width="@dimen/y34"
             android:layout_height="@dimen/y34"
-            android:src="@mipmap/af" />
+            android:src="@mipmap/f" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="云闪付"
+            android:text="银行卡"
             android:textColor="@color/color_666666"
             android:textSize="13sp"
             android:layout_marginLeft="@dimen/y16"/>
@@ -80,7 +78,7 @@
             android:layout_height="@dimen/y1"/>
 
         <CheckBox
-            android:id="@+id/cb_yunshanfu"
+            android:id="@+id/cb_idcast"
             style="@style/CustomCheckboxTheme2" />
 
     </LinearLayout>
