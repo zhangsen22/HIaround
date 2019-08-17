@@ -164,28 +164,27 @@ public class BuyFragment extends BaseFragment implements BuyContract.View, BuyFr
                         .asCustom(new PagerBottomPopup(getContext(),payType, new OnSelectListener() {
                             @Override
                             public void onSelect(int type, String text) {//1为支付宝，2为微信，3为银行账户        默认微信
-                                priceList.clear();
-                                if (type == 2) {
-                                    ivPayIcon.setImageResource(R.mipmap.h);
-                                    priceList.addAll(wechatList);
-                                } else if (type == 3) {
-                                    ivPayIcon.setImageResource(R.mipmap.f);
-                                    priceList.addAll(bankList);
-                                }
-                                int checkedPosition = buyFragmentAdapter.getCheckedPosition();
-                                if (checkedPosition > priceList.size() - 1) {
+
+                                if(payType != type){
+                                    priceList.clear();
+                                    if (type == 2) {
+                                        ivPayIcon.setImageResource(R.mipmap.h);
+                                        priceList.addAll(wechatList);
+                                    } else if (type == 3) {
+                                        ivPayIcon.setImageResource(R.mipmap.f);
+                                        priceList.addAll(bankList);
+                                    }
+                                    payType = type;
+                                    ivPayName.setText(text);
                                     buyFragmentAdapter.setCheckedPosition(-1);
+                                    buyFragmentAdapter.notifyDataSetChanged();
                                 }
-                                buyFragmentAdapter.notifyDataSetChanged();
-                                payType = type;
-                                ivPayName.setText(text);
                             }
                         }))
                         .show();
                 break;
             case R.id.go_buy:
                 int checkedPosition = buyFragmentAdapter.getCheckedPosition();
-                GALogger.d(TAG, "checkedPosition === " + checkedPosition);
                 if (checkedPosition == -1) {
                     ToastUtil.shortShow("请选择金额");
                     return;
@@ -194,6 +193,7 @@ public class BuyFragment extends BaseFragment implements BuyContract.View, BuyFr
                     ToastUtil.shortShow("请选择金额");
                     return;
                 }
+                GALogger.d(TAG, "checkedPosition === " + checkedPosition+"   payMoney   "+payMoney+"   payType   "+payType);
                 buyPresenter.quickBuy(payMoney, payType);
                 break;
         }

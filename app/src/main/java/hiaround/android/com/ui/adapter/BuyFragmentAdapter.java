@@ -41,6 +41,10 @@ public class BuyFragmentAdapter extends RecyclerView.Adapter {
 
     public void setCheckedPosition(int checkedPosition) {
         this.checkedPosition = checkedPosition;
+        if(checkedPosition == -1){
+            onBind = false;
+            map.clear();
+        }
     }
 
     @NonNull
