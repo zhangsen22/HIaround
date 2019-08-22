@@ -12,6 +12,7 @@ public interface BuyContract {
     }
     interface View extends IBaseView<Presenter> {
         void buyAmountListSuccess(BuyAmountListResponse buyResponse);
+        void buyAmountListError();
         void quickBuySuccess(BuyBusinessResponse buyBusinessResponse);
     }
 }

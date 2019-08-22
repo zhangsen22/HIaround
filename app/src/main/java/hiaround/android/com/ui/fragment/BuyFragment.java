@@ -58,6 +58,7 @@ public class BuyFragment extends BaseFragment implements BuyContract.View, BuyFr
     private int payType = 2;//默认微信付款
     private String payMoney;//付款的金额
     private MainActivity mainActivity;
+    private int count;
 
     public static BuyFragment newInstance(@Nullable String taskId) {
         Bundle arguments = new Bundle();
@@ -101,6 +102,7 @@ public class BuyFragment extends BaseFragment implements BuyContract.View, BuyFr
         GALogger.d(TAG, "lazyLoadData   ");
         //初始化presenter
         new BuyPresenter(this, new BuyModle());
+        count = 1;
         buyPresenter.buyAmountList();
     }
 
@@ -137,6 +139,20 @@ public class BuyFragment extends BaseFragment implements BuyContract.View, BuyFr
             buyFragmentAdapter.setUnit(buyResponse.getUnit());
             buyFragmentAdapter.notifyDataSetChanged();
         }
+    }
+
+    @Override
+    public void buyAmountListError() {
+        if(count>=2){
+            return;
+        }
+        count++;
+        MyApplication.runOnUIThread(new Runnable() {
+            @Override
+            public void run() {
+                buyPresenter.buyAmountList();
+            }
+        },200);
     }
 
     @Override

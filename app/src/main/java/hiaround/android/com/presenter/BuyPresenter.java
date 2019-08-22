@@ -36,6 +36,7 @@ public class BuyPresenter implements BuyContract.Presenter{
                     @Override
                     public void onFailure(ModelException ex) {
                         super.onFailure(ex);
+                        mView.buyAmountListError();
                     }
                 });
     }
