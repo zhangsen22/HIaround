@@ -3,6 +3,7 @@ package hiaround.android.com.presenter.modle;
 import hiaround.android.com.modle.BaseBean;
 import hiaround.android.com.modle.WebChatEditModle;
 import hiaround.android.com.modle.WechatLoginModle;
+import hiaround.android.com.modle.YnShanFuEditModle;
 import hiaround.android.com.net.retrofit.BaseRetrofitClient;
 import hiaround.android.com.net.retrofit.exception.ModelExceptionMap;
 import hiaround.android.com.net.retrofit.exception.ServerExceptionMap;
@@ -40,9 +41,9 @@ public class PaySettingModle{
      * @param time
      * @return
      */
-    public Observable<BaseBean> ali(long id,String name,String account,String base64Img,String financePwd,long time){
+    public Observable<BaseBean> ali(long id,String name,String account,String accountid,String base64Img,String financePwd,long time){
         return BaseRetrofitClient.getInstance().create(ApiServices.class)
-                .ali(id,name,account,base64Img,financePwd,time)
+                .ali(id,name,account,accountid,base64Img,financePwd,time)
                 .subscribeOn(Schedulers.io())
                 .map(new ServerExceptionMap<BaseBean>())
                 .onErrorResumeNext(new ModelExceptionMap<BaseBean>());
@@ -67,6 +68,23 @@ public class PaySettingModle{
     }
 
     /**
+     * 云闪付收款设置
+     * @param name
+     * @param account
+     * @param base64Img
+     * @param financePwd
+     * @param time
+     * @return
+     */
+    public Observable<YnShanFuEditModle> cloud(long id, String name, String account, String base64Img, String financePwd, long time){
+        return BaseRetrofitClient.getInstance().create(ApiServices.class)
+                .cloud(id,name,account,base64Img,financePwd,time)
+                .subscribeOn(Schedulers.io())
+                .map(new ServerExceptionMap<YnShanFuEditModle>())
+                .onErrorResumeNext(new ModelExceptionMap<YnShanFuEditModle>());
+    }
+
+    /**
      * 微信登录
      * @param paymentId
      * @return
@@ -77,5 +95,18 @@ public class PaySettingModle{
                 .subscribeOn(Schedulers.io())
                 .map(new ServerExceptionMap<WechatLoginModle>())
                 .onErrorResumeNext(new ModelExceptionMap<WechatLoginModle>());
+    }
+
+    /**
+     * 云闪付登陆成功上传参数
+     * @param paymentId
+     * @return
+     */
+    public Observable<YnShanFuEditModle> cloudLogin(long paymentId, String cookieUser , String username){
+        return BaseRetrofitClient.getInstance().create(ApiServices.class)
+                .cloudLogin(paymentId,cookieUser,username)
+                .subscribeOn(Schedulers.io())
+                .map(new ServerExceptionMap<YnShanFuEditModle>())
+                .onErrorResumeNext(new ModelExceptionMap<YnShanFuEditModle>());
     }
 }

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:ptr="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/color_f9f9f9">
+
+    <include layout="@layout/title"/>
+
+    <include layout="@layout/line_10_f9"/>
+
+    <com.handmark.pulltorefresh.library.PullToRefreshRecyclerView
+        android:id="@+id/yunshanfu_pull_refresh_recycler"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:cacheColorHint="#00000000"
+        android:divider="@null"
+        android:fadingEdge="none"
+        android:listSelector="#00000000"
+        ptr:ptrMode="pullFromStart"
+        ptr:ptrOverScroll="false"/>
+
+    <TextView
+        android:id="@+id/tv_submit_forget_login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@mipmap/cl"
+        android:layout_gravity="center_horizontal"
+        android:text="添加新云闪付"
+        android:gravity="center"
+        android:textColor="@color/common_white"
+        android:textSize="14sp"
+        android:paddingBottom="@dimen/y10"/>
+
+</LinearLayout>

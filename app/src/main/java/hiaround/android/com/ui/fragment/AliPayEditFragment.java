@@ -195,7 +195,7 @@ public class AliPayEditFragment extends BaseFragment implements AliPayEditContra
                 }
 
                 long currentTime = System.currentTimeMillis();
-                presenter.ali(0,alipayName1,alipayAccount1,sIdcardFront,Md5Utils.getMD5(forgetPassword+currentTime),currentTime);
+                presenter.ali(0,alipayName1,alipayAccount1,alipayId1,sIdcardFront,Md5Utils.getMD5(forgetPassword+currentTime),currentTime);
                 break;
             case R.id.iv_alipay_image:
                 if (ContextCompat.checkSelfPermission(paySettingActivity, Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED) {

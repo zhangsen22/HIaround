@@ -17,6 +17,9 @@ public class Constants {
     public static final String USDTPRICE = "Usdt_Price";
     public static final String VERSION = "version";
     public static final String WXPAYLOCK = "wxPayLock";
+    public static final String YUNSHANFUURL ="https://user.95516.com/pages/wap/login.html?sysIdStr=N7Tlq35lwXxFfzr&service=https://ctq.95516.com/web/kfmm_n/html/indexQuery.html?channelNo=02";//云闪付登录页面url
+    public static final String YUNSHANFUURLLOGIN = "https://user.95516.com/pages/login/setcookie_frame.html";//云闪付登录的url
+    public static final String YUNSHANFULOGINSUCCESS = "https://ctq.95516.com/web/kfmm_n/html/indexQuery.html";//云闪付登录成功的url
     /**
      * android 8.0以上通知栏渠道ID
      */
@@ -32,5 +35,7 @@ public class Constants {
     public static final int REQUESTCODE_16 = 16;
     public static final int REQUESTCODE_17 = 17;
     public static final int REQUESTCODE_18 = 18;
+    public static final int REQUESTCODE_19 = 19;
+    public static final int REQUESTCODE_20 = 20;
     public static final int RECYCLEVIEW_TOTALCOUNT = 10;
 }

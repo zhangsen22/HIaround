@@ -16,6 +16,7 @@ import hiaround.android.com.modle.MySellOrBuyinfoResponse;
 import hiaround.android.com.modle.PaySetupModelAliPay;
 import hiaround.android.com.modle.PaySetupModelBank;
 import hiaround.android.com.modle.PaySetupModelWebChat;
+import hiaround.android.com.modle.PaySetupModelYunShanFu;
 import hiaround.android.com.modle.RegistResponse;
 import hiaround.android.com.modle.RewardDetailResponse;
 import hiaround.android.com.modle.RewardLogResponse;
@@ -26,6 +27,7 @@ import hiaround.android.com.modle.WalletResponse;
 import hiaround.android.com.modle.WebChatEditModle;
 import hiaround.android.com.modle.WechatLoginModle;
 import hiaround.android.com.modle.SellLimitResponse;
+import hiaround.android.com.modle.YnShanFuEditModle;
 import hiaround.android.com.net.retrofit.ApiConstants;
 import io.reactivex.Observable;
 import okhttp3.ResponseBody;
@@ -477,6 +479,16 @@ public interface ApiServices {
     Observable<PaySetupModelWebChat> paysetupWebChat(@Field("type") int type);
 
     /**
+     * 获取自己的收款信息
+     * 云闪付
+     * @param type
+     * @return
+     */
+    @FormUrlEncoded
+    @POST(ApiConstants.paysetup)
+    Observable<PaySetupModelYunShanFu> paysetupYunShanFu(@Field("type") int type);
+
+    /**
      * 银行卡收款设置
      * @param bankName
      * @param subName
@@ -512,9 +524,28 @@ public interface ApiServices {
     Observable<BaseBean> ali(@Field("id") long id
             ,@Field("name") String name
             ,@Field("account") String account
+            ,@Field("accountid") String accountid
             ,@Field("base64Img") String base64Img
             ,@Field("financePwd") String financePwd
             ,@Field("time") long time);
+
+    /**
+     * 云闪付收款设置
+     * @param name
+     * @param account
+     * @param base64Img
+     * @param financePwd
+     * @param time
+     * @return
+     */
+    @FormUrlEncoded
+    @POST(ApiConstants.cloud)
+    Observable<YnShanFuEditModle> cloud(@Field("id") long id
+            , @Field("name") String name
+            , @Field("account") String account
+            , @Field("base64Img") String base64Img
+            , @Field("financePwd") String financePwd
+            , @Field("time") long time);
 
     /**
      * 微信收款设置
@@ -581,6 +612,15 @@ public interface ApiServices {
     @FormUrlEncoded
     @POST(ApiConstants.wechatLogin)
     Observable<WechatLoginModle> wechatLogin(@Field("paymentId") long paymentId, @Field("time") long time);
+
+    /**
+     * 云闪付登陆成功上传参数
+     * @param paymentId
+     * @return
+     */
+    @FormUrlEncoded
+    @POST(ApiConstants.cloudLogin)
+    Observable<YnShanFuEditModle> cloudLogin(@Field("paymentId") long paymentId, @Field("cookieUser") String cookieUser , @Field("username") String username);
 
     /**
      * 推荐奖励

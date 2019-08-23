@@ -55,6 +55,7 @@ public class BuyFragment extends BaseFragment implements BuyContract.View, BuyFr
     private List<String> priceList;
     private List<String> wechatList;
     private List<String> bankList;
+    private List<String> cloudQuickPayList;
     private int payType = 2;//默认微信付款
     private String payMoney;//付款的金额
     private MainActivity mainActivity;
@@ -134,6 +135,7 @@ public class BuyFragment extends BaseFragment implements BuyContract.View, BuyFr
             priceList.clear();
             wechatList = buyResponse.getWechatList();
             bankList = buyResponse.getBankList();
+            cloudQuickPayList = buyResponse.getCloudQuickPayList();
             //默认展示微信价格
             priceList.addAll(wechatList);
             buyFragmentAdapter.setUnit(buyResponse.getUnit());
@@ -180,7 +182,6 @@ public class BuyFragment extends BaseFragment implements BuyContract.View, BuyFr
                         .asCustom(new PagerBottomPopup(getContext(),payType, new OnSelectListener() {
                             @Override
                             public void onSelect(int type, String text) {//1为支付宝，2为微信，3为银行账户        默认微信
-
                                 if(payType != type){
                                     priceList.clear();
                                     if (type == 2) {
@@ -189,6 +190,9 @@ public class BuyFragment extends BaseFragment implements BuyContract.View, BuyFr
                                     } else if (type == 3) {
                                         ivPayIcon.setImageResource(R.mipmap.f);
                                         priceList.addAll(bankList);
+                                    }else if (type == 4) {
+                                        ivPayIcon.setImageResource(R.mipmap.af);
+                                        priceList.addAll(cloudQuickPayList);
                                     }
                                     payType = type;
                                     ivPayName.setText(text);

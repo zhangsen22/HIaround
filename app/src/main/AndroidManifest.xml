@@ -204,6 +204,18 @@
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan|stateHidden" />
 
+        <activity
+            android:name=".ui.activity.YunShanFuListActivity"
+            android:configChanges="screenSize|keyboardHidden|orientation|fontScale|locale|uiMode|screenLayout|layoutDirection"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+
+        <activity
+            android:name=".ui.activity.YunShanFuLoginActivity"
+            android:configChanges="screenSize|keyboardHidden|orientation|fontScale|locale|uiMode|screenLayout|layoutDirection"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
+
         <provider
             android:name="android.support.v4.content.FileProvider"
             android:authorities="hiaround.android.com.fileprovider"

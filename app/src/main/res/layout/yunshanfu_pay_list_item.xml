@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@color/common_white">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingLeft="@dimen/y26"
+        android:paddingRight="@dimen/y26"
+        android:layout_marginTop="@dimen/y26">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/af"/>
+
+        <TextView
+            android:id="@+id/tv_webchat_code"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="11111111111111111"
+            android:textSize="12sp"
+            android:textColor="@color/color_666666"
+            android:layout_marginLeft="@dimen/y20"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="("
+            android:textSize="12sp"
+            android:textColor="@color/color_666666"
+            android:layout_marginLeft="@dimen/y20"/>
+
+        <TextView
+            android:id="@+id/tv_webchat_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="微信名"
+            android:textSize="12sp"
+            android:textColor="@color/color_666666"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=")"
+            android:textSize="12sp"
+            android:textColor="@color/color_666666"/>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="@dimen/y1"/>
+
+        <CheckBox
+            android:id="@+id/tv_webchat_check"
+            style="@style/CustomCheckboxTheme2" />
+
+        <TextView
+            android:id="@+id/tv_shuoming"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="设为默认"
+            android:textSize="12sp"
+            android:textColor="@color/color_666666"/>
+
+        <TextView
+            android:id="@+id/tv_reedit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="登录"
+            android:textSize="12sp"
+            android:textColor="@color/color_ff5100"
+            android:layout_marginLeft="@dimen/y20"
+            android:visibility="gone"/>
+
+        <TextView
+            android:id="@+id/tv_pay_delete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="删除"
+            android:textSize="12sp"
+            android:textColor="@color/color_ff5100"
+            android:layout_marginLeft="@dimen/y20"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_marginTop="@dimen/y20"
+        android:paddingLeft="@dimen/y26"
+        android:paddingRight="@dimen/y26"
+        android:layout_marginBottom="@dimen/y26">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="当日剩余额度 : "
+            android:textSize="12sp"
+            android:textColor="@color/color_666666"
+            android:layout_marginLeft="@dimen/y20"/>
+
+        <TextView
+            android:id="@+id/tv_webchat_lastmoney"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="20000"
+            android:textSize="12sp"
+            android:textColor="@color/color_ff5100"/>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="@dimen/y1"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="当日剩余笔数 : "
+            android:textSize="12sp"
+            android:textColor="@color/color_666666"
+            android:layout_marginLeft="@dimen/y20"/>
+
+        <TextView
+            android:id="@+id/tv_webchat_lastnum"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="20"
+            android:textSize="12sp"
+            android:textColor="@color/color_ff5100"/>
+
+    </LinearLayout>
+
+    <include layout="@layout/line_f9"/>
+
+</LinearLayout>

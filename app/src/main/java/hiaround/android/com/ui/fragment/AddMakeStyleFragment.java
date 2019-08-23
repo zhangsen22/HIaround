@@ -17,6 +17,7 @@ import hiaround.android.com.ui.activity.AddMakeStyleActivity;
 import hiaround.android.com.ui.activity.AliPayListActivity;
 import hiaround.android.com.ui.activity.IdCastPayListActivity;
 import hiaround.android.com.ui.activity.WebChatListActivity;
+import hiaround.android.com.ui.activity.YunShanFuListActivity;
 
 public class AddMakeStyleFragment extends BaseFragment {
     private static final String TAG = AddMakeStyleFragment.class.getSimpleName();
@@ -93,6 +94,7 @@ public class AddMakeStyleFragment extends BaseFragment {
                 WebChatListActivity.startThis(addMakeStyleActivity);
                 break;
             case R.id.ll_yunshanfu_click:
+                YunShanFuListActivity.startThis(addMakeStyleActivity);
                 break;
             case R.id.ll_juhema_click:
                 break;
@@ -117,6 +119,12 @@ public class AddMakeStyleFragment extends BaseFragment {
             tvWebchat.setText("已绑定");
         } else {
             tvWebchat.setText("未绑定");
+        }
+
+        if (AccountManager.getInstance().isHaveCloudPayee()) {
+            tvYunshanfu.setText("已绑定");
+        } else {
+            tvYunshanfu.setText("未绑定");
         }
         GALogger.d(TAG, "onResume  ........");
     }

@@ -23,6 +23,7 @@ public class AccountManager {
     private static final String HAVEWECHATPAYEE = "haveWechatPayee";
     private static final String HAVEALIPAYEE = "haveAliPayee";
     private static final String HAVEBANKPAYEE = "haveBankPayee";
+    private static final String HAVECLOUDPAYEE = "haveCloudPayee";
     private static final String APITYPE = "apiType";
     private static final String ROLETYPE = "roleType";
 
@@ -62,6 +63,7 @@ public class AccountManager {
         edit.putBoolean(HAVEWECHATPAYEE, accountInfo.isHaveWechatPayee());
         edit.putBoolean(HAVEALIPAYEE, accountInfo.isHaveAliPayee());
         edit.putBoolean(HAVEBANKPAYEE, accountInfo.isHaveBankPayee());
+        edit.putBoolean(HAVECLOUDPAYEE, accountInfo.isHaveCloudPayee());
         edit.putString(PHONENUMBER, accountInfo.getPhoneNumber());
         edit.putString(PASSWORD, accountInfo.getPassword());
         edit.putInt(APITYPE,accountInfo.getApiType());
@@ -85,6 +87,7 @@ public class AccountManager {
         edit.remove(HAVEWECHATPAYEE);
         edit.remove(HAVEALIPAYEE);
         edit.remove(HAVEBANKPAYEE);
+        edit.remove(HAVECLOUDPAYEE);
         edit.remove(PHONENUMBER);
         edit.remove(PASSWORD);
         edit.remove(APITYPE);
@@ -106,6 +109,7 @@ public class AccountManager {
         mAccountInfo.setHaveWechatPayee(mSharedPreferences.getBoolean(HAVEWECHATPAYEE, false));
         mAccountInfo.setHaveAliPayee(mSharedPreferences.getBoolean(HAVEALIPAYEE, false));
         mAccountInfo.setHaveBankPayee(mSharedPreferences.getBoolean(HAVEBANKPAYEE, false));
+        mAccountInfo.setHaveCloudPayee(mSharedPreferences.getBoolean(HAVECLOUDPAYEE, false));
         mAccountInfo.setIDstatus(mSharedPreferences.getInt(IDSTATUS, -1));
         mAccountInfo.setPhoneNumber(mSharedPreferences.getString(PHONENUMBER, ""));
         mAccountInfo.setPassword(mSharedPreferences.getString(PASSWORD, ""));
@@ -193,6 +197,9 @@ public class AccountManager {
         return getAccountInfo().getRoleType();
     }
 
+    public boolean isHaveCloudPayee() {
+        return getAccountInfo().isHaveCloudPayee();
+    }
 
 
     public AccountManager setNickname(String nickname) {
@@ -216,6 +223,12 @@ public class AccountManager {
     public AccountManager setHaveBankPayee(boolean haveBankPayee) {
         getAccountInfo().setHaveBankPayee(haveBankPayee);
         mSharedPreferences.edit().putBoolean(HAVEBANKPAYEE, haveBankPayee).apply();
+        return this;
+    }
+
+    public AccountManager setHaveCloudPayee(boolean haveCloudPayee) {
+        getAccountInfo().setHaveCloudPayee(haveCloudPayee);
+        mSharedPreferences.edit().putBoolean(HAVECLOUDPAYEE, haveCloudPayee).apply();
         return this;
     }
 

@@ -53,4 +53,6 @@ public class ApiConstants {
     public static final String quickBuy = "trade/quickBuy";//一键购买
     public static final String quickSell = "trade/quickSell";//一键出售
     public static final String sellLimit = "trade/sellLimit";//一键出售区间值
+    public static final String cloud = "user/paysetup/cloud";//云闪付收款设置
+    public static final String cloudLogin = "user/cloudLogin";//云闪付登陆成功上传参数
 }

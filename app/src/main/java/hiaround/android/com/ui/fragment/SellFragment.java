@@ -9,7 +9,6 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-
 import com.growalong.util.util.EditTextManager;
 import com.growalong.util.util.GALogger;
 import com.growalong.util.util.GsonUtil;
@@ -157,6 +156,8 @@ public class SellFragment extends BaseFragment implements SellContract.View {
                                         ivSellIcon.setImageResource(R.mipmap.h);
                                     } else if (type == 3) {
                                         ivSellIcon.setImageResource(R.mipmap.f);
+                                    }else if (type == 4) {
+                                        ivSellIcon.setImageResource(R.mipmap.af);
                                     }
                                 }
                                 payType = type;

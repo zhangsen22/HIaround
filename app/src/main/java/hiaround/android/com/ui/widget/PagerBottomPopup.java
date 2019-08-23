@@ -2,8 +2,8 @@ package hiaround.android.com.ui.widget;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
+import android.view.View;
 import android.widget.CheckBox;
-import android.widget.CompoundButton;
 import com.lxj.xpopup.core.BottomPopupView;
 import com.lxj.xpopup.interfaces.OnSelectListener;
 import com.lxj.xpopup.util.XPopupUtils;
@@ -13,15 +13,16 @@ import hiaround.android.com.R;
  * Description:
  * Create by dance, at 2019/5/5
  */
-public class PagerBottomPopup extends BottomPopupView implements CompoundButton.OnCheckedChangeListener {
+public class PagerBottomPopup extends BottomPopupView implements View.OnClickListener {
 
+    private CheckBox cbYunshanfu;
     private CheckBox cbWebchat;
     private CheckBox cbIdCast;
     private OnSelectListener selectListener;
-    private int type;//1为支付宝，2为微信，3为银行账户        默认微信
+    private int type;//1为支付宝，2为微信，3为银行账户，4为云闪付     默认微信
     private String text;
 
-    public PagerBottomPopup(@NonNull Context context,int payType, OnSelectListener selectListener) {
+    public PagerBottomPopup(@NonNull Context context, int payType, OnSelectListener selectListener) {
         super(context);
         this.selectListener = selectListener;
         this.type = payType;
@@ -37,14 +38,22 @@ public class PagerBottomPopup extends BottomPopupView implements CompoundButton.
         super.onCreate();
         cbWebchat = findViewById(R.id.cb_webchat);
         cbIdCast = findViewById(R.id.cb_idcast);
-        cbWebchat.setOnCheckedChangeListener(this);
-        cbIdCast.setOnCheckedChangeListener(this);
-        if(type == 2){
+        cbYunshanfu = findViewById(R.id.cb_yunshanfu);
+        cbWebchat.setOnClickListener(this);
+        cbIdCast.setOnClickListener(this);
+        cbYunshanfu.setOnClickListener(this);
+        if (type == 2) {
             cbWebchat.setChecked(true);
             cbIdCast.setChecked(false);
-        }else if(type == 3){
+            cbYunshanfu.setChecked(false);
+        } else if (type == 3) {
             cbWebchat.setChecked(false);
             cbIdCast.setChecked(true);
+            cbYunshanfu.setChecked(false);
+        }else if (type == 4) {
+            cbWebchat.setChecked(false);
+            cbIdCast.setChecked(false);
+            cbYunshanfu.setChecked(true);
         }
     }
 
@@ -64,39 +73,32 @@ public class PagerBottomPopup extends BottomPopupView implements CompoundButton.
     }
 
     @Override
-    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-        switch (buttonView.getId()) {
+    public void onClick(View v) {
+        switch (v.getId()) {
             case R.id.cb_webchat:
-                if (isChecked) {
+                    cbWebchat.setChecked(true);
                     cbIdCast.setChecked(false);
+                    cbYunshanfu.setChecked(false);
                     type = 2;
                     text = "微信支付";
-                } else {
-                    cbIdCast.setChecked(true);
-                    type = 3;
-                    text = "银行卡支付";
-                }
                 break;
             case R.id.cb_idcast:
-                if (isChecked) {
+                    cbIdCast.setChecked(true);
                     cbWebchat.setChecked(false);
+                    cbYunshanfu.setChecked(false);
                     type = 3;
                     text = "银行卡支付";
-                } else {
-                    cbWebchat.setChecked(true);
-                    type = 2;
-                    text = "微信支付";
-                }
+                break;
+            case R.id.cb_yunshanfu:
+                    cbYunshanfu.setChecked(true);
+                    cbWebchat.setChecked(false);
+                    cbIdCast.setChecked(false);
+                    type = 4;
+                    text = "云闪付支付";
                 break;
         }
-        if(selectListener != null){
-            selectListener.onSelect(type,text);
+        if (selectListener != null) {
+            selectListener.onSelect(type, text);
         }
-//        postDelayed(new Runnable() {
-//            @Override
-//            public void run() {
-//                if(popupInfo.autoDismiss)dismiss();
-//            }
-//        },500);
     }
 }

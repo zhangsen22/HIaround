@@ -1,31 +1,31 @@
 package hiaround.android.com.presenter;
 
-import hiaround.android.com.modle.BaseBean;
+import hiaround.android.com.modle.YnShanFuEditModle;
 import hiaround.android.com.net.retrofit.ModelResultObserver;
 import hiaround.android.com.net.retrofit.exception.ModelException;
-import hiaround.android.com.presenter.contract.AliPayEditContract;
+import hiaround.android.com.presenter.contract.YunShanFuLoginContract;
 import hiaround.android.com.presenter.modle.PaySettingModle;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 
-public class AliPayEditPresenter implements AliPayEditContract.Presenter{
+public class YunShanFuLoginPresenter implements YunShanFuLoginContract.Presenter{
 
-    private AliPayEditContract.View mView;
+    private YunShanFuLoginContract.View mView;
     private PaySettingModle mModel;
 
-    public AliPayEditPresenter(AliPayEditContract.View view, PaySettingModle model){
+    public YunShanFuLoginPresenter(YunShanFuLoginContract.View view, PaySettingModle model){
         mView = view;
         mModel = model;
         mView.setPresenter(this);
     }
 
     @Override
-    public void ali(long id,final String name, final String account,String accountid, final String base64Img, String financePwd, long time) {
+    public void cloudLogin(long paymentId, String cookieUser, String username) {
         mView.showLoading();
-        mModel.ali(id,name,account,accountid,base64Img,financePwd,time).observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new ModelResultObserver<BaseBean>() {
+        mModel.cloudLogin(paymentId,cookieUser,username).observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new ModelResultObserver<YnShanFuEditModle>() {
                     @Override
-                    public void onSuccess(BaseBean baseBean) {
-                        mView.aliSuccess(name,account,base64Img);
+                    public void onSuccess(YnShanFuEditModle ynShanFuEditModle) {
+                        mView.cloudLoginSuccess(ynShanFuEditModle);
                         mView.hideLoading();
                     }
 
@@ -37,8 +37,10 @@ public class AliPayEditPresenter implements AliPayEditContract.Presenter{
                 });
     }
 
+
     @Override
     public void starLoadData() {
 
     }
+
 }
