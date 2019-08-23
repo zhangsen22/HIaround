@@ -15,6 +15,7 @@ import hiaround.android.com.MyApplication;
 import hiaround.android.com.R;
 import hiaround.android.com.modle.AliPayee;
 import hiaround.android.com.modle.WechatPayee;
+import hiaround.android.com.modle.YunShanFuPayee;
 
 /**
  * Description: 在中间的二维码对话框
@@ -91,6 +92,22 @@ public class CenterErWeiMaPopupView extends CenterPopupView {
             }
         } else if (type == 3) {
             tvPayTypeName.setText("请用银联扫一扫");
+        }else if (type == 4) {
+            tvPayTypeName.setText("请用云闪付扫一扫");
+            YunShanFuPayee yunShanFuPayee =  GsonUtil.getInstance().getServerBean(payee,YunShanFuPayee.class);
+            if(yunShanFuPayee != null){
+                String account = yunShanFuPayee.getAccount();
+                if(!TextUtils.isEmpty(account)){
+                    tvAccount.setVisibility(VISIBLE);
+                    tvAccount.setText(account);
+                }else {
+                    tvAccount.setVisibility(GONE);
+                    tvDespic.setText("扫描二维码验证");
+                }
+                Bitmap qrImage = QRCodeUtil.createQRCodeBitmap(yunShanFuPayee.getBase64Img(), 650, 650, "UTF-8",
+                        "H", "1", Color.BLACK, Color.WHITE, bitmapLog, 0.2F, null);
+                ivImageCode.setImageBitmap(qrImage);
+            }
         }
     }
 }

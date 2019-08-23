@@ -22,6 +22,7 @@ import hiaround.android.com.modle.AliPayee;
 import hiaround.android.com.modle.BankPayee;
 import hiaround.android.com.modle.MySellOrBuyinfoItem;
 import hiaround.android.com.modle.WechatPayee;
+import hiaround.android.com.modle.YunShanFuPayee;
 import hiaround.android.com.ui.activity.OrderDetailsActivity;
 import hiaround.android.com.ui.widget.CenterErWeiMaPopupView;
 import hiaround.android.com.util.ToastUtil;
@@ -144,6 +145,15 @@ public class OrderDetailsFragment extends BaseFragment {
                         tvShoukuaiOrderDetailsName.setText(bankPayee.getName());
                         tvOrderDetailsAccount.setText(bankPayee.getAccount());
                         ivOrderDetailsCodeImage.setVisibility(View.GONE);
+                    }
+                }else if (payType == 4) {
+                    tvOrderDetailsShoukuanType.setText("云闪付");
+                    YunShanFuPayee yunShanFuPayee =  GsonUtil.getInstance().getServerBean(payee,YunShanFuPayee.class);
+                    if(yunShanFuPayee != null){
+                        tvOrderDetailsSellName.setText(yunShanFuPayee.getName());
+                        tvShoukuaiOrderDetailsName.setText(yunShanFuPayee.getName());
+                        tvOrderDetailsAccount.setText(yunShanFuPayee.getAccount());
+                        ivOrderDetailsCodeImage.setVisibility(View.VISIBLE);
                     }
                 }
             }

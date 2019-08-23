@@ -31,6 +31,7 @@ import hiaround.android.com.modle.BankPayee;
 import hiaround.android.com.modle.BaseBean;
 import hiaround.android.com.modle.BuyBusinessResponse;
 import hiaround.android.com.modle.WechatPayee;
+import hiaround.android.com.modle.YunShanFuPayee;
 import hiaround.android.com.presenter.BusinessBuyDetailsPresenter;
 import hiaround.android.com.presenter.contract.BusinessBuyDetailsContract;
 import hiaround.android.com.ui.activity.BusinessBuyDetailsActivity;
@@ -170,6 +171,16 @@ public class BusinessBuyDetailsFragment extends BaseFragment implements Business
                     tvZhibankName.setText(bankPayee.getSubName());
                     tvShoukuaiName.setText(bankPayee.getName());
                     tvShoukuaiAccount.setText(bankPayee.getAccount());
+                }
+            }else if (type == 4) {
+                llShoukuanfangshi.setVisibility(View.VISIBLE);
+                tvPayTypeName.setText("云闪付");
+                tvShoukuaiTypeName.setText("云闪付");
+                tvPayImage.setImageResource(R.mipmap.af);
+                YunShanFuPayee yunShanFuPayee = GsonUtil.getInstance().getServerBean(payee, YunShanFuPayee.class);
+                if (yunShanFuPayee != null) {
+                    tvShoukuaiName.setText(yunShanFuPayee.getName());
+                    tvShoukuaiAccount.setText(yunShanFuPayee.getAccount());
                 }
             }
 
