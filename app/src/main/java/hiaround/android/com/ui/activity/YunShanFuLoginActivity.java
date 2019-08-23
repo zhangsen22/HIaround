@@ -120,7 +120,7 @@ public class YunShanFuLoginActivity extends BaseActivity implements YunShanFuLog
 
             @Override
             public void onPageFinished(WebView view, String url) {
-                if(url.contains(Constants.YUNSHANFULOGINSUCCESS)){
+                if(url.contains(Constants.YUNSHANFULOGINSUCCESS)&&!url.equals(Constants.YUNSHANFUURL)){
                     /**
                      * 云闪付登陆成功
                      */
