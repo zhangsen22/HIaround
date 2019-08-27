@@ -4,29 +4,36 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.text.TextUtils;
+import android.util.Log;
 
+import com.growalong.util.util.AppPublicUtils;
 import com.growalong.util.util.GALogger;
+import com.liulishuo.filedownloader.FileDownloader;
+
+import java.io.File;
+
+import hiaround.android.com.util.FileUtils;
 
 public class PackageBroadCastReceiver extends BroadcastReceiver {
-    private static final String TAG = PackageBroadCastReceiver.class.getSimpleName();
-
+    private final String TAG  = PackageBroadCastReceiver.class.getSimpleName();
     @Override
     public void onReceive(Context context, Intent intent) {
-        if (TextUtils.equals(intent.getAction(), Intent.ACTION_PACKAGE_ADDED)) {
-            // 应用安装
-            // 获取应用包名，和要监听的应用包名做对比
-            String packName = intent.getData().getSchemeSpecificPart();
-            GALogger.d(TAG,"应用安装");
-        }else if (TextUtils.equals(intent.getAction(),Intent.ACTION_PACKAGE_REMOVED)){
-            // 应用卸载
-            // 获取应用包名
-            String packName = intent.getData().getSchemeSpecificPart();
-            GALogger.d(TAG,"应用卸载");
-        }else if (TextUtils.equals(intent.getAction(),Intent.ACTION_PACKAGE_REPLACED)){
-            // 应用覆盖
-            // 获取应用包名
-            String packName = intent.getData().getSchemeSpecificPart();
-            GALogger.d(TAG,"应用覆盖");
+//        PackageManager manager = context.getPackageManager();
+        final String DEFAULTSAVEPATH  = FileUtils.getAPKCacheDir();//默认的保存路径;
+        if (intent.getAction().equals(Intent.ACTION_PACKAGE_ADDED)) {
+            String packageName = intent.getData().getSchemeSpecificPart();
+            Log.d(TAG,"安装成功"+packageName);
+            //安装完成之后；删除下载文件； 和清空db里的数据
+            AppPublicUtils.deleteFile(new File(DEFAULTSAVEPATH));
+            FileDownloader.getImpl().clearAllTaskData();
+        }
+        if (intent.getAction().equals(Intent.ACTION_PACKAGE_REMOVED)) {
+            String packageName = intent.getData().getSchemeSpecificPart();
+            Log.d(TAG,"卸载成功"+packageName);
+        }
+        if (intent.getAction().equals(Intent.ACTION_PACKAGE_REPLACED)) {
+            String packageName = intent.getData().getSchemeSpecificPart();
+            Log.d(TAG,"替换成功"+packageName);
         }
     }
 }

@@ -183,7 +183,8 @@
 
         <service android:name=".service.KillSelfService" />
 
-        <receiver android:name=".observer.PackageBroadCastReceiver">
+        <receiver android:name=".observer.PackageBroadCastReceiver"
+            android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.PACKAGE_ADDED" />
                 <action android:name="android.intent.action.PACKAGE_REPLACED" />

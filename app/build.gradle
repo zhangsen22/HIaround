@@ -99,4 +99,6 @@ dependencies {
     implementation rootProject.ext.dependencies.eventbus
     //轮播图
     implementation 'com.bigkoo:convenientbanner:2.0.5'
+    //Android 文件下载引擎，稳定、高效、灵活、简单易用的框架
+    implementation 'com.liulishuo.filedownloader:library:1.7.6'
 }

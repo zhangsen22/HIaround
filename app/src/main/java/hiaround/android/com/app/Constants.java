@@ -38,4 +38,7 @@ public class Constants {
     public static final int REQUESTCODE_19 = 19;
     public static final int REQUESTCODE_20 = 20;
     public static final int RECYCLEVIEW_TOTALCOUNT = 10;
+    public static final int Dialog_General = 0X0;
+    public static final int Dialog_HorizontalProgress = 0X1;
+    public static final int Dialog_VerticalProgress = 0X2;
 }

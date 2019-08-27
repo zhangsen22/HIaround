@@ -40,7 +40,14 @@
     <string name="text31">退出登录</string>
     <string name="text32">版本号</string>
     <string name="text33">暂未开放</string>
+    <string name="cancel">取消</string>
+    <string name="ok">确定</string>
+    <string name="loading1">请稍候...</string>
 
+    <string name="tipmsg" formatted="false">
+        目前手机不是WiFi状态 \n
+        确认是否继续下载更新？
+    </string>
 
 </resources>
 

@@ -28,7 +28,8 @@
     <color name="btn_text_hover">#CCFFFFFF</color>
     <!--蒙版-->
     <color name="colorMask">#66000000</color>
-
+    <color name="unify_txt_color_black">#323232</color>
+    <color name="unify_txt_color_gray">#909090</color>
 
     <!--gray1-->
     <color name="colorGray1">#F0F0F0</color>
@@ -46,7 +47,7 @@
     <color name="colorGray6">#141414</color>
     <!--gray7-->
     <color name="colorGray7">#D8D8D8</color>
-
+    <color name="unify_bg">#3da0f0</color>
     <color name="c1">#0ACCAC</color>
     <color name="c2">#222b48</color>
     <color name="c3">#F3F3F3</color>
@@ -88,6 +89,15 @@
     <color name="black_font">#333333</color>
     <color name="studio_detail_model_text_default">#999999</color>
     <color name="thirsty_blue">#00acff</color>
+
+    <color name="anhei">#2f2f2f</color>
+    <color name="style_color">#00acf1</color>
+    <color name="dialog_line_bg_Color">@color/style_color</color>
+    <color name="dialog_loading_textColor">@color/anhei</color>
+    <color name="dialog_btn_normal_bg">@color/white</color>
+    <color name="dialog_btn_hold_bg">#f1f1f1</color>
+    <color name="dialog_listview_item_textColor">@color/anhei</color>
+    <color name="gray_txt_color_2">#727272</color> <!--其次-->
 
     <color name="web_view_load_">#2984e2</color>
     <!-- 浅灰 -->

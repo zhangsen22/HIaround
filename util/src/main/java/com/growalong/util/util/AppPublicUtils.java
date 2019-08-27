@@ -2,9 +2,15 @@ package com.growalong.util.util;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
+import android.os.Build;
+import android.support.v4.content.FileProvider;
 import android.text.InputType;
 import android.view.WindowManager;
 import android.widget.EditText;
+
+import java.io.File;
 
 public class AppPublicUtils {
     private static final String TAG = AppPublicUtils.class.getSimpleName();
@@ -107,4 +113,56 @@ public class AppPublicUtils {
         editText.setLongClickable(mode);
         editText.setInputType(mode ? InputType.TYPE_CLASS_TEXT:InputType.TYPE_NULL);
  }
+
+
+    /**
+     * 通过递归调用删除一个文件夹及下面的所有文件
+     *
+     * @param file
+     */
+    /**
+     * 删除某目录下所有文件包括子文件夹
+     */
+    public static void deleteFile(File file) {
+        if (!file.exists()) {
+            return;
+        }
+        if (file.isFile()) {
+            file.delete();
+            return;
+        }
+        if (file.isDirectory()) {
+            File[] childFile = file.listFiles();
+            if (childFile == null || childFile.length == 0) {
+                file.delete();
+                return;
+            }
+            for (File f : childFile) {
+                deleteFile(f);
+            }
+            file.delete();
+        }
+    }
+
+    /**
+     *   7.0 的 Intent 离开你的应用，应用失败，并出现 FileUriExposedException 异常。
+     * @param context
+     * @param apkPath
+     */
+    public static void installAPK(Context context,String apkPath) {
+        Intent i = new Intent();
+        i.setAction("android.intent.action.VIEW");
+        i.setFlags(Intent.FLAG_ACTIVITY_MULTIPLE_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {//判读版本是否在7.0以上
+            Uri apkUri = FileProvider.getUriForFile(context, context.getPackageName()
+                    + ".fileprovider", new File(apkPath));
+            i.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+            i.setDataAndType(apkUri, "application/vnd.android.package-archive");
+
+        } else {
+            i.setDataAndType(Uri.parse("file://" + apkPath),
+                    "application/vnd.android.package-archive");
+        }
+        context.startActivity(i);
+    }
 }
