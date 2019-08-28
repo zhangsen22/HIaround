@@ -8,7 +8,7 @@ import hiaround.android.com.MyApplication;
  * 管理登陆用户
  */
 public class AccountManager {
-    private static final String ACCOUNT_KEY = "account_key";
+    private static final String ACCOUNT_KEY = "hiaround_key";
     private static final String ID = "id";
     private static final String INVITEDCODE = "invitedCode";
     private static final String DOWNLOADURL = "downloadUrl";
