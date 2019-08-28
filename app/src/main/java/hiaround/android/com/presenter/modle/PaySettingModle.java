@@ -85,6 +85,22 @@ public class PaySettingModle{
     }
 
     /**
+     * 云闪付编辑二维码
+     * @param id
+     * @param base64Img
+     * @param financePwd
+     * @param time
+     * @return
+     */
+    public Observable<YnShanFuEditModle> cloudImgSetUp(long id, String base64Img, String financePwd, long time){
+        return BaseRetrofitClient.getInstance().create(ApiServices.class)
+                .cloudImgSetUp(id,base64Img,financePwd,time)
+                .subscribeOn(Schedulers.io())
+                .map(new ServerExceptionMap<YnShanFuEditModle>())
+                .onErrorResumeNext(new ModelExceptionMap<YnShanFuEditModle>());
+    }
+
+    /**
      * 微信登录
      * @param paymentId
      * @return

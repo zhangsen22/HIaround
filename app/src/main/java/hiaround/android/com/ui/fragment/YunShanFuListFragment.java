@@ -300,7 +300,7 @@ public class YunShanFuListFragment extends BaseFragment implements YunShanFuList
         YunShanFuPayeeItemModelPayee payee = item.getPayee();
         if(payee != null) {
             //id:0                //如果为新加,设为0,如果为修改,此处为修改的收款方式的id
-//            PaySettingActivity.startThisYunShanFu(yunShanFuListActivity, 4, payee, Constants.REQUESTCODE_19);
+            PaySettingActivity.startThisYunShanFu(yunShanFuListActivity, 4, payee, Constants.REQUESTCODE_19);
         }
     }
 }

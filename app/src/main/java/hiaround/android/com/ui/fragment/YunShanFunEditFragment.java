@@ -22,6 +22,7 @@ import android.widget.TextView;
 import com.example.qrcode.Constant;
 import com.example.qrcode.ScannerActivity;
 import com.example.qrcode.utils.QRCodeUtil;
+import com.growalong.util.util.AppPublicUtils;
 import com.growalong.util.util.GALogger;
 import com.growalong.util.util.Md5Utils;
 import butterknife.BindView;
@@ -95,6 +96,24 @@ public class YunShanFunEditFragment extends BaseFragment implements YunShanFuEdi
         setRootViewPaddingTop(flTitleComtent);
         tvTitle.setText("云闪付设置");
         bitmap = BitmapFactory.decodeResource(MyApplication.appContext.getResources(), R.drawable.ic_launcher_round);
+
+        if (yunShanFuPayeeItemModelPayee == null) {
+            id = 0;
+        } else {
+            id = yunShanFuPayeeItemModelPayee.getId();
+            String name = yunShanFuPayeeItemModelPayee.getName();
+            if (!TextUtils.isEmpty(name)) {
+                etWenchatName.setText(name);
+                AppPublicUtils.setEditTextEnable(etWenchatName, false);
+            }
+            String account = yunShanFuPayeeItemModelPayee.getAccount();
+            if (!TextUtils.isEmpty(account)) {
+                etWebchatCode.setText(account);
+                AppPublicUtils.setEditTextEnable(etWebchatCode, false);
+            }
+            String base64Img = yunShanFuPayeeItemModelPayee.getBase64Img();
+            creatCode(base64Img);
+        }
     }
 
     @Override
@@ -122,30 +141,45 @@ public class YunShanFunEditFragment extends BaseFragment implements YunShanFuEdi
                 BalancePassWordActivity.startThis(paySettingActivity);
                 break;
             case R.id.tv_submit:
-                String wenchatName = etWenchatName.getText().toString().trim();
-                if (TextUtils.isEmpty(wenchatName)) {
-                    ToastUtil.shortShow("请输入真实姓名");
-                    return;
-                }
+                if (yunShanFuPayeeItemModelPayee == null) {
+                    String wenchatName = etWenchatName.getText().toString().trim();
+                    if (TextUtils.isEmpty(wenchatName)) {
+                        ToastUtil.shortShow("请输入真实姓名");
+                        return;
+                    }
 
-                String webchatCode = etWebchatCode.getText().toString().trim();
-                if (TextUtils.isEmpty(webchatCode)) {
-                    ToastUtil.shortShow("请输入云闪付账号");
-                    return;
-                }
+                    String webchatCode = etWebchatCode.getText().toString().trim();
+                    if (TextUtils.isEmpty(webchatCode)) {
+                        ToastUtil.shortShow("请输入云闪付账号");
+                        return;
+                    }
 
-                if (TextUtils.isEmpty(sIdcardFront)) {
-                    ToastUtil.shortShow("请上传云闪付商户固码");
-                    return;
-                }
+                    if (TextUtils.isEmpty(sIdcardFront)) {
+                        ToastUtil.shortShow("请上传云闪付商户固码");
+                        return;
+                    }
 
-                String forgetPassword = etForgetPassword.getText().toString().trim();
-                if (TextUtils.isEmpty(forgetPassword)) {
-                    ToastUtil.shortShow("请输入资金密码");
-                    return;
+                    String forgetPassword = etForgetPassword.getText().toString().trim();
+                    if (TextUtils.isEmpty(forgetPassword)) {
+                        ToastUtil.shortShow("请输入资金密码");
+                        return;
+                    }
+                    long currentTime = System.currentTimeMillis();
+                    presenter.yunshanfu(id, wenchatName, webchatCode, sIdcardFront, Md5Utils.getMD5(forgetPassword + currentTime), currentTime);
+                } else {
+                    if (TextUtils.isEmpty(sIdcardFront)) {
+                        ToastUtil.shortShow("请上传云闪付商户固码");
+                        return;
+                    }
+
+                    String forgetPassword = etForgetPassword.getText().toString().trim();
+                    if (TextUtils.isEmpty(forgetPassword)) {
+                        ToastUtil.shortShow("请输入资金密码");
+                        return;
+                    }
+                    long currentTime = System.currentTimeMillis();
+                    presenter.cloudImgSetUp(id, sIdcardFront, Md5Utils.getMD5(forgetPassword + currentTime), currentTime);
                 }
-                long currentTime = System.currentTimeMillis();
-                presenter.yunshanfu(id, wenchatName, webchatCode, sIdcardFront, Md5Utils.getMD5(forgetPassword + currentTime), currentTime);
                 break;
         }
     }
@@ -157,6 +191,17 @@ public class YunShanFunEditFragment extends BaseFragment implements YunShanFuEdi
             if(paymentId > 0) {
                 YunShanFuLoginActivity.launchVerifyCodeForResult(paySettingActivity, Constants.YUNSHANFUURL,paymentId,Constants.REQUESTCODE_20);
                 isRefreshData = true;
+            }
+        }
+    }
+
+    @Override
+    public void cloudImgSetUpSuccess(YnShanFuEditModle ynShanFuEditModle) {
+        if(ynShanFuEditModle != null){
+            long paymentId = ynShanFuEditModle.getPaymentId();
+            if(paymentId > 0) {
+                paySettingActivity.setResult(Activity.RESULT_OK);
+                paySettingActivity.finish();
             }
         }
     }

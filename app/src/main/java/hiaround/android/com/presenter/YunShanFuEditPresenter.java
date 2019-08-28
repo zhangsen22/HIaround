@@ -38,6 +38,26 @@ public class YunShanFuEditPresenter implements YunShanFuEditContract.Presenter{
     }
 
     @Override
+    public void cloudImgSetUp(long id, String base64Img, String financePwd, long time) {
+        mView.showLoading();
+        mModel.cloudImgSetUp(id,base64Img,financePwd,time).observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new ModelResultObserver<YnShanFuEditModle>() {
+                    @Override
+                    public void onSuccess(YnShanFuEditModle ynShanFuEditModle) {
+                        mView.cloudImgSetUpSuccess(ynShanFuEditModle);
+                        mView.hideLoading();
+                    }
+
+                    @Override
+                    public void onFailure(ModelException ex) {
+                        super.onFailure(ex);
+                        mView.hideLoading();
+                    }
+                });
+    }
+
+
+    @Override
     public void starLoadData() {
 
     }
