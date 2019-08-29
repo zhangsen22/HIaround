@@ -358,7 +358,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="·订单状态变更为买方已付款后，请前往收款账户核实是否收到款项后尽快放币。\n·用户需自行承担交易风险，造成损失与Gmix平台无关"
+                android:text="·订单状态变更为买方已付款后，请前往收款账户核实是否收到款项后尽快放币。\n·用户需自行承担交易风险，造成损失与Aimi平台无关"
                 android:textColor="@color/color_999999"
                 android:textSize="10sp"
                 android:lineSpacingExtra="@dimen/y6"

@@ -3,7 +3,7 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion rootProject.ext.android.compileSdkVersion
     defaultConfig {
-        applicationId "hiaround.android.com"
+        applicationId "aimi.android.com"
         minSdkVersion rootProject.ext.android.minSdkVersion
         targetSdkVersion rootProject.ext.android.targetSdkVersion
         versionCode rootProject.ext.android.versionCode
@@ -13,16 +13,16 @@ android {
 
     signingConfigs {
         release {
-            storeFile file('hiaround.jks')
-            storePassword "hiaroundgmix"
-            keyAlias "gmix"
-            keyPassword "hiaroundgmix"
+            storeFile file('aimi.jks')
+            storePassword "habcaimi"
+            keyAlias "aimi"
+            keyPassword "habcaimi"
         }
         debug {
-            storeFile file('hiaround.jks')
-            storePassword "hiaroundgmix"
-            keyAlias "gmix"
-            keyPassword "hiaroundgmix"
+            storeFile file('aimi.jks')
+            storePassword "habcaimi"
+            keyAlias "aimi"
+            keyPassword "habcaimi"
 //            storeFile file('debug.keystore')
 //            storePassword "android"
 //            keyAlias "androiddebugkey"

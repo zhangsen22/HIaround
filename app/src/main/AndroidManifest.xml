@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="hiaround.android.com">
+    package="aimi.android.com">
 
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.INTERNET" />
@@ -17,7 +17,7 @@
     <uses-permission android:name="android.permission.GET_TASKS" />
 
     <application
-        android:name=".MyApplication"
+        android:name="aimi.android.com.MyApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -25,7 +25,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".ui.activity.SplashActivity"
+            android:name="aimi.android.com.ui.activity.SplashActivity"
             android:theme="@style/Theme.iAround.Splash.NotDefault">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -35,13 +35,13 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ui.activity.MainActivity"
+            android:name="aimi.android.com.ui.activity.MainActivity"
             android:configChanges="screenSize|keyboardHidden|orientation|fontScale|locale|uiMode|screenLayout|layoutDirection"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan|stateHidden" />
         <activity
-            android:name=".ui.activity.LoginActivity"
+            android:name="aimi.android.com.ui.activity.LoginActivity"
             android:configChanges="screenSize|keyboardHidden|orientation|fontScale|locale|uiMode|screenLayout|layoutDirection"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
@@ -53,57 +53,57 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ui.activity.RegistActivity"
+            android:name="aimi.android.com.ui.activity.RegistActivity"
             android:configChanges="screenSize|keyboardHidden|orientation|fontScale|locale|uiMode|screenLayout|layoutDirection"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan|stateHidden" />
         <activity
-            android:name=".ui.activity.ForgetPwdActivity"
+            android:name="aimi.android.com.ui.activity.ForgetPwdActivity"
             android:configChanges="screenSize|keyboardHidden|orientation|fontScale|locale|uiMode|screenLayout|layoutDirection"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan|stateHidden" />
         <activity
-            android:name=".ui.activity.BalancePassWordActivity"
+            android:name="aimi.android.com.ui.activity.BalancePassWordActivity"
             android:configChanges="screenSize|keyboardHidden|orientation|fontScale|locale|uiMode|screenLayout|layoutDirection"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan|stateHidden" />
         <activity
-            android:name=".ui.activity.RansferOfFundsActivity"
+            android:name="aimi.android.com.ui.activity.RansferOfFundsActivity"
             android:configChanges="screenSize|keyboardHidden|orientation|fontScale|locale|uiMode|screenLayout|layoutDirection"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan|stateHidden" />
         <activity
-            android:name=".ui.activity.RewardDetailActivity"
+            android:name="aimi.android.com.ui.activity.RewardDetailActivity"
             android:configChanges="screenSize|keyboardHidden|orientation|fontScale|locale|uiMode|screenLayout|layoutDirection"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan|stateHidden" />
         <activity
-            android:name=".ui.activity.WebViewActivity"
+            android:name="aimi.android.com.ui.activity.WebViewActivity"
             android:configChanges="screenSize|keyboardHidden|orientation|fontScale|locale|uiMode|screenLayout|layoutDirection"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize|stateHidden" />
         <activity
-            android:name=".ui.activity.AddMakeStyleActivity"
+            android:name="aimi.android.com.ui.activity.AddMakeStyleActivity"
             android:configChanges="screenSize|keyboardHidden|orientation|fontScale|locale|uiMode|screenLayout|layoutDirection"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan|stateHidden" />
         <activity
-            android:name=".ui.activity.RecommendToFriendsActivity"
+            android:name="aimi.android.com.ui.activity.RecommendToFriendsActivity"
             android:configChanges="screenSize|keyboardHidden|orientation|fontScale|locale|uiMode|screenLayout|layoutDirection"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan|stateHidden" />
         <activity
-            android:name=".ui.activity.SecurityCenterActivity"
+            android:name="aimi.android.com.ui.activity.SecurityCenterActivity"
             android:configChanges="screenSize|keyboardHidden|orientation|fontScale|locale|uiMode|screenLayout|layoutDirection"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan|stateHidden" />
         <activity
-            android:name=".ui.activity.ChangePwdActivity"
+            android:name="aimi.android.com.ui.activity.ChangePwdActivity"
             android:configChanges="screenSize|keyboardHidden|orientation|fontScale|locale|uiMode|screenLayout|layoutDirection"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan|stateHidden" />
         <activity
-            android:name=".ui.activity.IdentityActivity"
+            android:name="aimi.android.com.ui.activity.IdentityActivity"
             android:configChanges="screenSize|keyboardHidden|orientation|fontScale|locale|uiMode|screenLayout|layoutDirection"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan|stateHidden" />
@@ -117,37 +117,37 @@
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
-            android:name=".ui.activity.MessageCenterActivity"
+            android:name="aimi.android.com.ui.activity.MessageCenterActivity"
             android:configChanges="screenSize|keyboardHidden|orientation|fontScale|locale|uiMode|screenLayout|layoutDirection"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan|stateHidden" />
         <activity
-            android:name=".ui.activity.BusinessSellActivity"
+            android:name="aimi.android.com.ui.activity.BusinessSellActivity"
             android:configChanges="screenSize|keyboardHidden|orientation|fontScale|locale|uiMode|screenLayout|layoutDirection"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan|stateHidden" />
         <activity
-            android:name=".ui.activity.BusinessBuyActivity"
+            android:name="aimi.android.com.ui.activity.BusinessBuyActivity"
             android:configChanges="screenSize|keyboardHidden|orientation|fontScale|locale|uiMode|screenLayout|layoutDirection"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan|stateHidden" />
         <activity
-            android:name=".ui.activity.BusinessBuyDetailsActivity"
+            android:name="aimi.android.com.ui.activity.BusinessBuyDetailsActivity"
             android:configChanges="screenSize|keyboardHidden|orientation|fontScale|locale|uiMode|screenLayout|layoutDirection"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan|stateHidden" />
         <activity
-            android:name=".ui.activity.BusinessSellDetailsActivity"
+            android:name="aimi.android.com.ui.activity.BusinessSellDetailsActivity"
             android:configChanges="screenSize|keyboardHidden|orientation|fontScale|locale|uiMode|screenLayout|layoutDirection"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan|stateHidden" />
         <activity
-            android:name=".ui.activity.ChongBiActivity"
+            android:name="aimi.android.com.ui.activity.ChongBiActivity"
             android:configChanges="screenSize|keyboardHidden|orientation|fontScale|locale|uiMode|screenLayout|layoutDirection"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan|stateHidden" />
         <activity
-            android:name=".ui.activity.TiBiActivity"
+            android:name="aimi.android.com.ui.activity.TiBiActivity"
             android:configChanges="screenSize|keyboardHidden|orientation|fontScale|locale|uiMode|screenLayout|layoutDirection"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan|stateHidden" />
@@ -156,34 +156,34 @@
             android:screenOrientation="portrait"
             android:theme="@style/MyAppTheme" />
         <activity
-            android:name=".ui.activity.PaySettingActivity"
+            android:name="aimi.android.com.ui.activity.PaySettingActivity"
             android:configChanges="screenSize|keyboardHidden|orientation|fontScale|locale|uiMode|screenLayout|layoutDirection"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan|stateHidden" />
         <activity
-            android:name=".ui.activity.OrderDetailsActivity"
+            android:name="aimi.android.com.ui.activity.OrderDetailsActivity"
             android:configChanges="screenSize|keyboardHidden|orientation|fontScale|locale|uiMode|screenLayout|layoutDirection"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan|stateHidden" />
         <activity
-            android:name=".ui.activity.IdCastPayListActivity"
+            android:name="aimi.android.com.ui.activity.IdCastPayListActivity"
             android:configChanges="screenSize|keyboardHidden|orientation|fontScale|locale|uiMode|screenLayout|layoutDirection"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan|stateHidden" />
         <activity
-            android:name=".ui.activity.AliPayListActivity"
+            android:name="aimi.android.com.ui.activity.AliPayListActivity"
             android:configChanges="screenSize|keyboardHidden|orientation|fontScale|locale|uiMode|screenLayout|layoutDirection"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan|stateHidden" />
         <activity
-            android:name=".ui.activity.WebChatListActivity"
+            android:name="aimi.android.com.ui.activity.WebChatListActivity"
             android:configChanges="screenSize|keyboardHidden|orientation|fontScale|locale|uiMode|screenLayout|layoutDirection"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan|stateHidden" />
 
-        <service android:name=".service.KillSelfService" />
+        <service android:name="aimi.android.com.service.KillSelfService" />
 
-        <receiver android:name=".observer.PackageBroadCastReceiver"
+        <receiver android:name="aimi.android.com.observer.PackageBroadCastReceiver"
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.PACKAGE_ADDED" />
@@ -195,42 +195,42 @@
         </receiver>
 
         <activity
-            android:name=".ui.activity.GuaDanActivity"
+            android:name="aimi.android.com.ui.activity.GuaDanActivity"
             android:configChanges="screenSize|keyboardHidden|orientation|fontScale|locale|uiMode|screenLayout|layoutDirection"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan|stateHidden" />
         <activity
-            android:name=".ui.activity.FinancialRecordsActivity"
-            android:configChanges="screenSize|keyboardHidden|orientation|fontScale|locale|uiMode|screenLayout|layoutDirection"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="adjustPan|stateHidden" />
-
-        <activity
-            android:name=".ui.activity.YunShanFuListActivity"
+            android:name="aimi.android.com.ui.activity.FinancialRecordsActivity"
             android:configChanges="screenSize|keyboardHidden|orientation|fontScale|locale|uiMode|screenLayout|layoutDirection"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan|stateHidden" />
 
         <activity
-            android:name=".ui.activity.YunShanFuLoginActivity"
+            android:name="aimi.android.com.ui.activity.YunShanFuListActivity"
+            android:configChanges="screenSize|keyboardHidden|orientation|fontScale|locale|uiMode|screenLayout|layoutDirection"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+
+        <activity
+            android:name="aimi.android.com.ui.activity.YunShanFuLoginActivity"
             android:configChanges="screenSize|keyboardHidden|orientation|fontScale|locale|uiMode|screenLayout|layoutDirection"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize|stateHidden" />
 
         <provider
             android:name="android.support.v4.content.FileProvider"
-            android:authorities="hiaround.android.com.fileprovider"
+            android:authorities="aimi.android.com.fileprovider"
             android:exported="false"
             android:grantUriPermissions="true">
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/file_paths" />
         </provider>
-        <activity android:name=".ui.activity.InvitationRewardFirstActivity"
+        <activity android:name="aimi.android.com.ui.activity.InvitationRewardFirstActivity"
             android:configChanges="screenSize|keyboardHidden|orientation|fontScale|locale|uiMode|screenLayout|layoutDirection"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan|stateHidden"/>
-        <activity android:name=".ui.activity.InvitationRewardSecondActivity"
+        <activity android:name="aimi.android.com.ui.activity.InvitationRewardSecondActivity"
             android:configChanges="screenSize|keyboardHidden|orientation|fontScale|locale|uiMode|screenLayout|layoutDirection"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan|stateHidden"/>

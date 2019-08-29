@@ -120,7 +120,7 @@
 
             </LinearLayout>
 
-            <hiaround.android.com.ui.widget.NoScrollViewPager
+            <aimi.android.com.ui.widget.NoScrollViewPager
                 android:id="@+id/business_viewPager"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
