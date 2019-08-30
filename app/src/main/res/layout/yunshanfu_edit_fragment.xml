@@ -142,7 +142,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="点击云闪付商户固码可进行更换"
+                android:text="点击收款商户固码可进行更换"
                 android:textSize="13sp"
                 android:textColor="@color/color_666666"/>
 
@@ -166,7 +166,58 @@
 
     </LinearLayout>
 
-    <LinearLayout
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/y38"
+                android:layout_marginLeft="@dimen/y26"
+                android:layout_marginRight="@dimen/y26"
+                android:textColor="@color/color_666666"
+                android:textSize="11sp"
+                android:text="请确认该二维码对应的银行卡已绑定云闪付."/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="@dimen/y6"
+                android:layout_marginLeft="@dimen/y26"
+                android:layout_marginRight="@dimen/y26">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/color_666666"
+                android:textSize="11sp"
+                android:text="同一个云闪付只能绑定一个收款二维码,"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/color_ff0000"
+                    android:textSize="11sp"
+                    android:text="重复绑定无效"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/color_666666"
+                    android:textSize="11sp"
+                    android:text="."/>
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/y26"
+                android:layout_marginRight="@dimen/y26"
+                android:textColor="@color/color_666666"
+                android:textSize="11sp"
+                android:layout_marginTop="@dimen/y6"
+                android:text="目前支持招商银行,平安银行,华夏银行,民生银行,浦发银行,兴业银行的收款二维码."/>
+
+            <LinearLayout
         android:id="@+id/ll_forget_password"
         android:layout_width="match_parent"
         android:layout_height="@dimen/y90"
