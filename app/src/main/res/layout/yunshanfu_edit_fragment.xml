@@ -215,7 +215,7 @@
                 android:textColor="@color/color_666666"
                 android:textSize="11sp"
                 android:layout_marginTop="@dimen/y6"
-                android:text="目前支持招商银行,平安银行,华夏银行,民生银行,浦发银行,兴业银行的收款二维码."/>
+                android:text="目前支持招商银行,平安银行,华夏银行,民生银行,兴业银行的收款二维码."/>
 
             <LinearLayout
         android:id="@+id/ll_forget_password"
