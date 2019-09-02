@@ -1,6 +1,5 @@
 package aimi.android.com.presenter.modle;
-
-import aimi.android.com.modle.BaseBean;
+import aimi.android.com.modle.PaySetupModelLaCara;
 import aimi.android.com.net.retrofit.BaseRetrofitClient;
 import aimi.android.com.net.retrofit.exception.ModelExceptionMap;
 import aimi.android.com.net.retrofit.exception.ServerExceptionMap;
@@ -8,22 +7,21 @@ import aimi.android.com.net.retrofit.service.ApiServices;
 import io.reactivex.Observable;
 import io.reactivex.schedulers.Schedulers;
 
-public class EntrustBuyModle extends WalletModle{
+public class LaCaraListModle extends SetDefaultPayBaseModle {
+
 
     /**
-     * 委托购买
-     * @param price
-     * @param minNum
-     * @param maxNum
-     * @param financePwd
-     * @param time
+     * 获取自己的收款信息
+     * 拉卡拉
+     * @param type
      * @return
      */
-    public Observable<BaseBean> putUpBuy(double price, double minNum, double maxNum, String financePwd, long time){
+    public Observable<PaySetupModelLaCara> paysetupLaCara(int type){
         return BaseRetrofitClient.getInstance().create(ApiServices.class)
-                .putUpBuy(price,minNum,maxNum,financePwd,time)
+                .paysetupLaCara(type)
                 .subscribeOn(Schedulers.io())
-                .map(new ServerExceptionMap<BaseBean>())
-                .onErrorResumeNext(new ModelExceptionMap<BaseBean>());
+                .map(new ServerExceptionMap<PaySetupModelLaCara>())
+                .onErrorResumeNext(new ModelExceptionMap<PaySetupModelLaCara>());
     }
+
 }

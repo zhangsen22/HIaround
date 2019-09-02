@@ -158,6 +158,8 @@ public class SellFragment extends BaseFragment implements SellContract.View {
                                         ivSellIcon.setImageResource(R.mipmap.f);
                                     }else if (type == 4) {
                                         ivSellIcon.setImageResource(R.mipmap.af);
+                                    }else if (type == 5) {
+                                        ivSellIcon.setImageResource(R.mipmap.aq);
                                     }
                                 }
                                 payType = type;

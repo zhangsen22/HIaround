@@ -1,6 +1,8 @@
 package aimi.android.com.presenter.modle;
 
 import aimi.android.com.modle.BaseBean;
+import aimi.android.com.modle.LaCaraEditModle;
+import aimi.android.com.modle.LaCaraWenChatListModle;
 import aimi.android.com.modle.WebChatEditModle;
 import aimi.android.com.modle.WechatLoginModle;
 import aimi.android.com.modle.YnShanFuEditModle;
@@ -24,7 +26,7 @@ public class PaySettingModle{
      * @param time
      * @return
      */
-    public Observable<BaseBean> bank(long id,String bankName,String subName,String name,String account,double dailyLimit,String financePwd,long time){
+    public Observable<BaseBean> bank(long id, String bankName, String subName, String name, String account, double dailyLimit, String financePwd, long time){
         return BaseRetrofitClient.getInstance().create(ApiServices.class)
                 .bank(id,bankName,subName,name,account,dailyLimit,financePwd,time)
                 .subscribeOn(Schedulers.io())
@@ -59,7 +61,7 @@ public class PaySettingModle{
      * @param time
      * @return
      */
-    public Observable<WebChatEditModle> wechat(long id,String name,String account,String base64Img,String empBase64Img,String financePwd,long time){
+    public Observable<WebChatEditModle> wechat(long id, String name, String account, String base64Img, String empBase64Img, String financePwd, long time){
         return BaseRetrofitClient.getInstance().create(ApiServices.class)
                 .wechat(id,name,account,base64Img,empBase64Img,financePwd,time)
                 .subscribeOn(Schedulers.io())
@@ -85,6 +87,23 @@ public class PaySettingModle{
     }
 
     /**
+     * 拉卡拉收款设置
+     * @param wechatPaymentId
+     * @param account
+     * @param base64Img
+     * @param financePwd
+     * @param time
+     * @return
+     */
+    public Observable<LaCaraEditModle> lakala(long id,long wechatPaymentId, String account, String base64Img, String financePwd, long time){
+        return BaseRetrofitClient.getInstance().create(ApiServices.class)
+                .lakala(id,wechatPaymentId,account,base64Img,financePwd,time)
+                .subscribeOn(Schedulers.io())
+                .map(new ServerExceptionMap<LaCaraEditModle>())
+                .onErrorResumeNext(new ModelExceptionMap<LaCaraEditModle>());
+    }
+
+    /**
      * 云闪付编辑二维码
      * @param id
      * @param base64Img
@@ -98,6 +117,22 @@ public class PaySettingModle{
                 .subscribeOn(Schedulers.io())
                 .map(new ServerExceptionMap<YnShanFuEditModle>())
                 .onErrorResumeNext(new ModelExceptionMap<YnShanFuEditModle>());
+    }
+
+    /**
+     * 拉卡拉编辑二维码
+     * @param id
+     * @param base64Img
+     * @param financePwd
+     * @param time
+     * @return
+     */
+    public Observable<LaCaraEditModle> lakalaImgSetUp(long id, String base64Img, String financePwd, long time){
+        return BaseRetrofitClient.getInstance().create(ApiServices.class)
+                .lakalaImgSetUp(id,base64Img,financePwd,time)
+                .subscribeOn(Schedulers.io())
+                .map(new ServerExceptionMap<LaCaraEditModle>())
+                .onErrorResumeNext(new ModelExceptionMap<LaCaraEditModle>());
     }
 
     /**
@@ -124,5 +159,16 @@ public class PaySettingModle{
                 .subscribeOn(Schedulers.io())
                 .map(new ServerExceptionMap<YnShanFuEditModle>())
                 .onErrorResumeNext(new ModelExceptionMap<YnShanFuEditModle>());
+    }
+
+    /**
+     * 拉卡拉下拉框获取微信列表
+     */
+    public Observable<LaCaraWenChatListModle> getWechatList(){
+        return BaseRetrofitClient.getInstance().create(ApiServices.class)
+                .getWechatList()
+                .subscribeOn(Schedulers.io())
+                .map(new ServerExceptionMap<LaCaraWenChatListModle>())
+                .onErrorResumeNext(new ModelExceptionMap<LaCaraWenChatListModle>());
     }
 }

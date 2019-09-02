@@ -4,18 +4,22 @@ import android.content.Intent;
 import android.view.KeyEvent;
 import android.view.View;
 import com.growalong.util.util.ActivityUtils;
+
 import aimi.android.com.BaseActivity;
 import aimi.android.com.R;
 import aimi.android.com.app.Constants;
+import aimi.android.com.modle.LaCaraPayeeItemModelPayee;
 import aimi.android.com.modle.WeChatPayeeItemModelPayee;
 import aimi.android.com.modle.YunShanFuPayeeItemModelPayee;
 import aimi.android.com.presenter.AliPayEditPresenter;
 import aimi.android.com.presenter.IdCastPresenter;
+import aimi.android.com.presenter.LaCaraEditPresenter;
 import aimi.android.com.presenter.WebChatEditPresenter;
 import aimi.android.com.presenter.YunShanFuEditPresenter;
 import aimi.android.com.presenter.modle.PaySettingModle;
 import aimi.android.com.ui.fragment.AliPayEditFragment;
 import aimi.android.com.ui.fragment.IdCastPayEditFragment;
+import aimi.android.com.ui.fragment.LaCaraEditFragment;
 import aimi.android.com.ui.fragment.WebChatEditFragment;
 import aimi.android.com.ui.fragment.YunShanFunEditFragment;
 
@@ -24,6 +28,7 @@ public class PaySettingActivity extends BaseActivity {
     private WebChatEditFragment webChatEditFragment;
     private AliPayEditFragment aliPayEditFragment;
     private YunShanFunEditFragment yunShanFunEditFragment;
+    private LaCaraEditFragment laCaraEditFragment;
     private int type;
 
     public static void startThis(BaseActivity activity,int type,int requestCode) {
@@ -43,6 +48,13 @@ public class PaySettingActivity extends BaseActivity {
         Intent intent = new Intent(activity, PaySettingActivity.class);
         intent.putExtra("type",type);
         intent.putExtra("yunShanFuPayeeItemModelPayee",yunShanFuPayeeItemModelPayee);
+        activity.startActivityForResult(intent,requestCode);
+    }
+
+    public static void startThisLaCara(BaseActivity activity, int type, LaCaraPayeeItemModelPayee laCaraPayeeItemModelPayee, int requestCode) {
+        Intent intent = new Intent(activity, PaySettingActivity.class);
+        intent.putExtra("type",type);
+        intent.putExtra("laCaraPayeeItemModelPayee",laCaraPayeeItemModelPayee);
         activity.startActivityForResult(intent,requestCode);
     }
 
@@ -99,6 +111,16 @@ public class PaySettingActivity extends BaseActivity {
                         yunShanFunEditFragment, R.id.contentFrame);
             }
             new YunShanFuEditPresenter(yunShanFunEditFragment, new PaySettingModle());
+        }else if(type == 5){
+            LaCaraPayeeItemModelPayee laCaraPayeeItemModelPayee = getIntent().getParcelableExtra("laCaraPayeeItemModelPayee");
+            laCaraEditFragment = (LaCaraEditFragment) getSupportFragmentManager()
+                    .findFragmentById(R.id.contentFrame);
+            if (laCaraEditFragment == null) {
+                laCaraEditFragment = LaCaraEditFragment.newInstance(laCaraPayeeItemModelPayee);
+                ActivityUtils.addFragmentToActivity(getSupportFragmentManager(),
+                        laCaraEditFragment, R.id.contentFrame);
+            }
+            new LaCaraEditPresenter(laCaraEditFragment, new PaySettingModle());
         }
     }
 
@@ -117,6 +139,10 @@ public class PaySettingActivity extends BaseActivity {
                 case 102:
                     if (data == null) return;
                     yunShanFunEditFragment.onActivityResultF(requestCode,resultCode,data);
+                    break;
+                case 103:
+                    if (data == null) return;
+                    laCaraEditFragment.onActivityResultF(requestCode,resultCode,data);
                     break;
                 case Constants.REQUESTCODE_20:
                     if (data == null) return;
@@ -137,8 +163,8 @@ public class PaySettingActivity extends BaseActivity {
                 if(yunShanFunEditFragment != null){
                     yunShanFunEditFragment.onkeyDown();
                 }
+                return true;
             }
-            return true;
         }
         return super.onKeyDown(keyCode, event);
     }

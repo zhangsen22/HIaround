@@ -24,12 +24,14 @@ public class PagerBottomPopup1 extends BottomPopupView implements CompoundButton
     TextView tvBank;
     TextView tvYunshanfu;
     CheckBox cbYunshanfu;
+    TextView tvLacara;
+    CheckBox cbLacara;
     private Context context;
     CheckBox cbWebchat;
     CheckBox cbAlpiy;
     CheckBox cbBank;
     private OnSelectListener selectListener;
-    private int type = 0;//1为支付宝，2为微信，3为银行账，4为云闪付
+    private int type = 0;//1为支付宝，2为微信，3为银行账，4为云闪付 ，5为拉卡拉
     private String text;
     private int payType;
 
@@ -56,39 +58,54 @@ public class PagerBottomPopup1 extends BottomPopupView implements CompoundButton
         cbBank = findViewById(R.id.cb_bank);
         tvYunshanfu = findViewById(R.id.tv_yunshanfu);
         cbYunshanfu = findViewById(R.id.cb_yunshanfu);
+        tvLacara = findViewById(R.id.tv_lacara);
+        cbLacara = findViewById(R.id.cb_lacara);
         cbWebchat.setOnCheckedChangeListener(this);
         cbAlpiy.setOnCheckedChangeListener(this);
         cbBank.setOnCheckedChangeListener(this);
         cbYunshanfu.setOnCheckedChangeListener(this);
+        cbLacara.setOnCheckedChangeListener(this);
         tvWebchat.setOnClickListener(this);
         tvAlpiy.setOnClickListener(this);
         tvBank.setOnClickListener(this);
         tvYunshanfu.setOnClickListener(this);
+        tvLacara.setOnClickListener(this);
         if (payType == 0) {
             cbAlpiy.setChecked(false);
             cbBank.setChecked(false);
             cbWebchat.setChecked(false);
             cbYunshanfu.setChecked(false);
+            cbLacara.setChecked(false);
         } else if (payType == 1) {
             cbAlpiy.setChecked(true);
             cbBank.setChecked(false);
             cbWebchat.setChecked(false);
             cbYunshanfu.setChecked(false);
+            cbLacara.setChecked(false);
         } else if (payType == 2) {
             cbAlpiy.setChecked(false);
             cbBank.setChecked(false);
             cbWebchat.setChecked(true);
             cbYunshanfu.setChecked(false);
+            cbLacara.setChecked(false);
         } else if (payType == 3) {
             cbAlpiy.setChecked(false);
             cbBank.setChecked(true);
             cbWebchat.setChecked(false);
             cbYunshanfu.setChecked(false);
-        }else if (payType == 4) {
+            cbLacara.setChecked(false);
+        } else if (payType == 4) {
             cbAlpiy.setChecked(false);
             cbBank.setChecked(false);
             cbWebchat.setChecked(false);
             cbYunshanfu.setChecked(true);
+            cbLacara.setChecked(false);
+        } else if (payType == 5) {
+            cbAlpiy.setChecked(false);
+            cbBank.setChecked(false);
+            cbWebchat.setChecked(false);
+            cbYunshanfu.setChecked(false);
+            cbLacara.setChecked(true);
         }
         if (AccountManager.getInstance().isHaveAliPayee()) {
             cbAlpiy.setVisibility(VISIBLE);
@@ -118,6 +135,14 @@ public class PagerBottomPopup1 extends BottomPopupView implements CompoundButton
             cbYunshanfu.setVisibility(GONE);
             tvYunshanfu.setVisibility(VISIBLE);
         }
+
+        if (AccountManager.getInstance().isHaveLakalaPayee()) {
+            cbLacara.setVisibility(VISIBLE);
+            tvLacara.setVisibility(GONE);
+        } else {
+            cbLacara.setVisibility(GONE);
+            tvLacara.setVisibility(VISIBLE);
+        }
     }
 
     @Override
@@ -143,6 +168,7 @@ public class PagerBottomPopup1 extends BottomPopupView implements CompoundButton
                     cbWebchat.setChecked(false);
                     cbBank.setChecked(false);
                     cbYunshanfu.setChecked(false);
+                    cbLacara.setChecked(false);
                     type = 1;
                     text = "支付宝";
                 } else {
@@ -155,6 +181,7 @@ public class PagerBottomPopup1 extends BottomPopupView implements CompoundButton
                     cbBank.setChecked(false);
                     cbAlpiy.setChecked(false);
                     cbYunshanfu.setChecked(false);
+                    cbLacara.setChecked(false);
                     type = 2;
                     text = "微信支付";
                 } else {
@@ -167,6 +194,7 @@ public class PagerBottomPopup1 extends BottomPopupView implements CompoundButton
                     cbAlpiy.setChecked(false);
                     cbWebchat.setChecked(false);
                     cbYunshanfu.setChecked(false);
+                    cbLacara.setChecked(false);
                     type = 3;
                     text = "银行卡";
                 } else {
@@ -179,8 +207,22 @@ public class PagerBottomPopup1 extends BottomPopupView implements CompoundButton
                     cbAlpiy.setChecked(false);
                     cbWebchat.setChecked(false);
                     cbBank.setChecked(false);
+                    cbLacara.setChecked(false);
                     type = 4;
                     text = "云闪付";
+                } else {
+                    type = 0;
+                    text = "";
+                }
+                break;
+            case R.id.cb_lacara:
+                if (isChecked) {
+                    cbAlpiy.setChecked(false);
+                    cbWebchat.setChecked(false);
+                    cbBank.setChecked(false);
+                    cbYunshanfu.setChecked(false);
+                    type = 5;
+                    text = "拉卡拉";
                 } else {
                     type = 0;
                     text = "";
@@ -206,6 +248,7 @@ public class PagerBottomPopup1 extends BottomPopupView implements CompoundButton
             case R.id.tv_alpiy:
             case R.id.tv_bank:
             case R.id.tv_yunshanfu:
+            case R.id.tv_lacara:
                 AddMakeStyleActivity.startThis(context);
                 postDelayed(new Runnable() {
                     @Override

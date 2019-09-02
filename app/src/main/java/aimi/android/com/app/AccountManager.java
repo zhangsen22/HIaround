@@ -24,6 +24,7 @@ public class AccountManager {
     private static final String HAVEALIPAYEE = "haveAliPayee";
     private static final String HAVEBANKPAYEE = "haveBankPayee";
     private static final String HAVECLOUDPAYEE = "haveCloudPayee";
+    private static final String HAVELAKALAPAYEE = "haveLakalaPayee";
     private static final String APITYPE = "apiType";
     private static final String ROLETYPE = "roleType";
 
@@ -64,6 +65,7 @@ public class AccountManager {
         edit.putBoolean(HAVEALIPAYEE, accountInfo.isHaveAliPayee());
         edit.putBoolean(HAVEBANKPAYEE, accountInfo.isHaveBankPayee());
         edit.putBoolean(HAVECLOUDPAYEE, accountInfo.isHaveCloudPayee());
+        edit.putBoolean(HAVELAKALAPAYEE, accountInfo.isHaveLakalaPayee());
         edit.putString(PHONENUMBER, accountInfo.getPhoneNumber());
         edit.putString(PASSWORD, accountInfo.getPassword());
         edit.putInt(APITYPE,accountInfo.getApiType());
@@ -88,6 +90,7 @@ public class AccountManager {
         edit.remove(HAVEALIPAYEE);
         edit.remove(HAVEBANKPAYEE);
         edit.remove(HAVECLOUDPAYEE);
+        edit.remove(HAVELAKALAPAYEE);
         edit.remove(PHONENUMBER);
         edit.remove(PASSWORD);
         edit.remove(APITYPE);
@@ -110,6 +113,7 @@ public class AccountManager {
         mAccountInfo.setHaveAliPayee(mSharedPreferences.getBoolean(HAVEALIPAYEE, false));
         mAccountInfo.setHaveBankPayee(mSharedPreferences.getBoolean(HAVEBANKPAYEE, false));
         mAccountInfo.setHaveCloudPayee(mSharedPreferences.getBoolean(HAVECLOUDPAYEE, false));
+        mAccountInfo.setHaveLakalaPayee(mSharedPreferences.getBoolean(HAVELAKALAPAYEE, false));
         mAccountInfo.setIDstatus(mSharedPreferences.getInt(IDSTATUS, -1));
         mAccountInfo.setPhoneNumber(mSharedPreferences.getString(PHONENUMBER, ""));
         mAccountInfo.setPassword(mSharedPreferences.getString(PASSWORD, ""));
@@ -201,6 +205,10 @@ public class AccountManager {
         return getAccountInfo().isHaveCloudPayee();
     }
 
+    public boolean isHaveLakalaPayee() {
+        return getAccountInfo().isHaveLakalaPayee();
+    }
+
 
     public AccountManager setNickname(String nickname) {
         getAccountInfo().setNickname(nickname);
@@ -229,6 +237,12 @@ public class AccountManager {
     public AccountManager setHaveCloudPayee(boolean haveCloudPayee) {
         getAccountInfo().setHaveCloudPayee(haveCloudPayee);
         mSharedPreferences.edit().putBoolean(HAVECLOUDPAYEE, haveCloudPayee).apply();
+        return this;
+    }
+
+    public AccountManager setHaveLakalaPayee(boolean haveLakalaPayee) {
+        getAccountInfo().setHaveLakalaPayee(haveLakalaPayee);
+        mSharedPreferences.edit().putBoolean(HAVELAKALAPAYEE, haveLakalaPayee).apply();
         return this;
     }
 

@@ -13,6 +13,8 @@ import android.widget.TextView;
 import com.growalong.util.util.DateUtil;
 import com.growalong.util.util.GsonUtil;
 import com.lxj.xpopup.XPopup;
+
+import aimi.android.com.modle.LaCaraPayee;
 import butterknife.BindView;
 import butterknife.OnClick;
 import aimi.android.com.BaseFragment;
@@ -153,6 +155,15 @@ public class OrderDetailsFragment extends BaseFragment {
                         tvOrderDetailsSellName.setText(yunShanFuPayee.getName());
                         tvShoukuaiOrderDetailsName.setText(yunShanFuPayee.getName());
                         tvOrderDetailsAccount.setText(yunShanFuPayee.getAccount());
+                        ivOrderDetailsCodeImage.setVisibility(View.VISIBLE);
+                    }
+                }else if (payType == 5) {
+                    tvOrderDetailsShoukuanType.setText("拉卡拉");
+                    LaCaraPayee laCaraPayee =  GsonUtil.getInstance().getServerBean(payee,LaCaraPayee.class);
+                    if(laCaraPayee != null){
+                        tvOrderDetailsSellName.setText(laCaraPayee.getName());
+                        tvShoukuaiOrderDetailsName.setText(laCaraPayee.getName());
+                        tvOrderDetailsAccount.setText(laCaraPayee.getAccount());
                         ivOrderDetailsCodeImage.setVisibility(View.VISIBLE);
                     }
                 }

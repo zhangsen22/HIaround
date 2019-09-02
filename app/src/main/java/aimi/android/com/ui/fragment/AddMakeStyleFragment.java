@@ -8,6 +8,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.growalong.util.util.GALogger;
+
+import aimi.android.com.ui.activity.LaCaraListActivity;
 import butterknife.BindView;
 import butterknife.OnClick;
 import aimi.android.com.BaseFragment;
@@ -47,6 +49,10 @@ public class AddMakeStyleFragment extends BaseFragment {
     TextView tvJuhema;
     @BindView(R.id.ll_juhema_click)
     LinearLayout llJuhemaClick;
+    @BindView(R.id.tv_lacara)
+    TextView tvLacara;
+    @BindView(R.id.ll_lacara_click)
+    LinearLayout llLacaraClick;
     private AddMakeStyleActivity addMakeStyleActivity;
 
     public static AddMakeStyleFragment newInstance(@Nullable String taskId) {
@@ -78,7 +84,7 @@ public class AddMakeStyleFragment extends BaseFragment {
         GALogger.d(TAG, "lazyLoadData  ........");
     }
 
-    @OnClick({R.id.iv_back, R.id.ll_alipay_click, R.id.ll_ylcard_click, R.id.ll_webchat_click,R.id.ll_yunshanfu_click, R.id.ll_juhema_click})
+    @OnClick({R.id.iv_back, R.id.ll_alipay_click, R.id.ll_ylcard_click, R.id.ll_webchat_click,R.id.ll_yunshanfu_click, R.id.ll_juhema_click,R.id.ll_lacara_click})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.iv_back:
@@ -97,6 +103,9 @@ public class AddMakeStyleFragment extends BaseFragment {
                 YunShanFuListActivity.startThis(addMakeStyleActivity);
                 break;
             case R.id.ll_juhema_click:
+                break;
+            case R.id.ll_lacara_click:
+                LaCaraListActivity.startThis(addMakeStyleActivity);
                 break;
         }
     }
@@ -125,6 +134,12 @@ public class AddMakeStyleFragment extends BaseFragment {
             tvYunshanfu.setText("已绑定");
         } else {
             tvYunshanfu.setText("未绑定");
+        }
+
+        if (AccountManager.getInstance().isHaveLakalaPayee()) {
+            tvLacara.setText("已绑定");
+        } else {
+            tvLacara.setText("未绑定");
         }
         GALogger.d(TAG, "onResume  ........");
     }

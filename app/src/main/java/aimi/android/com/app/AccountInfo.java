@@ -17,6 +17,7 @@ public class AccountInfo extends BaseBean {
     private boolean haveAliPayee;//:false        //是否有支付宝收款方式
     private boolean haveBankPayee;//:false        //是否有银行收款方式
     private boolean haveCloudPayee;//:false        //是否有云闪付收款方式
+    private boolean haveLakalaPayee;//:false        //是否有拉卡拉收款方式
     private int apiType;//api匹配类型,0为普通类型 1为代理商类型
     private int roleType;//角色类型(2=总代/1=代理/0=普通)
 
@@ -158,6 +159,13 @@ public class AccountInfo extends BaseBean {
     public void setHaveCloudPayee(boolean haveCloudPayee) {
         this.haveCloudPayee = haveCloudPayee;
     }
+    public boolean isHaveLakalaPayee() {
+        return haveLakalaPayee;
+    }
+
+    public void setHaveLakalaPayee(boolean haveLakalaPayee) {
+        this.haveLakalaPayee = haveLakalaPayee;
+    }
 
     @Override
     public String toString() {
@@ -175,6 +183,7 @@ public class AccountInfo extends BaseBean {
                 ", haveAliPayee=" + haveAliPayee +
                 ", haveBankPayee=" + haveBankPayee +
                 ", haveCloudPayee=" + haveCloudPayee +
+                ", haveLakalaPayee=" + haveLakalaPayee +
                 ", apiType=" + apiType +
                 ", roleType=" + roleType +
                 ", phoneNumber='" + phoneNumber + '\'' +

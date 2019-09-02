@@ -56,4 +56,7 @@ public class ApiConstants {
     public static final String cloud = "user/paysetup/cloud";//云闪付收款设置
     public static final String cloudLogin = "user/cloudLogin";//云闪付登陆成功上传参数
     public static final String cloudImgSetUp = "user/paysetup/cloudImgSetUp";//云闪付编辑二维码
+    public static final String lakala = "user/paysetup/lakala";//拉卡拉收款设置
+    public static final String lakalaImgSetUp = "paysetup/lakalaImgSetUp";//拉卡拉编辑二维码
+    public static final String getWechatList = "user/paysetup/getWechatList";//拉卡拉下拉框获取微信列表
 }

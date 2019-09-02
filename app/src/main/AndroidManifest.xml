@@ -122,16 +122,6 @@
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan|stateHidden" />
         <activity
-            android:name="aimi.android.com.ui.activity.BusinessSellActivity"
-            android:configChanges="screenSize|keyboardHidden|orientation|fontScale|locale|uiMode|screenLayout|layoutDirection"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="adjustPan|stateHidden" />
-        <activity
-            android:name="aimi.android.com.ui.activity.BusinessBuyActivity"
-            android:configChanges="screenSize|keyboardHidden|orientation|fontScale|locale|uiMode|screenLayout|layoutDirection"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="adjustPan|stateHidden" />
-        <activity
             android:name="aimi.android.com.ui.activity.BusinessBuyDetailsActivity"
             android:configChanges="screenSize|keyboardHidden|orientation|fontScale|locale|uiMode|screenLayout|layoutDirection"
             android:screenOrientation="portrait"
@@ -195,12 +185,13 @@
         </receiver>
 
         <activity
-            android:name="aimi.android.com.ui.activity.GuaDanActivity"
+            android:name="aimi.android.com.ui.activity.FinancialRecordsActivity"
             android:configChanges="screenSize|keyboardHidden|orientation|fontScale|locale|uiMode|screenLayout|layoutDirection"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan|stateHidden" />
+
         <activity
-            android:name="aimi.android.com.ui.activity.FinancialRecordsActivity"
+            android:name=".ui.activity.LaCaraListActivity"
             android:configChanges="screenSize|keyboardHidden|orientation|fontScale|locale|uiMode|screenLayout|layoutDirection"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan|stateHidden" />

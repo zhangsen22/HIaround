@@ -11,6 +11,7 @@ public class MyEntrustinfoItem {
     private boolean supportAli;//：true    //是否支持支付宝,买单不读此项
     private boolean supportWechat;//:false    //是否支持微信支付,买单不读此项
     private boolean supportBank;//:false    //是否支持银行卡支付,买单不读此项
+    private boolean supportLakala;//:false    //是否支持拉卡拉支付,买单不读此项
     private long puttime;//：21313131    //挂单时间
     private int status;//:1            //状态 0为当前正常挂单 1为已完成 2为已撤销
 
@@ -74,6 +75,10 @@ public class MyEntrustinfoItem {
         return usdtNumFmt;
     }
 
+    public boolean isSupportLakala() {
+        return supportLakala;
+    }
+
     @Override
     public String toString() {
         return "MyEntrustinfoItem{" +
@@ -86,6 +91,7 @@ public class MyEntrustinfoItem {
                 ", supportAli=" + supportAli +
                 ", supportWechat=" + supportWechat +
                 ", supportBank=" + supportBank +
+                ", supportLakala=" + supportLakala +
                 ", puttime=" + puttime +
                 ", status=" + status +
                 ", usdtTotalMoneyFmt='" + usdtTotalMoneyFmt + '\'' +

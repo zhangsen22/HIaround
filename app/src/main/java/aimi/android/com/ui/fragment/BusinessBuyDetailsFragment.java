@@ -21,6 +21,8 @@ import com.lxj.xpopup.XPopup;
 import com.lxj.xpopup.interfaces.OnConfirmListener;
 import com.lxj.xpopup.interfaces.XPopupCallback;
 import org.greenrobot.eventbus.EventBus;
+
+import aimi.android.com.modle.LaCaraPayee;
 import butterknife.BindView;
 import butterknife.OnClick;
 import aimi.android.com.BaseFragment;
@@ -181,6 +183,16 @@ public class BusinessBuyDetailsFragment extends BaseFragment implements Business
                 if (yunShanFuPayee != null) {
                     tvShoukuaiName.setText(yunShanFuPayee.getName());
                     tvShoukuaiAccount.setText(yunShanFuPayee.getAccount());
+                }
+            }else if (type == 5) {
+                llShoukuanfangshi.setVisibility(View.VISIBLE);
+                tvPayTypeName.setText("拉卡拉");
+                tvShoukuaiTypeName.setText("拉卡拉");
+                tvPayImage.setImageResource(R.mipmap.aq);
+                LaCaraPayee laCaraPayee = GsonUtil.getInstance().getServerBean(payee, LaCaraPayee.class);
+                if (laCaraPayee != null) {
+                    tvShoukuaiName.setText(laCaraPayee.getName());
+                    tvShoukuaiAccount.setText(laCaraPayee.getAccount());
                 }
             }
 

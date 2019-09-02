@@ -9,12 +9,15 @@ import aimi.android.com.modle.DomainModel;
 import aimi.android.com.modle.FinanceLogResponse;
 import aimi.android.com.modle.ImageCodeResponse;
 import aimi.android.com.modle.InvitationResponse;
+import aimi.android.com.modle.LaCaraEditModle;
+import aimi.android.com.modle.LaCaraWenChatListModle;
 import aimi.android.com.modle.LargeAmountResponse;
 import aimi.android.com.modle.MessageCenterResponse;
 import aimi.android.com.modle.MyEntrustinfoResponse;
 import aimi.android.com.modle.MySellOrBuyinfoResponse;
 import aimi.android.com.modle.PaySetupModelAliPay;
 import aimi.android.com.modle.PaySetupModelBank;
+import aimi.android.com.modle.PaySetupModelLaCara;
 import aimi.android.com.modle.PaySetupModelWebChat;
 import aimi.android.com.modle.PaySetupModelYunShanFu;
 import aimi.android.com.modle.RegistResponse;
@@ -191,6 +194,8 @@ public interface ApiServices {
      * @param supporAli
      * @param supportWechat
      * @param supportBank
+     * @param supportCloud
+     * @param supportLakala
      * @param financePwd
      * @param time
      * @return
@@ -203,23 +208,8 @@ public interface ApiServices {
             , @Field("supporAli") boolean supporAli
             , @Field("supportWechat") boolean supportWechat
             , @Field("supportBank") boolean supportBank
-            , @Field("financePwd") String financePwd
-            , @Field("time") long time);
-
-    /**
-     * 委托购买
-     * @param price
-     * @param minNum
-     * @param maxNum
-     * @param financePwd
-     * @param time
-     * @return
-     */
-    @FormUrlEncoded
-    @POST(ApiConstants.putUpBuy)
-    Observable<BaseBean> putUpBuy(@Field("price") double price
-            , @Field("minNum") double minNum
-            , @Field("maxNum") double maxNum
+            , @Field("supportCloud") boolean supportCloud
+            , @Field("supportLakala") boolean supportLakala
             , @Field("financePwd") String financePwd
             , @Field("time") long time);
 
@@ -232,6 +222,16 @@ public interface ApiServices {
     @FormUrlEncoded
     @POST(ApiConstants.changeFinancePwd)
     Observable<BaseBean> changeFinancePwd(@Field("financePwd") String financePwd, @Field("smsCode") String smsCode);
+
+    /**
+     * 获取自己的收款信息
+     * 拉卡拉
+     * @param type
+     * @return
+     */
+    @FormUrlEncoded
+    @POST(ApiConstants.paysetup)
+    Observable<PaySetupModelLaCara> paysetupLaCara(@Field("type") int type);
 
     /**
      * 获取财务记录
@@ -365,17 +365,6 @@ public interface ApiServices {
     Observable<MessageCenterResponse> msgCenter(@Field("minId") long minId);
 
     /**
-     * 购买
-     * @param billId
-     * @param num
-     * @param type
-     * @return
-     */
-    @FormUrlEncoded
-    @POST(ApiConstants.buy)
-    Observable<BuyBusinessResponse> buy(@Field("billId") long billId, @Field("num") double num, @Field("type") int type);
-
-    /**
      * 一键购买
      * @param amount
      * @param type
@@ -393,20 +382,6 @@ public interface ApiServices {
     @FormUrlEncoded
     @POST(ApiConstants.manualPay)
     Observable<BaseBean> manualPay(@Field("tradeId") String tradeId);
-
-    /**
-     * 出售
-     * @param billId
-     * @param num
-     * @param type
-     * @param financePwd
-     * @param time
-     * @return
-     */
-    @FormUrlEncoded
-    @POST(ApiConstants.sell)
-    Observable<SellResponse> sell(@Field("billId") long billId, @Field("num") double num, @Field("type") int type
-            , @Field("financePwd") String financePwd, @Field("time") long time);
 
     /**
      * 一键出售
@@ -641,4 +616,42 @@ public interface ApiServices {
      */
     @POST(ApiConstants.sellLimit)
     Observable<SellLimitResponse> sellLimit();
+
+    /**
+     * 拉卡拉收款设置
+     * @param wechatPaymentId
+     * @param account
+     * @param base64Img
+     * @param financePwd
+     * @param time
+     * @return
+     */
+    @FormUrlEncoded
+    @POST(ApiConstants.lakala)
+    Observable<LaCaraEditModle> lakala(@Field("id") long id, @Field("wechatPaymentId") long wechatPaymentId
+            , @Field("account") String account
+            , @Field("base64Img") String base64Img
+            , @Field("financePwd") String financePwd
+            , @Field("time") long time);
+
+    /**
+     * 拉卡拉编辑二维码
+     * @param id
+     * @param base64Img
+     * @param financePwd
+     * @param time
+     * @return
+     */
+    @FormUrlEncoded
+    @POST(ApiConstants.lakalaImgSetUp)
+    Observable<LaCaraEditModle> lakalaImgSetUp(@Field("id") long id
+            , @Field("base64Img") String base64Img
+            , @Field("financePwd") String financePwd
+            , @Field("time") long time);
+
+    /**
+     * 拉卡拉下拉框获取微信列表
+     */
+    @POST(ApiConstants.getWechatList)
+    Observable<LaCaraWenChatListModle> getWechatList();
 }

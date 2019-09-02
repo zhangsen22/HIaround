@@ -17,11 +17,13 @@ public class BuyItem implements Parcelable {
     private boolean supportAli;//：true    //是否支持支付宝
     private boolean supportWechat;//:false    //是否支持微信支付
     private boolean supportBank;//:false    //是否支持银行卡支付
+    private boolean supportCloud;//:false    //是否支持云闪付支付
+    private boolean supportLakala;//:false    //是否支持拉卡拉支付
     private long puttime;//：21313131    //挂单时间
     private boolean isLargeAmount;//是否是大额抢单的数据
     private int apiType;//api匹配类型,0为普通类型 1为代理商类型
 
-    public BuyItem(long id, String nickname, double price, double minNum, double maxNum, boolean supportAli, boolean supportWechat, boolean supportBank,boolean isLargeAmount) {
+    public BuyItem(long id, String nickname, double price, double minNum, double maxNum, boolean supportAli, boolean supportWechat, boolean supportBank,boolean supportCloud,boolean supportLakala,boolean isLargeAmount) {
         this.id = id;
         this.nickname = nickname;
         this.price = price;
@@ -30,6 +32,8 @@ public class BuyItem implements Parcelable {
         this.supportAli = supportAli;
         this.supportWechat = supportWechat;
         this.supportBank = supportBank;
+        this.supportCloud = supportCloud;
+        this.supportLakala = supportLakala;
         this.isLargeAmount = isLargeAmount;
     }
 
@@ -45,6 +49,8 @@ public class BuyItem implements Parcelable {
         supportAli = in.readByte() != 0;
         supportWechat = in.readByte() != 0;
         supportBank = in.readByte() != 0;
+        supportCloud = in.readByte() != 0;
+        supportLakala = in.readByte() != 0;
         puttime = in.readLong();
         isLargeAmount = in.readByte() != 0;
         apiType = in.readInt();
@@ -63,6 +69,8 @@ public class BuyItem implements Parcelable {
         dest.writeByte((byte) (supportAli ? 1 : 0));
         dest.writeByte((byte) (supportWechat ? 1 : 0));
         dest.writeByte((byte) (supportBank ? 1 : 0));
+        dest.writeByte((byte) (supportCloud ? 1 : 0));
+        dest.writeByte((byte) (supportLakala ? 1 : 0));
         dest.writeLong(puttime);
         dest.writeByte((byte) (isLargeAmount ? 1 : 0));
         dest.writeInt(apiType);
@@ -141,6 +149,18 @@ public class BuyItem implements Parcelable {
         return apiType;
     }
 
+    public boolean isSupportCloud() {
+        return supportCloud;
+    }
+
+    public boolean isSupportLakala() {
+        return supportLakala;
+    }
+
+    public void setSupportLakala(boolean supportLakala) {
+        this.supportLakala = supportLakala;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -156,6 +176,8 @@ public class BuyItem implements Parcelable {
                 supportAli == buyItem.supportAli &&
                 supportWechat == buyItem.supportWechat &&
                 supportBank == buyItem.supportBank &&
+                supportCloud == buyItem.supportCloud &&
+                supportLakala == buyItem.supportLakala &&
                 puttime == buyItem.puttime &&
                 isLargeAmount == buyItem.isLargeAmount &&
                 apiType == buyItem.apiType &&
@@ -165,7 +187,7 @@ public class BuyItem implements Parcelable {
     @Override
     public int hashCode() {
 
-        return Objects.hash(id, userid, nickname, tradeTimes, tradeSuccRate, price, minNum, maxNum, supportAli, supportWechat, supportBank, puttime, isLargeAmount, apiType);
+        return Objects.hash(id, userid, nickname, tradeTimes, tradeSuccRate, price, minNum, maxNum, supportAli, supportWechat, supportBank,supportCloud,supportLakala, puttime, isLargeAmount, apiType);
     }
 
     @Override
@@ -182,6 +204,8 @@ public class BuyItem implements Parcelable {
                 ", supportAli=" + supportAli +
                 ", supportWechat=" + supportWechat +
                 ", supportBank=" + supportBank +
+                ", supportCloud=" + supportCloud +
+                ", supportLakala=" + supportLakala +
                 ", puttime=" + puttime +
                 ", isLargeAmount=" + isLargeAmount +
                 ", apiType=" + apiType +

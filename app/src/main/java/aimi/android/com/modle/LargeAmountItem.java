@@ -14,6 +14,8 @@ public class LargeAmountItem {
     private boolean supportAli;//：true    //是否支持支付宝
     private boolean supportWechat;//:false    //是否支持微信支付
     private boolean supportBank;//:false    //是否支持银行卡支付
+    private boolean supportCloud;//:false    //是否支持云闪付支付
+    private boolean supportLakala;//:false    //是否支持拉卡拉支付
     private long puttime;//：21313131    //挂单时间
 
     public long getId() {
@@ -60,6 +62,14 @@ public class LargeAmountItem {
         return puttime;
     }
 
+    public boolean isSupportCloud() {
+        return supportCloud;
+    }
+
+    public boolean isSupportLakala() {
+        return supportLakala;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -74,6 +84,8 @@ public class LargeAmountItem {
                 supportAli == that.supportAli &&
                 supportWechat == that.supportWechat &&
                 supportBank == that.supportBank &&
+                supportCloud == that.supportCloud &&
+                supportLakala == that.supportLakala &&
                 puttime == that.puttime &&
                 Objects.equals(nickname, that.nickname);
     }
@@ -81,7 +93,7 @@ public class LargeAmountItem {
     @Override
     public int hashCode() {
 
-        return Objects.hash(id, userId, nickname, hugeSellId, price, money, num, supportAli, supportWechat, supportBank, puttime);
+        return Objects.hash(id, userId, nickname, hugeSellId, price, money, num, supportAli, supportWechat, supportBank,supportCloud,supportLakala, puttime);
     }
 
     @Override
@@ -97,6 +109,8 @@ public class LargeAmountItem {
                 ", supportAli=" + supportAli +
                 ", supportWechat=" + supportWechat +
                 ", supportBank=" + supportBank +
+                ", supportCloud=" + supportCloud +
+                ", supportLakala=" + supportLakala +
                 ", puttime=" + puttime +
                 '}';
     }
