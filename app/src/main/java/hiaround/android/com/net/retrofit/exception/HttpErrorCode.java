@@ -31,15 +31,13 @@ public class HttpErrorCode {
             }else {
                 resString = "资金密码未设置或输入错误";
             }
-        }
-//        else if(error == 3){
-//            if(BuildConfig.DEBUG){
-//                resString = error+" : 通讯频率过快";
-//            }else {
-//                resString = "通讯频率过快";
-//            }
-//        }
-        else if(error == 4){
+        }else if(error == 3){
+            if(BuildConfig.DEBUG){
+                resString = error+" : 通讯频率过快";
+            }else {
+                resString = "通讯频率过快";
+            }
+        }else if(error == 4){
             if(BuildConfig.DEBUG){
                 resString = error+" : 服务器繁忙";
             }else {
