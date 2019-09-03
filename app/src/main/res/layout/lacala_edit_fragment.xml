@@ -35,18 +35,36 @@
             android:textColor="@color/color_666666"
             android:textSize="12sp" />
 
-        <EditText
-            android:id="@+id/et_wenchat_name"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:textCursorDrawable="@drawable/my_cursor"
-            android:maxLines="1"
-            android:textColorHint="@color/color_999999"
-            android:textColor="@color/color_999999"
-            android:textSize="12sp"
-            android:inputType="text"
-            android:hint="请选择该拉卡拉所绑定公众号的微信昵称"
-            android:layout_marginLeft="@dimen/y54"/>
+            android:orientation="horizontal"
+            android:background="@mipmap/ar"
+            android:layout_marginLeft="@dimen/y54"
+            android:paddingRight="@dimen/y20">
+
+            <EditText
+                android:id="@+id/et_wenchat_name"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:textCursorDrawable="@drawable/my_cursor"
+                android:maxLines="1"
+                android:textColorHint="@color/color_999999"
+                android:textColor="@color/color_999999"
+                android:textSize="10sp"
+                android:inputType="text"
+                android:hint="请选择该拉卡拉所绑定公众号的微信昵称"
+                android:layout_marginLeft="@dimen/y20"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/au"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="@dimen/y20"/>
+
+        </LinearLayout>
 
     </LinearLayout>
 
@@ -220,6 +238,18 @@
         android:textColor="@color/common_white"
         android:textSize="14sp"
         android:paddingBottom="@dimen/y10"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="12sp"
+                android:textColor="@color/color_999999"
+                android:paddingLeft="@dimen/y26"
+                android:paddingRight="@dimen/y26"
+                android:layout_marginTop="@dimen/y38"
+                android:lineSpacingExtra="@dimen/y6"
+                android:text="拉卡拉绑定说明内容：\n1，请先绑定微信支付，再绑定拉卡拉支付\n2，请务必确保选择的微信，绑定了输入店铺的拉卡拉公众号\n3，请务必确保选择的微信绑定的拉卡拉公众号可以正确收到收款消息\n4，请确保收款码和店铺名称的一致"/>
+
 
         </LinearLayout>
 

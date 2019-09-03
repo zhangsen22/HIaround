@@ -5,12 +5,14 @@
     android:layout_height="wrap_content"
     android:gravity="center_vertical"
     android:layout_marginRight="@dimen/y40"
-    android:layout_marginLeft="@dimen/y164"
-    android:background="@color/common_white">
+    android:layout_marginLeft="@dimen/y164">
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/rv_weblist"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:background="@mipmap/ay"
+            android:minHeight="@dimen/y200"
+            android:padding="@dimen/y20"/>
 
 </LinearLayout>
