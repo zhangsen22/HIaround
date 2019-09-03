@@ -22,6 +22,57 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="微信名"
+            android:textColor="@color/color_666666"
+            android:textSize="12sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:background="@mipmap/ar"
+            android:layout_marginLeft="@dimen/y54"
+            android:paddingRight="@dimen/y20">
+
+            <EditText
+                android:id="@+id/et_wenchat_name"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:textCursorDrawable="@drawable/my_cursor"
+                android:maxLines="1"
+                android:textColorHint="@color/color_999999"
+                android:textColor="@color/color_999999"
+                android:textSize="10sp"
+                android:inputType="text"
+                android:hint="请选择该拉卡拉所绑定公众号的微信昵称"
+                android:layout_marginLeft="@dimen/y20"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/au"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="@dimen/y20"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <include layout="@layout/line_f9"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y90"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingRight="@dimen/y40"
+        android:paddingLeft="@dimen/y40"
+        android:background="@color/common_white">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:text="银行名称"
             android:textColor="@color/color_666666"
             android:textSize="12sp" />

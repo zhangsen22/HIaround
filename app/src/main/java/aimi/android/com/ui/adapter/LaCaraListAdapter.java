@@ -101,7 +101,7 @@ public class LaCaraListAdapter extends PowerAdapter<LaCaraPayeeItemModel> {
                         tvWebchatCheck.setVisibility(View.GONE);
                         tvShuoming.setText("绑定中");
                         tvShuoming.setTextColor(mContext.getResources().getColor(R.color.color_ff0000));
-                        tvReedit.setVisibility(View.VISIBLE);
+//                        tvReedit.setVisibility(View.VISIBLE);
                     } else {
                         tvReedit.setVisibility(View.GONE);
                         if (defalutId > 0) {

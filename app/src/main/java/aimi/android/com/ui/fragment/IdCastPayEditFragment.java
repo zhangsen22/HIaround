@@ -9,7 +9,18 @@ import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.growalong.util.util.AppPublicUtils;
 import com.growalong.util.util.Md5Utils;
+import com.lxj.xpopup.XPopup;
+import com.lxj.xpopup.core.BasePopupView;
+import com.lxj.xpopup.interfaces.OnSelectWebChatListener;
+
+import java.util.List;
+
+import aimi.android.com.modle.LaCaraWenChatListItem;
+import aimi.android.com.modle.LaCaraWenChatListModle;
+import aimi.android.com.ui.widget.CustomPartShadowPopupView;
 import butterknife.BindView;
 import butterknife.OnClick;
 import aimi.android.com.BaseFragment;
@@ -46,6 +57,10 @@ public class IdCastPayEditFragment extends BaseFragment implements IdCastContrac
     TextView tvSubmit;
     private PaySettingActivity paySettingActivity;
     private IdCastPresenter presenter;
+    @BindView(R.id.et_wenchat_name)
+    EditText etWenchatName;
+    private long wechatPaymentId = 0;
+    private BasePopupView show;
 
     public static IdCastPayEditFragment newInstance(@Nullable String taskId) {
         Bundle arguments = new Bundle();
@@ -69,6 +84,7 @@ public class IdCastPayEditFragment extends BaseFragment implements IdCastContrac
     protected void initView(View root) {
         setRootViewPaddingTop(flTitleComtent);
         tvTitle.setText("银行卡设置");
+        AppPublicUtils.setEditTextEnable(etWenchatName, false);
     }
 
     @Override
@@ -76,7 +92,7 @@ public class IdCastPayEditFragment extends BaseFragment implements IdCastContrac
         super.lazyLoadData();
     }
 
-    @OnClick({R.id.iv_back, R.id.tv_forget_password, R.id.tv_submit})
+    @OnClick({R.id.iv_back, R.id.tv_forget_password, R.id.tv_submit,R.id.et_wenchat_name})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.iv_back:
@@ -86,6 +102,16 @@ public class IdCastPayEditFragment extends BaseFragment implements IdCastContrac
                 BalancePassWordActivity.startThis(paySettingActivity);
                 break;
             case R.id.tv_submit:
+                String wenchatName = etWenchatName.getText().toString().trim();
+                if (TextUtils.isEmpty(wenchatName)) {
+                    ToastUtil.shortShow("请选择该拉卡拉所绑定公众号的微信昵称");
+                    return;
+                }
+
+                if (wechatPaymentId <= 0) {
+                    ToastUtil.shortShow("请选择该拉卡拉所绑定公众号的微信昵称");
+                    return;
+                }
                 String yinhangName = etYinhangName.getText().toString().trim();
                 if(TextUtils.isEmpty(yinhangName)){
                     ToastUtil.shortShow("请输入银行名称");
@@ -128,7 +154,10 @@ public class IdCastPayEditFragment extends BaseFragment implements IdCastContrac
                     return;
                 }
                 long currentTime = System.currentTimeMillis();
-                presenter.bank(0,yinhangName, yinhangZhiname, name, castCode, dailyLimit, Md5Utils.getMD5(forgetPassword+currentTime),currentTime);
+                presenter.bank(0,wechatPaymentId,yinhangName, yinhangZhiname, name, castCode, dailyLimit, Md5Utils.getMD5(forgetPassword+currentTime),currentTime);
+                break;
+            case R.id.et_wenchat_name:
+                presenter.getWechatList();
                 break;
         }
     }
@@ -152,5 +181,42 @@ public class IdCastPayEditFragment extends BaseFragment implements IdCastContrac
     @Override
     public void hideLoading() {
         hideLoadingDialog();
+    }
+
+    @Override
+    public void getWechatListSuccess(LaCaraWenChatListModle laCaraWenChatListModle) {
+        if (laCaraWenChatListModle != null) {
+            List<LaCaraWenChatListItem> list = laCaraWenChatListModle.getList();
+            if (list != null && list.size() > 0) {
+                showPartShadow(list);
+            }
+        }
+    }
+
+    private void showPartShadow(List<LaCaraWenChatListItem> list) {
+        if (show != null && show.isShow()) {
+            return;
+        }
+        show = new XPopup.Builder(getContext())
+                .atView(etWenchatName)
+//                .dismissOnTouchOutside(false)
+                .asCustom(new CustomPartShadowPopupView(getContext(), list, new OnSelectWebChatListener() {
+                    @Override
+                    public void onSelect(int position, long paymentId, String account) {
+                        wechatPaymentId = paymentId;
+                        etWenchatName.setText(account);
+                    }
+                },paySettingActivity)).show();
+    }
+
+    @Override
+    public void onDestroyView() {
+        if (show != null) {
+            if (show.isShow()) {
+                show.dismiss();
+            }
+            show = null;
+        }
+        super.onDestroyView();
     }
 }

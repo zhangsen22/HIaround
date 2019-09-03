@@ -474,6 +474,7 @@ public interface ApiServices {
     @FormUrlEncoded
     @POST(ApiConstants.bank)
     Observable<BaseBean> bank(@Field("id") long id
+            ,@Field("wechatPaymentId") long wechatPaymentId
             ,@Field("bankName") String bankName
             ,@Field("subName") String subName
             ,@Field("name") String name

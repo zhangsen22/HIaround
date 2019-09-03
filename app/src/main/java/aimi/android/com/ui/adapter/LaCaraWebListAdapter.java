@@ -65,16 +65,14 @@ public class LaCaraWebListAdapter extends RecyclerView.Adapter {
             boolean watchUnbind = laCaraWenChatListItem.isWatchUnbind();
             if(watchUnbind){
                 llIsShixiao.setVisibility(View.VISIBLE);
-                itemView.setClickable(false);
             }else {
                 llIsShixiao.setVisibility(View.GONE);
-                itemView.setClickable(true);
             }
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     if(onItemClickListener != null){
-                        onItemClickListener.onItemClick(position,laCaraWenChatListItem.getPaymentId(),account);
+                        onItemClickListener.onItemClick(position,laCaraWenChatListItem.getPaymentId(),account,watchUnbind);
                     }
                 }
             });
@@ -83,7 +81,7 @@ public class LaCaraWebListAdapter extends RecyclerView.Adapter {
 
     private OnItemClickListener onItemClickListener;
     public interface OnItemClickListener {
-        void onItemClick(int position, long paymentId, String account);
+        void onItemClick(int position, long paymentId, String account,boolean isShiXiao);
     }
 
 }

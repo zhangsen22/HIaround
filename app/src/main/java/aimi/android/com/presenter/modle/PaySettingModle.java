@@ -26,9 +26,9 @@ public class PaySettingModle{
      * @param time
      * @return
      */
-    public Observable<BaseBean> bank(long id, String bankName, String subName, String name, String account, double dailyLimit, String financePwd, long time){
+    public Observable<BaseBean> bank(long id,long wechatPaymentId, String bankName, String subName, String name, String account, double dailyLimit, String financePwd, long time){
         return BaseRetrofitClient.getInstance().create(ApiServices.class)
-                .bank(id,bankName,subName,name,account,dailyLimit,financePwd,time)
+                .bank(id,wechatPaymentId,bankName,subName,name,account,dailyLimit,financePwd,time)
                 .subscribeOn(Schedulers.io())
                 .map(new ServerExceptionMap<BaseBean>())
                 .onErrorResumeNext(new ModelExceptionMap<BaseBean>());
