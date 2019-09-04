@@ -217,7 +217,7 @@ public class MainActivity extends BaseActivity implements MainContract.View {
     }
 
     private void updateApp(String version) {
-        String h5_down_address = MyApplication.getH5_down_Address();
+        String h5_down_address = MyApplication.getDown_Address();
         if(TextUtils.isEmpty(h5_down_address)){
             return;
         }

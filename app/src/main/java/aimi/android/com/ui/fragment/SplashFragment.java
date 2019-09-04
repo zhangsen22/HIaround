@@ -77,7 +77,14 @@ public class SplashFragment extends BaseFragment implements LoginContract.View {
             if(downLoad  != null && downLoad.size() > 0){
                 String s = downLoad.get(0);
                 if(!TextUtils.isEmpty(s)){
-                    MyApplication.setH5_down_Address(s);
+                    MyApplication.setDown_Address(s);
+                }
+            }
+            List<String> htmlServerUrl = domainModel.getHtmlServerUrl();
+            if(htmlServerUrl != null && htmlServerUrl.size() > 0){
+                String s1 = htmlServerUrl.get(0);
+                if(!TextUtils.isEmpty(s1)){
+                    MyApplication.setH5_Address(s1);
                 }
             }
             List<String> gateway = domainModel.getGateway();

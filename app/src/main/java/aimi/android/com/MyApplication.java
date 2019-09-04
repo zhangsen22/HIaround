@@ -15,7 +15,8 @@ public class MyApplication extends Application {
     public static volatile Handler applicationHandler;
     public static volatile Context appContext;
     public static volatile String hostAddress;
-    public static volatile String h5_down_Address;//h5域名和apk下载地址域名
+    public static volatile String down_Address;//apk下载地址域名
+    public static volatile String h5_Address;//h5域名
 
     @Override
     public void onCreate() {
@@ -72,11 +73,19 @@ public class MyApplication extends Application {
         MyApplication.hostAddress = hostAddress;
     }
 
-    public static String getH5_down_Address() {
-        return h5_down_Address;
+    public static String getDown_Address() {
+        return down_Address;
     }
 
-    public static void setH5_down_Address(String h5_down_Address) {
-        MyApplication.h5_down_Address = h5_down_Address;
+    public static void setDown_Address(String down_Address) {
+        MyApplication.down_Address = down_Address;
+    }
+
+    public static String getH5_Address() {
+        return h5_Address;
+    }
+
+    public static void setH5_Address(String h5_Address) {
+        MyApplication.h5_Address = h5_Address;
     }
 }
