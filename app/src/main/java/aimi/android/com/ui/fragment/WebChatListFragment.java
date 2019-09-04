@@ -18,6 +18,8 @@ import com.handmark.pulltorefresh.library.internal.RecycleViewLoadingLayout;
 import com.lxj.xpopup.XPopup;
 import com.lxj.xpopup.interfaces.OnInputConfirmListener;
 import java.util.List;
+
+import aimi.android.com.modle.WebChatEditModle;
 import butterknife.BindView;
 import butterknife.OnClick;
 import aimi.android.com.BaseFragment;
@@ -310,5 +312,18 @@ public class WebChatListFragment extends BaseFragment implements WebChatListCont
                 mRecyclerView.postDelayed(refreshAction, DEFAULT_TIME);
             }
         },250);
+    }
+
+    @Override
+    public void reWechatSuccess(WebChatEditModle webChatEditModle, WeChatPayeeItemModelPayee payee) {
+//id:0                //如果为新加,设为0,如果为修改,此处为修改的收款方式的id
+        PaySettingActivity.startThis(webChatListActivity,2,payee,Constants.REQUESTCODE_17);
+    }
+
+    @Override
+    public void onWebChatReLogin(int position, WeChatPayeeItemModelPayee payee) {
+        if(payee != null){
+            presenter.reWechat(payee.getId(),payee);
+        }
     }
 }

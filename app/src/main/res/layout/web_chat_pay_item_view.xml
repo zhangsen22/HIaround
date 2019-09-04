@@ -81,6 +81,16 @@
             android:visibility="gone"/>
 
         <TextView
+            android:id="@+id/tv_relogin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="重新登陆"
+            android:textSize="12sp"
+            android:textColor="@color/color_ff5100"
+            android:layout_marginLeft="@dimen/y20"
+            android:visibility="gone"/>
+
+        <TextView
             android:id="@+id/tv_pay_delete"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

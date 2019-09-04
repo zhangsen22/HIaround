@@ -59,4 +59,6 @@ public class ApiConstants {
     public static final String lakala = "user/paysetup/lakala";//拉卡拉收款设置
     public static final String lakalaImgSetUp = "paysetup/lakalaImgSetUp";//拉卡拉编辑二维码
     public static final String getWechatList = "user/paysetup/getWechatList";//拉卡拉下拉框获取微信列表
+    public static final String reWechat = "user/paysetup/reWechat";//微信重新编辑
+
 }

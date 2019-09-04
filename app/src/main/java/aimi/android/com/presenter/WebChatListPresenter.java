@@ -2,6 +2,8 @@ package aimi.android.com.presenter;
 
 import aimi.android.com.modle.BaseBean;
 import aimi.android.com.modle.PaySetupModelWebChat;
+import aimi.android.com.modle.WeChatPayeeItemModelPayee;
+import aimi.android.com.modle.WebChatEditModle;
 import aimi.android.com.net.retrofit.ModelResultObserver;
 import aimi.android.com.net.retrofit.exception.ModelException;
 import aimi.android.com.presenter.contract.WebChatListContract;
@@ -86,6 +88,25 @@ public class WebChatListPresenter implements WebChatListContract.Presenter{
                     @Override
                     public void onSuccess(BaseBean baseBean) {
                         mView.deteleWebChatSuccess(baseBean);
+                        mView.hideLoading();
+                    }
+
+                    @Override
+                    public void onFailure(ModelException ex) {
+                        super.onFailure(ex);
+                        mView.hideLoading();
+                    }
+                });
+    }
+
+    @Override
+    public void reWechat(long id, WeChatPayeeItemModelPayee payee) {
+        mView.showLoading();
+        mModel.reWechat(id).observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new ModelResultObserver<WebChatEditModle>() {
+                    @Override
+                    public void onSuccess(WebChatEditModle webChatEditModle) {
+                        mView.reWechatSuccess(webChatEditModle,payee);
                         mView.hideLoading();
                     }
 

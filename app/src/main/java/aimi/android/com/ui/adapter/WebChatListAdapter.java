@@ -64,6 +64,7 @@ public class WebChatListAdapter extends PowerAdapter<WeChatPayeeItemModel> {
         TextView tvPayDelete;
         TextView tvReedit;
         TextView tvWebchatName;
+        TextView tvRelogin;
 
         public WebChatListHolder(View itemView) {
             super(itemView);
@@ -75,6 +76,7 @@ public class WebChatListAdapter extends PowerAdapter<WeChatPayeeItemModel> {
             tvPayDelete = itemView.findViewById(R.id.tv_pay_delete);
             tvReedit = itemView.findViewById(R.id.tv_reedit);
             tvWebchatName = itemView.findViewById(R.id.tv_webchat_name);
+            tvRelogin = itemView.findViewById(R.id.tv_relogin);
         }
 
         @Override
@@ -93,14 +95,17 @@ public class WebChatListAdapter extends PowerAdapter<WeChatPayeeItemModel> {
                     tvShuoming.setText("已失效");
                     tvShuoming.setTextColor(mContext.getResources().getColor(R.color.color_ff0000));
                     tvReedit.setVisibility(View.GONE);
+                    tvRelogin.setVisibility(View.VISIBLE);
                 }else {
                     if (watchStop) {
                         tvWebchatCheck.setVisibility(View.GONE);
                         tvShuoming.setText("绑定中");
                         tvShuoming.setTextColor(mContext.getResources().getColor(R.color.color_ff0000));
                         tvReedit.setVisibility(View.VISIBLE);
+                        tvRelogin.setVisibility(View.GONE);
                     } else {
                         tvReedit.setVisibility(View.GONE);
+                        tvRelogin.setVisibility(View.GONE);
                         if (defalutId > 0) {
                             if (defalutId == payee.getId()) {
                                 map.clear();
@@ -128,6 +133,16 @@ public class WebChatListAdapter extends PowerAdapter<WeChatPayeeItemModel> {
                         if (onWebChatCheckListener != null) {
                             if(watchStop){
                                 onWebChatCheckListener.onWebChatEdit(position, payee);
+                            }
+                        }
+                    }
+                });
+                tvRelogin.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        if (onWebChatCheckListener != null) {
+                            if (watchUnbind) {
+                                onWebChatCheckListener.onWebChatReLogin(position, payee);
                             }
                         }
                     }
@@ -179,5 +194,7 @@ public class WebChatListAdapter extends PowerAdapter<WeChatPayeeItemModel> {
         void onWebChatCheck(int position, WeChatPayeeItemModelPayee payee);
         void onWebChatDelete(int position, WeChatPayeeItemModelPayee payee);
         void onWebChatEdit(int position, WeChatPayeeItemModelPayee payee);
+        void onWebChatReLogin(int position, WeChatPayeeItemModelPayee payee);
+
     }
 }

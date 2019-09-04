@@ -1,6 +1,7 @@
 package aimi.android.com.presenter.modle;
 
 import aimi.android.com.modle.PaySetupModelWebChat;
+import aimi.android.com.modle.WebChatEditModle;
 import aimi.android.com.net.retrofit.BaseRetrofitClient;
 import aimi.android.com.net.retrofit.exception.ModelExceptionMap;
 import aimi.android.com.net.retrofit.exception.ServerExceptionMap;
@@ -22,5 +23,19 @@ public class WebChatListModle extends SetDefaultPayBaseModle {
                 .subscribeOn(Schedulers.io())
                 .map(new ServerExceptionMap<PaySetupModelWebChat>())
                 .onErrorResumeNext(new ModelExceptionMap<PaySetupModelWebChat>());
+    }
+
+
+    /**
+     * 微信重新编辑
+     * @param id
+     * @return
+     */
+    public Observable<WebChatEditModle> reWechat(long id){
+        return BaseRetrofitClient.getInstance().create(ApiServices.class)
+                .reWechat(id)
+                .subscribeOn(Schedulers.io())
+                .map(new ServerExceptionMap<WebChatEditModle>())
+                .onErrorResumeNext(new ModelExceptionMap<WebChatEditModle>());
     }
 }
