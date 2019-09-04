@@ -2,6 +2,8 @@ package hiaround.android.com.presenter;
 
 import hiaround.android.com.modle.BaseBean;
 import hiaround.android.com.modle.PaySetupModelWebChat;
+import hiaround.android.com.modle.WeChatPayeeItemModelPayee;
+import hiaround.android.com.modle.WebChatEditModle;
 import hiaround.android.com.net.retrofit.ModelResultObserver;
 import hiaround.android.com.net.retrofit.exception.ModelException;
 import hiaround.android.com.presenter.contract.WebChatListContract;
@@ -96,6 +98,27 @@ public class WebChatListPresenter implements WebChatListContract.Presenter{
                     }
                 });
     }
+
+
+    @Override
+    public void reWechat(long id, WeChatPayeeItemModelPayee payee) {
+        mView.showLoading();
+        mModel.reWechat(id).observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new ModelResultObserver<WebChatEditModle>() {
+                    @Override
+                    public void onSuccess(WebChatEditModle webChatEditModle) {
+                        mView.reWechatSuccess(webChatEditModle,payee);
+                        mView.hideLoading();
+                    }
+
+                    @Override
+                    public void onFailure(ModelException ex) {
+                        super.onFailure(ex);
+                        mView.hideLoading();
+                    }
+                });
+    }
+
 
     @Override
     public void starLoadData() {
