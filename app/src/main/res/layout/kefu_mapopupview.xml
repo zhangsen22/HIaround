@@ -22,29 +22,29 @@
         android:layout_marginRight="@dimen/y30"
         android:layout_marginTop="@dimen/y24"/>
 
-    <FrameLayout
-        android:layout_width="@dimen/y192"
-        android:layout_height="@dimen/y192"
-        android:background="@mipmap/q"
-        android:layout_marginTop="@dimen/y36"
-        android:layout_marginRight="@dimen/y194"
-        android:layout_marginLeft="@dimen/y194">
+    <!--<FrameLayout-->
+        <!--android:layout_width="@dimen/y192"-->
+        <!--android:layout_height="@dimen/y192"-->
+        <!--android:background="@mipmap/q"-->
+        <!--android:layout_marginTop="@dimen/y36"-->
+        <!--android:layout_marginRight="@dimen/y194"-->
+        <!--android:layout_marginLeft="@dimen/y194">-->
 
-    <ImageView
-        android:layout_width="@dimen/y148"
-        android:layout_height="@dimen/y148"
-        android:src="@mipmap/s"
-        android:layout_gravity="center"/>
+    <!--<ImageView-->
+        <!--android:layout_width="@dimen/y148"-->
+        <!--android:layout_height="@dimen/y148"-->
+        <!--android:src="@mipmap/s"-->
+        <!--android:layout_gravity="center"/>-->
 
-    </FrameLayout>
+    <!--</FrameLayout>-->
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="@color/color_333333"
-        android:textSize="13sp"
-        android:text="客服微信"
-        android:layout_marginTop="@dimen/y10" />
+    <!--<TextView-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:textColor="@color/color_333333"-->
+        <!--android:textSize="13sp"-->
+        <!--android:text="客服微信"-->
+        <!--android:layout_marginTop="@dimen/y10" />-->
 
     <FrameLayout
         android:layout_width="@dimen/y192"
