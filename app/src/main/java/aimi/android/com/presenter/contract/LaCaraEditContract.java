@@ -11,7 +11,7 @@ public interface LaCaraEditContract {
         //拉卡拉收款设置
         void laCara(long id, long wechatPaymentId, String account, String base64Img, String financePwd, long time);
         //拉卡拉编辑二维码
-        void lakalaImgSetUp(long id, String base64Img, String financePwd, long time);
+        void lakalaImgSetUp(long id,long wechatPaymentId, String base64Img, String financePwd, long time);
         //拉卡拉下拉框获取微信列表
         void getWechatList();
     }

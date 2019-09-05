@@ -127,9 +127,9 @@ public class PaySettingModle{
      * @param time
      * @return
      */
-    public Observable<LaCaraEditModle> lakalaImgSetUp(long id, String base64Img, String financePwd, long time){
+    public Observable<LaCaraEditModle> lakalaImgSetUp(long id,long wechatPaymentId, String base64Img, String financePwd, long time){
         return BaseRetrofitClient.getInstance().create(ApiServices.class)
-                .lakalaImgSetUp(id,base64Img,financePwd,time)
+                .lakalaImgSetUp(id,wechatPaymentId,base64Img,financePwd,time)
                 .subscribeOn(Schedulers.io())
                 .map(new ServerExceptionMap<LaCaraEditModle>())
                 .onErrorResumeNext(new ModelExceptionMap<LaCaraEditModle>());

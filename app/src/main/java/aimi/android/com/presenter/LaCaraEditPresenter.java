@@ -39,9 +39,9 @@ public class LaCaraEditPresenter implements LaCaraEditContract.Presenter{
     }
 
     @Override
-    public void lakalaImgSetUp(long id, String base64Img, String financePwd, long time) {
+    public void lakalaImgSetUp(long id,long wechatPaymentId, String base64Img, String financePwd, long time) {
         mView.showLoading();
-        mModel.lakalaImgSetUp(id,base64Img,financePwd,time).observeOn(AndroidSchedulers.mainThread())
+        mModel.lakalaImgSetUp(id,wechatPaymentId,base64Img,financePwd,time).observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new ModelResultObserver<LaCaraEditModle>() {
                     @Override
                     public void onSuccess(LaCaraEditModle laCaraEditModle) {

@@ -646,6 +646,7 @@ public interface ApiServices {
     @FormUrlEncoded
     @POST(ApiConstants.lakalaImgSetUp)
     Observable<LaCaraEditModle> lakalaImgSetUp(@Field("id") long id
+            ,@Field("wechatPaymentId") long wechatPaymentId
             , @Field("base64Img") String base64Img
             , @Field("financePwd") String financePwd
             , @Field("time") long time);

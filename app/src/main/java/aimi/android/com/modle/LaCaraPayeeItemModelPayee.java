@@ -8,6 +8,7 @@ public class LaCaraPayeeItemModelPayee implements Parcelable {
     private long id;//:3                //id
     private String name;//："放大",        //姓名，
     private String account;//:"ewrwre",        //支付宝账号，
+    private long wechatPaymentId;
     private String accountid;
     private String base64Img;//:"rewr"        //支付宝收款二维码
     private boolean locked;//: false,
@@ -16,6 +17,7 @@ public class LaCaraPayeeItemModelPayee implements Parcelable {
 
     protected LaCaraPayeeItemModelPayee(Parcel in) {
         id = in.readLong();
+        wechatPaymentId = in.readLong();
         name = in.readString();
         account = in.readString();
         accountid = in.readString();
@@ -28,6 +30,7 @@ public class LaCaraPayeeItemModelPayee implements Parcelable {
     @Override
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeLong(id);
+        dest.writeLong(wechatPaymentId);
         dest.writeString(name);
         dest.writeString(account);
         dest.writeString(accountid);
@@ -86,6 +89,11 @@ public class LaCaraPayeeItemModelPayee implements Parcelable {
         return watchUnbind;
     }
 
+    public long getWechatPaymentId() {
+        return wechatPaymentId;
+    }
+
+
     @Override
     public String toString() {
         return "LaCaraPayeeItemModelPayee{" +
@@ -93,6 +101,7 @@ public class LaCaraPayeeItemModelPayee implements Parcelable {
                 ", name='" + name + '\'' +
                 ", account='" + account + '\'' +
                 ", accountid='" + accountid + '\'' +
+                ", wechatPaymentId=" + wechatPaymentId +
                 ", base64Img='" + base64Img + '\'' +
                 ", locked=" + locked +
                 ", watchStop=" + watchStop +

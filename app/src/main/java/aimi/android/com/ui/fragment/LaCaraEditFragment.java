@@ -108,15 +108,16 @@ public class LaCaraEditFragment extends BaseFragment implements LaCaraEditContra
         AppPublicUtils.setEditTextEnable(etWenchatName, false);
         if (laCaraPayeeItemModelPayee == null) {
             id = 0;
+            wechatPaymentId = 0;
         } else {
             id = laCaraPayeeItemModelPayee.getId();
+            wechatPaymentId = laCaraPayeeItemModelPayee.getWechatPaymentId();
             String account = laCaraPayeeItemModelPayee.getAccount();
             if (!TextUtils.isEmpty(account)) {
                 etWebchatCode.setText(account);
                 AppPublicUtils.setEditTextEnable(etWebchatCode, false);
             }
             etWenchatName.setText(laCaraPayeeItemModelPayee.getName());
-            etWenchatName.setClickable(false);
             String base64Img = laCaraPayeeItemModelPayee.getBase64Img();
             creatCode(base64Img);
         }
