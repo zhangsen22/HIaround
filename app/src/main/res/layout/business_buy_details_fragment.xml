@@ -495,7 +495,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="支付说明：必须使用本APP实名认证的支付宝支付，负责有不放行风险。"
+                android:text="支付说明：必须使用本APP实名认证的微信支付，负责有不放行风险。"
                 android:textColor="@color/color_ff5100"
                 android:textSize="10sp"
                 android:layout_marginLeft="@dimen/y26"
