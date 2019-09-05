@@ -187,7 +187,7 @@ public class LaCaraEditFragment extends BaseFragment implements LaCaraEditContra
                         return;
                     }
                     long currentTime = System.currentTimeMillis();
-                    presenter.lakalaImgSetUp(id, sIdcardFront, Md5Utils.getMD5(forgetPassword + currentTime), currentTime);
+                    presenter.lakalaImgSetUp(id,wechatPaymentId, sIdcardFront, Md5Utils.getMD5(forgetPassword + currentTime), currentTime);
                 }
                 break;
             case R.id.et_wenchat_name:
