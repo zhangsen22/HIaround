@@ -231,7 +231,7 @@ public class MainActivity extends BaseActivity implements MainContract.View {
                 isForce(true).//是否需要强制升级
                 serverVersionName(version)//服务的版本(会与当前应用的版本号进行比较)
                 .updateInfo("有新的版本发布啦！赶紧下载体验")//升级版本信息
-                .isWifiRequired(true)
+                .isWifiRequired(false)
                 .start();//开始下载
     }
 
