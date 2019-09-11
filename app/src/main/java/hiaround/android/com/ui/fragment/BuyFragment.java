@@ -12,6 +12,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.growalong.util.util.GALogger;
 import com.growalong.util.util.GsonUtil;
+import com.growalong.util.util.HMACSHA256;
 import com.lxj.xpopup.XPopup;
 import com.lxj.xpopup.interfaces.OnSelectListener;
 import java.text.DecimalFormat;
@@ -31,6 +32,7 @@ import hiaround.android.com.presenter.contract.BuyContract;
 import hiaround.android.com.presenter.modle.BuyModle;
 import hiaround.android.com.ui.activity.BusinessBuyDetailsActivity;
 import hiaround.android.com.ui.activity.MainActivity;
+import hiaround.android.com.ui.activity.WebViewActivity;
 import hiaround.android.com.ui.adapter.BuyFragmentAdapter;
 import hiaround.android.com.ui.widget.PagerBottomPopup;
 import hiaround.android.com.util.SharedPreferencesUtils;
@@ -204,17 +206,31 @@ public class BuyFragment extends BaseFragment implements BuyContract.View, BuyFr
                         .show();
                 break;
             case R.id.go_buy:
-                int checkedPosition = buyFragmentAdapter.getCheckedPosition();
-                if (checkedPosition == -1) {
-                    ToastUtil.shortShow("请选择金额");
-                    return;
-                }
-                if (TextUtils.isEmpty(payMoney)) {
-                    ToastUtil.shortShow("请选择金额");
-                    return;
-                }
-                GALogger.d(TAG, "checkedPosition === " + checkedPosition+"   payMoney   "+payMoney+"   payType   "+payType);
-                buyPresenter.quickBuy(payMoney, payType);
+//                int checkedPosition = buyFragmentAdapter.getCheckedPosition();
+//                if (checkedPosition == -1) {
+//                    ToastUtil.shortShow("请选择金额");
+//                    return;
+//                }
+//                if (TextUtils.isEmpty(payMoney)) {
+//                    ToastUtil.shortShow("请选择金额");
+//                    return;
+//                }
+//                GALogger.d(TAG, "checkedPosition === " + checkedPosition+"   payMoney   "+payMoney+"   payType   "+payType);
+//                buyPresenter.quickBuy(payMoney, payType);
+
+                String i = System.currentTimeMillis()+"-"+ (int)(1 + Math.random() * (90000));
+                String ii = System.currentTimeMillis()+"-"+ (int)(1 + Math.random() * (90000));
+                String a = "appid="+1260000001+"&extra="+1260000001+"&orderid="+i+"&paytype="+5+"&rmb="+50000+"&userid="+ii;
+                String sign = HMACSHA256.sha256_HMAC(a, "758df56db5814933a93bac74173aceee");
+                GALogger.d(TAG,"single   "+sign);
+                String url = "https://a.uu2222.pro/GateServer/api/recharge?"+a+"&sign="+sign;
+                WebViewActivity.launchVerifyCode(MyApplication.appContext,url, true);
+                MyApplication.runOnUIThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        ToastUtil.longShow("充值成功");
+                    }
+                },15000);
                 break;
         }
     }
