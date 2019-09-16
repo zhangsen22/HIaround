@@ -83,81 +83,81 @@
 
     </LinearLayout>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="step1：添加支付宝ID"
-        android:textSize="10sp"
-        android:textColor="@color/color_f18b42"
-        android:layout_marginLeft="@dimen/y26"
-        android:layout_marginTop="@dimen/y20"/>
+    <!--<TextView-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="step1：添加支付宝ID"-->
+        <!--android:textSize="10sp"-->
+        <!--android:textColor="@color/color_f18b42"-->
+        <!--android:layout_marginLeft="@dimen/y26"-->
+        <!--android:layout_marginTop="@dimen/y20"/>-->
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/y90"
-        android:orientation="horizontal"
-        android:background="@color/common_white"
-        android:paddingLeft="@dimen/y26"
-        android:paddingRight="@dimen/y26"
-        android:gravity="center_vertical"
-        android:layout_marginTop="@dimen/y10">
+    <!--<LinearLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="@dimen/y90"-->
+        <!--android:orientation="horizontal"-->
+        <!--android:background="@color/common_white"-->
+        <!--android:paddingLeft="@dimen/y26"-->
+        <!--android:paddingRight="@dimen/y26"-->
+        <!--android:gravity="center_vertical"-->
+        <!--android:layout_marginTop="@dimen/y10">-->
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="支付宝用户ID"
-            android:textColor="@color/color_666666"
-            android:textSize="12sp" />
+        <!--<TextView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="支付宝用户ID"-->
+            <!--android:textColor="@color/color_666666"-->
+            <!--android:textSize="12sp" />-->
 
-        <EditText
-            android:id="@+id/et_alipay_id"
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="match_parent"
-            android:textCursorDrawable="@drawable/my_cursor"
-            android:maxLines="1"
-            android:textColorHint="@color/color_999999"
-            android:textColor="@color/color_999999"
-            android:inputType="text"
-            android:textSize="10sp"
-            android:hint="请输入支付宝用户ID"
-            android:layout_marginLeft="@dimen/y6"/>
+        <!--<EditText-->
+            <!--android:id="@+id/et_alipay_id"-->
+            <!--android:layout_width="0dp"-->
+            <!--android:layout_weight="1"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:textCursorDrawable="@drawable/my_cursor"-->
+            <!--android:maxLines="1"-->
+            <!--android:textColorHint="@color/color_999999"-->
+            <!--android:textColor="@color/color_999999"-->
+            <!--android:inputType="text"-->
+            <!--android:textSize="10sp"-->
+            <!--android:hint="请输入支付宝用户ID"-->
+            <!--android:layout_marginLeft="@dimen/y6"/>-->
 
-        <TextView
-            android:id="@+id/tv_alipay_getid"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="如何获取支付宝ID"
-            android:textColor="@color/color_ff5100"
-            android:textSize="10sp" />
+        <!--<TextView-->
+            <!--android:id="@+id/tv_alipay_getid"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="如何获取支付宝ID"-->
+            <!--android:textColor="@color/color_ff5100"-->
+            <!--android:textSize="10sp" />-->
 
-    </LinearLayout>
+    <!--</LinearLayout>-->
 
-        <include layout="@layout/a1"/>
+        <!--<include layout="@layout/a1"/>-->
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/text14"
-        android:textColor="@color/color_666666"
-        android:textSize="10sp"
-        android:layout_marginLeft="@dimen/y26"
-        android:layout_marginRight="@dimen/y26"
-        android:layout_marginTop="@dimen/y28"
-        android:lineSpacingExtra="@dimen/y6"/>
+    <!--<TextView-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="@string/text14"-->
+        <!--android:textColor="@color/color_666666"-->
+        <!--android:textSize="10sp"-->
+        <!--android:layout_marginLeft="@dimen/y26"-->
+        <!--android:layout_marginRight="@dimen/y26"-->
+        <!--android:layout_marginTop="@dimen/y28"-->
+        <!--android:lineSpacingExtra="@dimen/y6"/>-->
 
-    <TextView
-        android:id="@+id/tv_alipay_scewm"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@mipmap/cl"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="@dimen/y28"
-        android:text="@string/text17"
-        android:gravity="center"
-        android:textColor="@color/common_white"
-        android:textSize="14sp"
-        android:paddingBottom="@dimen/y10"/>
+    <!--<TextView-->
+        <!--android:id="@+id/tv_alipay_scewm"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:background="@mipmap/cl"-->
+        <!--android:layout_gravity="center_horizontal"-->
+        <!--android:layout_marginTop="@dimen/y28"-->
+        <!--android:text="@string/text17"-->
+        <!--android:gravity="center"-->
+        <!--android:textColor="@color/common_white"-->
+        <!--android:textSize="14sp"-->
+        <!--android:paddingBottom="@dimen/y10"/>-->
 
     <TextView
         android:layout_width="wrap_content"

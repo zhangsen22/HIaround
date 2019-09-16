@@ -497,7 +497,6 @@ public interface ApiServices {
     Observable<BaseBean> ali(@Field("id") long id
             ,@Field("name") String name
             ,@Field("account") String account
-            ,@Field("accountid") String accountid
             ,@Field("base64Img") String base64Img
             ,@Field("financePwd") String financePwd
             ,@Field("time") long time);

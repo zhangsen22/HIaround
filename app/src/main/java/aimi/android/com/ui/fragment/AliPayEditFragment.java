@@ -51,12 +51,6 @@ public class AliPayEditFragment extends BaseFragment implements AliPayEditContra
     EditText etAlipayName;
     @BindView(R.id.et_alipay_account)
     EditText etAlipayAccount;
-    @BindView(R.id.et_alipay_id)
-    EditText etAlipayId;
-    @BindView(R.id.tv_alipay_getid)
-    TextView tvAlipayGetid;
-    @BindView(R.id.tv_alipay_scewm)
-    TextView tvAlipayScewm;
     @BindView(R.id.iv_alipay_image)
     ImageView ivAlipayImage;
     @BindView(R.id.et_alipay_password)
@@ -124,46 +118,11 @@ public class AliPayEditFragment extends BaseFragment implements AliPayEditContra
         hideLoadingDialog();
     }
 
-    @OnClick({R.id.iv_back, R.id.tv_alipay_getid, R.id.tv_alipay_scewm, R.id.tv_forget_alipay_password, R.id.tv_alipay_submit,R.id.iv_alipay_image})
+    @OnClick({R.id.iv_back, R.id.tv_forget_alipay_password, R.id.tv_alipay_submit,R.id.iv_alipay_image})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.iv_back:
                 paySettingActivity.finish();
-                break;
-            case R.id.tv_alipay_getid:
-                WebViewActivity.launchVerifyCode(MyApplication.appContext, Constants.HOWGETALIPAYID,true);
-                break;
-            case R.id.tv_alipay_scewm:
-                String alipayName = etAlipayName.getText().toString().trim();
-                if(TextUtils.isEmpty(alipayName)){
-                    ToastUtil.shortShow("请输入您的真实姓名");
-                    return;
-                }
-                String alipayAccount = etAlipayAccount.getText().toString().trim();
-                if(TextUtils.isEmpty(alipayAccount)){
-                    ToastUtil.shortShow("请输入支付宝账号");
-                    return;
-                }
-                String alipayId = etAlipayId.getText().toString().trim();
-                if(TextUtils.isEmpty(alipayId)){
-                    ToastUtil.shortShow("请输入支付宝用户ID");
-                    return;
-                }
-                String alipayImage = "alipays://platformapi/startapp?appId=09999988&actionType=toAccount&goBack=YES&amount=1.00&userId="+alipayId+"&memo=3990";
-                new XPopup.Builder(getContext())
-                        .hasStatusBarShadow(true) //启用状态栏阴影
-                        .setPopupCallback(new XPopupCallback() {
-                            @Override
-                            public void onShow() {
-
-                            }
-
-                            @Override
-                            public void onDismiss() {
-                            }
-                        })
-                        .asCustom(new CenterErWeiMaPopupView(getContext(),1,GsonUtil.getInstance().objTojson(new AliPayee(alipayAccount, alipayImage)),null))
-                        .show();
                 break;
             case R.id.tv_forget_alipay_password:
                 BalancePassWordActivity.startThis(paySettingActivity);
@@ -179,11 +138,6 @@ public class AliPayEditFragment extends BaseFragment implements AliPayEditContra
                     ToastUtil.shortShow("请输入支付宝账号");
                     return;
                 }
-                String alipayId1 = etAlipayId.getText().toString().trim();
-                if(TextUtils.isEmpty(alipayId1)){
-                    ToastUtil.shortShow("请输入支付宝用户ID");
-                    return;
-                }
                 if(TextUtils.isEmpty(sIdcardFront)){
                     ToastUtil.shortShow("请上传支付宝收款码");
                     return;
@@ -195,7 +149,7 @@ public class AliPayEditFragment extends BaseFragment implements AliPayEditContra
                 }
 
                 long currentTime = System.currentTimeMillis();
-                presenter.ali(0,alipayName1,alipayAccount1,alipayId1,sIdcardFront,Md5Utils.getMD5(forgetPassword+currentTime),currentTime);
+                presenter.ali(0,alipayName1,alipayAccount1,sIdcardFront,Md5Utils.getMD5(forgetPassword+currentTime),currentTime);
                 break;
             case R.id.iv_alipay_image:
                 if (ContextCompat.checkSelfPermission(paySettingActivity, Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED) {

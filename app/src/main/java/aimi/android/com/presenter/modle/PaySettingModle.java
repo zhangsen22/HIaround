@@ -43,9 +43,9 @@ public class PaySettingModle{
      * @param time
      * @return
      */
-    public Observable<BaseBean> ali(long id,String name,String account,String accountid,String base64Img,String financePwd,long time){
+    public Observable<BaseBean> ali(long id,String name,String account,String base64Img,String financePwd,long time){
         return BaseRetrofitClient.getInstance().create(ApiServices.class)
-                .ali(id,name,account,accountid,base64Img,financePwd,time)
+                .ali(id,name,account,base64Img,financePwd,time)
                 .subscribeOn(Schedulers.io())
                 .map(new ServerExceptionMap<BaseBean>())
                 .onErrorResumeNext(new ModelExceptionMap<BaseBean>());

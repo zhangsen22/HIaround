@@ -19,9 +19,9 @@ public class AliPayEditPresenter implements AliPayEditContract.Presenter{
     }
 
     @Override
-    public void ali(long id,final String name, final String account,String accountid, final String base64Img, String financePwd, long time) {
+    public void ali(long id,final String name, final String account, final String base64Img, String financePwd, long time) {
         mView.showLoading();
-        mModel.ali(id,name,account,accountid,base64Img,financePwd,time).observeOn(AndroidSchedulers.mainThread())
+        mModel.ali(id,name,account,base64Img,financePwd,time).observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new ModelResultObserver<BaseBean>() {
                     @Override
                     public void onSuccess(BaseBean baseBean) {
