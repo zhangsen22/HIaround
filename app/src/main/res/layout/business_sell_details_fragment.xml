@@ -432,7 +432,8 @@
                     android:gravity="center"
                     android:textColor="@color/color_666666"
                     android:textSize="14sp"
-                    android:paddingBottom="@dimen/y10" />
+                    android:paddingBottom="@dimen/y10"
+                    android:enabled="false"/>
 
                 <View
                     android:layout_width="@dimen/y20"
