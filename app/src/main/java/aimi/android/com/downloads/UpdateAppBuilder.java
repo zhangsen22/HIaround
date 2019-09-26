@@ -3,12 +3,10 @@ package aimi.android.com.downloads;
 import android.app.Activity;
 import android.util.Log;
 import android.view.View;
-
 import com.growalong.util.util.AppPublicUtils;
 import com.growalong.util.util.GALogger;
 import com.growalong.util.util.PackageUtil;
 import com.liulishuo.filedownloader.FileDownloader;
-
 import aimi.android.com.MyApplication;
 import aimi.android.com.R;
 import aimi.android.com.observer.NetChangeObserver;
@@ -128,7 +126,7 @@ public class UpdateAppBuilder {
                 //wifi网络已连接
                 mDownloadid = DownloadManager.
                         with(mActivity).
-                        downloadUrl(mDownloadUrl).isWifiRequired(isWifiRequired).
+                        downloadUrl(mDownloadUrl).isWifiRequired(isWifiRequired).serverVersionName(mServerVersionName).
                         isForce(isForce).startDownload();
             } else if (type == CommonFunction.NetType.TYPE_MOBILE) {
                 //移动网络已连接
@@ -165,7 +163,7 @@ public class UpdateAppBuilder {
                 // 开始下载
                 mDownloadid = DownloadManager.
                         with(mActivity).
-                        downloadUrl(mDownloadUrl).isWifiRequired(isWifiRequired).
+                        downloadUrl(mDownloadUrl).isWifiRequired(isWifiRequired).serverVersionName(mServerVersionName).
                         isForce(isForce).startDownload();
             }
         });
@@ -193,7 +191,7 @@ public class UpdateAppBuilder {
                 // 开始下载
                 mDownloadid = DownloadManager.
                         with(mActivity).
-                        downloadUrl(mDownloadUrl).isWifiRequired(isWifiRequired).
+                        downloadUrl(mDownloadUrl).isWifiRequired(isWifiRequired).serverVersionName(mServerVersionName).
                         isForce(isForce).startDownload();
             }
         });
